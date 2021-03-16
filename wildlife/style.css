@@ -8,6 +8,7 @@ a {
 }
 input, button {
     outline:none;
+    padding: 0;
 }
 .page-wrapper {
     display: flex;
