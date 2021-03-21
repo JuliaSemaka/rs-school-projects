@@ -176,6 +176,9 @@ body {
 .piano-key-letter::before {
   content: attr(data-letter);
 }
+.piano-key-note::before {
+  content: attr(data-note);
+}
 
 .piano-key-remove-mouse:active::before {
   color: #a2abb3;
