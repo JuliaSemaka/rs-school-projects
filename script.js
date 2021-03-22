@@ -3,6 +3,7 @@ window.onload = function() {
     const PIANOKEYS = document.querySelectorAll('.piano-key');
     const NOTLET = document.querySelectorAll('.btn-container .btn');
     const FULLSCREEN = document.querySelector('.fullscreen');
+    let isActiveKeyboard = false;
 
 
     const isNotesOrLetters = () => {
@@ -70,15 +71,19 @@ window.onload = function() {
     }
 
     const pressKeyboard = (event) => {
-        PIANOKEYS.forEach((item) => {
-            if (item.getAttribute('data-letter') == event.code.slice(-1)) {
-                item.classList.add('piano-key-active');
-                playAudio(item.getAttribute('data-note'));
-            }
-        })
+        if (!isActiveKeyboard) {
+            isActiveKeyboard = true;
+            PIANOKEYS.forEach((item) => {
+                if (item.getAttribute('data-letter') == event.code.slice(-1)) {
+                    item.classList.add('piano-key-active');
+                    playAudio(item.getAttribute('data-note'));
+                }
+            })
+        }
     }
 
     const releaseKeyboard = (event) => {
+        isActiveKeyboard = false;
         PIANOKEYS.forEach((item) => {
             if (item.getAttribute('data-letter') == event.code.slice(-1)) {
                 item.classList.remove('piano-key-active');
