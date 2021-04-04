@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none; /* Убираем подчеркивание у ссылок */
+}
+
+input,
+button {
+  outline: none;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.text {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  color: #000000;
+
+  &_white {
+    color: #ffffff;
+  }
+
+  &_turquoise {
+    color: #00a092;
+  }
+
+  &_orange {
+    color: #f58021;
+  }
+
+  &_blue {
+    color: #20113d;
+  }
+
+  &_size_s {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  &_size_m {
+    font-size: 26px;
+    line-height: 34px;
+  }
+
+  &_semi-bold {
+    font-weight: 600;
+  }
+
+  &_uppercase {
+    text-transform: uppercase;
+  }
+
+  &_button {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.wrapper {
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &_row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.page-heading {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.header {
+  height: 110px;
+  background: #f58021;
+  display: flex;
+  justify-content: center;
+
+  &-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &-menu__list {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.logo {
+  &__image {
+    width: 96px;
+    height: 50px;
+  }
+}
+
+.menu__item {
+  margin-left: 48px;
+}
+
+.contacts {
+  &__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__item {
+    margin-left: 30px;
+  }
+
+  &__image {
+    width: 40px;
+    height: 40px;
+  }
+}
