@@ -36,6 +36,10 @@
       top: 22px;
       left: 15px;
     }
+
+    &:hover .tooltiptext {
+      visibility: visible;
+    }
   }
 
   &__active {
@@ -60,7 +64,7 @@
     }
 
     &_lion {
-      top: 51%;
+      top: 50.5%;
       left: 41%;
     }
 
@@ -71,7 +75,7 @@
 
     &_lemur {
       top: 67%;
-      left: 57%;
+      left: 56.5%;
 
       & .map__anchor_image {
         left: 27px;
@@ -84,8 +88,8 @@
     }
 
     &_tiger {
-      top: 57%;
-      left: 73%;
+      top: 56%;
+      left: 72.5%;
     }
 
     &_coala {
@@ -93,5 +97,4 @@
       left: 82%;
     }
   }
-  
 }

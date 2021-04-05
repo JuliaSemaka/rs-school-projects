@@ -41,6 +41,10 @@
   left: 15px;
 }
 
+.map__anchor:hover .tooltiptext {
+  visibility: visible;
+}
+
 .map__active {
   display: block;
 }
@@ -64,7 +68,7 @@
 }
 
 .map__animals_lion {
-  top: 51%;
+  top: 50.5%;
   left: 41%;
 }
 
@@ -75,7 +79,7 @@
 
 .map__animals_lemur {
   top: 67%;
-  left: 57%;
+  left: 56.5%;
 }
 
 .map__animals_lemur .map__anchor_image {
@@ -88,8 +92,8 @@
 }
 
 .map__animals_tiger {
-  top: 57%;
-  left: 73%;
+  top: 56%;
+  left: 72.5%;
 }
 
 .map__animals_coala {
