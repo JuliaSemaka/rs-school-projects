@@ -1,5 +1,5 @@
 .watch-online {
-  background-image: url(/online-zoo/assets/images/main/Background.png);
+  background-image: url(../../assets/images/main/Background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -308,7 +308,7 @@
 }
 
 .users-think {
-  background-image: url(/online-zoo/assets/images/main/users-think.png);
+  background-image: url(../../assets/images/main/users-think.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
