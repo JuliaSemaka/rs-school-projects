@@ -18,4 +18,82 @@
   margin-bottom: 150px;
   position: relative;
 }
+
+.map__anchor {
+  position: relative;
+}
+
+.map__anchor_tag {
+  position: absolute;
+  top: -25px;
+  left: -26px;
+}
+
+.map__anchor_tag-white {
+  position: absolute;
+  top: -34px;
+  left: -39px;
+}
+
+.map__anchor_image {
+  position: absolute;
+  top: 22px;
+  left: 15px;
+}
+
+.map__active {
+  display: block;
+}
+
+.map__display_none {
+  display: none;
+}
+
+.map__animals {
+  position: absolute;
+}
+
+.map__animals_eagle {
+  top: 45%;
+  left: 12%;
+}
+
+.map__animals_alligator {
+  top: 46%;
+  left: 21%;
+}
+
+.map__animals_lion {
+  top: 51%;
+  left: 41%;
+}
+
+.map__animals_gorilla {
+  top: 53%;
+  left: 49%;
+}
+
+.map__animals_lemur {
+  top: 67%;
+  left: 57%;
+}
+
+.map__animals_lemur .map__anchor_image {
+  left: 27px;
+}
+
+.map__animals_panda {
+  top: 39%;
+  left: 68%;
+}
+
+.map__animals_tiger {
+  top: 57%;
+  left: 73%;
+}
+
+.map__animals_coala {
+  top: 68%;
+  left: 82%;
+}
 /*# sourceMappingURL=style.css.map */

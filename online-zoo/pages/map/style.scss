@@ -15,4 +15,83 @@
     margin-bottom: 150px;
     position: relative;
   }
+
+  &__anchor {
+    position: relative;
+
+    &_tag {
+      position: absolute;
+      top: -25px;
+      left: -26px;
+    }
+
+    &_tag-white {
+      position: absolute;
+      top: -34px;
+      left: -39px;
+    }
+
+    &_image {
+      position: absolute;
+      top: 22px;
+      left: 15px;
+    }
+  }
+
+  &__active {
+    display: block;
+  }
+
+  &__display_none {
+    display: none;
+  }
+
+  &__animals {
+    position: absolute;
+
+    &_eagle {
+      top: 45%;
+      left: 12%;
+    }
+
+    &_alligator {
+      top: 46%;
+      left: 21%;
+    }
+
+    &_lion {
+      top: 51%;
+      left: 41%;
+    }
+
+    &_gorilla {
+      top: 53%;
+      left: 49%;
+    }
+
+    &_lemur {
+      top: 67%;
+      left: 57%;
+
+      & .map__anchor_image {
+        left: 27px;
+      }
+    }
+
+    &_panda {
+      top: 39%;
+      left: 68%;
+    }
+
+    &_tiger {
+      top: 57%;
+      left: 73%;
+    }
+
+    &_coala {
+      top: 68%;
+      left: 82%;
+    }
+  }
+  
 }
