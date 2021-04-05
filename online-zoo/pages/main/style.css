@@ -1,3 +1,187 @@
+.watch-online {
+  background-image: url(/online-zoo/assets/images/main/Background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.watch-online__title {
+  margin-top: 129px;
+  margin-bottom: 50px;
+  font-weight: 800;
+  font-size: 82px;
+  line-height: 100px;
+  letter-spacing: 0.01em;
+  width: 100%;
+  max-width: 890px;
+}
+
+.watch-online__text {
+  width: 100%;
+  max-width: 430px;
+  margin-bottom: 50px;
+}
+
+.watch-online__button {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 74px;
+}
+
+.online-zoo_wrapper {
+  margin: 150px 0px;
+}
+
+.online-zoo__article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.online-zoo__article:not(:last-child) {
+  margin-bottom: 150px;
+}
+
+.article-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.article-description__title {
+  max-width: 523px;
+  width: 100%;
+}
+
+.article-description__text {
+  margin-top: 50px;
+  max-width: 560px;
+  width: 100%;
+}
+
+.article-image {
+  width: 800px;
+  height: 531px;
+}
+
+.meet-pets_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  margin-top: 136px;
+  margin-bottom: 150px;
+  position: relative;
+}
+
+.meet-pets__title {
+  margin-bottom: 50px;
+}
+
+.meet-pets__text {
+  width: 100%;
+  max-width: 920px;
+  margin-bottom: 100px;
+}
+
+.meet-pets-slider {
+  position: absolute;
+  top: 428px;
+  left: 0px;
+}
+
+.meet-pets-slider__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.meet-pets-slider__items:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.meet-pets__button {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.meet-pets__arrows {
+  margin-bottom: 1684px;
+}
+
+.animals-love_wrapper {
+  margin-top: 136px;
+  margin-bottom: 150px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.animals-love__title {
+  max-width: 665px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.animals-love__text {
+  max-width: 537px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.animals-love__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.animals-love__items:nth-child(3) {
+  margin-bottom: 40px;
+}
+
+.animals-love__main-image {
+  margin-right: 40px;
+  width: 920px;
+  height: 658px;
+}
+
+.animals-love__slider-item-image {
+  height: 373px;
+}
+
+.animals-love__slider-item-text {
+  width: 100%;
+  max-width: 390px;
+}
+
+.animals-love__button {
+  padding-left: 36px;
+  padding-right: 36px;
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
 .donation {
   background: #20113d;
 }

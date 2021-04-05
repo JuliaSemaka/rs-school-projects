@@ -22,7 +22,7 @@
                     <ul class="menu">
                         <li class="menu__item">
                             <a href="/online-zoo/pages/main/index.html"
-                                class="menu__link text text_size_s text_semi-bold text_uppercase text_turquoise">About</a>
+                                class="menu__link text text_size_s text_semi-bold text_uppercase menu__item_active">About</a>
                         </li>
                         <li class="menu__item">
                             <a href="/online-zoo/pages/map/index.html"
@@ -33,7 +33,8 @@
                                 class="menu__link text text_size_s text_semi-bold text_uppercase">Zoos</a>
                         </li>
                         <li class="menu__item">
-                            <a href="" class="menu__link text text_size_s text_semi-bold text_uppercase">Contact us</a>
+                            <a href="/online-zoo/pages/contacts/index.html"
+                                class="menu__link text text_size_s text_semi-bold text_uppercase">Contact us</a>
                         </li>
                         <li class="menu__item">
                             <a href="https://www.figma.com/file/lnK11foY8Aoa6oOlDXovVN/Online-ZOO-Project"
@@ -66,11 +67,63 @@
             </div>
         </div>
     </header>
-    <section>
-
-    </section>
-    <section>
-
+    <main class="watch-online page_center">
+        <div class="wrapper">
+            <h2 class="watch-online__title title text_turquoise">
+                Watch your favorite animal online
+            </h2>
+            <p class="watch-online__text text text_size_s text_black">
+                Explore the exciting and mysterious world of wild animals in a natural
+                setting without leaving your home.
+            </p>
+            <a class="button button_orange watch-online__button">
+                <span class="text text_button text_white">VIEW LIVE CAM</span>
+                <img src="/online-zoo/assets/images/main/arrow.svg" alt="arrow" class="button__image" />
+            </a>
+        </div>
+    </main>
+    <section class="online-zoo page_center">
+        <div class="wrapper online-zoo_wrapper">
+            <article class="online-zoo__article online-zoo__article-zoo">
+                <div class="article-description">
+                    <h2 class="title title_h2 article-description__title text_turquoise">
+                        Welcome to the Online Zoo!
+                    </h2>
+                    <p class="article-description__text text text_size_s">
+                        On our website, using live webcams, fans of all ages can observe
+                        various animals. Among them, are Giant pandas, eagles, alligators,
+                        forest gorillas, African lions, and others. It is the whole
+                        natural world in real-time in front of our cameras. We hope you
+                        will enjoy watching closely and explore animals’ behavior and
+                        habitats! Note: animals are not always on view on cameras, so
+                        please check back if you don't see anything.
+                    </p>
+                </div>
+                <div class="article-image">
+                    <img class="article-image__img" src="/online-zoo/assets/images/main/online-zoo-1.png"
+                        alt="Welcome to the Online Zoo!" />
+                </div>
+            </article>
+            <article class="online-zoo__article online-zoo__article-work">
+                <div class="article-image">
+                    <img class="article-image__img" src="/online-zoo/assets/images/main/online-zoo-2.png"
+                        alt="How we work" />
+                </div>
+                <div class="article-description">
+                    <h2 class="title title_h2 article-description__title text_turquoise">
+                        How we work
+                    </h2>
+                    <p class="article-description__text text text_size_s">
+                        Online Zoo is a nonprofit committed to inspiring awareness and
+                        preservation of nature and wild animals in our zoo and worldwide.
+                        Every day, our experts work to safeguard the health and wellness
+                        of the animals. To continue these efforts, we need your help.
+                        We're so grateful to our numerous supporters. All donations, large
+                        and small, go a long way to the conservation efforts of our pets.
+                    </p>
+                </div>
+            </article>
+        </div>
     </section>
     <div class="donation page_center">
         <div class="wrapper wrapper_row donation_wrapper">
@@ -97,8 +150,190 @@
             </div>
         </div>
     </div>
-    <div style="height: 20px;">
+    <div class="meet-pets page_center">
+        <div class="wrapper meet-pets_wrapper">
+            <h2 class="title title_h2 meet-pets__title text_turquoise">
+                meet some our Pets
+            </h2>
+            <p class="meet-pets__text text text_size_m">
+                Do you have a special place in your heart for animals? Who are your
+                favorites? Perhaps you'd like to donate to special ones or all our
+                pets? We think it's important for you to choose how your donation is
+                used.
+            </p>
+            <div class="arrows meet-pets__arrows">
+                <button class="button button_border_blue arrows__button">
+                    <img src="/online-zoo/assets/images/main/arrow-left.svg" alt="arrow" />
+                </button>
+                <button class="button button_border_blue arrows__button">
+                    <img src="/online-zoo/assets/images/main/arrow-right.svg" alt="arrow" />
+                </button>
+            </div>
+            <div class="meet-pets-slider">
+                <div class="meet-pets-slider__items">
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Lucas.png"
+                                alt="Lucas" />
+                            <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Giant Panda
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Native to central China, giant pandas have come to symbolize
+                            vulnerable species.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
 
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Andy.png"
+                                alt="Andy" />
+                            <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Madagascarian Lemur
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lemurs are considered the world’s most endangered group of
+                            mammals.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Glen.png"
+                                alt="Glen" />
+                            <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Gorilla in Congo
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Variety of snacks very important for the healthy life of
+                            gorillas and his plenty of babies.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Mike.png"
+                                alt="Mike" />
+                            <span class="slider-item__image-text text text_white text_size_m">Mike</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Chinese Alligator
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            From nose to tail, belly to back, hard scales protect this
+                            petite alligator.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+                </div>
+                <div class="meet-pets-slider__items">
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img"
+                                src="/online-zoo/assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                            <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            West End Bald Eagles
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Pair of eagle parents lay and protect eggs, feed their chicks
+                            and teach them to hunt and fly.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="/online-zoo/assets/images/main/meet-pets/Senja.png"
+                                alt="Senja" />
+                            <span class="slider-item__image-text text text_white text_size_m">Senja</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Sumatran Tiger
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Sumatran Tigers are the smallest of the five sub-species, and
+                            are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img src="/online-zoo/assets/images/main/arrow-orange.svg" alt="arrow"
+                                class="button__image" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a class="button button_border_blue meet-pets__button">
+                <span class="text text_button text_blue">choose your favourite</span>
+                <img src="/online-zoo/assets/images/main/arrow-right.svg" alt="arrow" class="button__image" />
+            </a>
+        </div>
     </div>
     <div class="pay-feed page_center">
         <div class="wrapper">
@@ -137,7 +372,7 @@
                 </div>
             </div>
             <div class="step">
-                <p class="step__title text text_size_m text_white">02</p>
+                <p class="step__title text text_size_m text_white">03</p>
                 <div class="step__line line"></div>
             </div>
             <div class="step-description">
@@ -223,8 +458,87 @@
             </a>
         </div>
     </div>
-    <div style="height: 20px;">
-
+    <div class="animals-love page_center">
+        <div class="wrapper animals-love_wrapper">
+            <h2 class="title title_h2 animals-love__title text_turquoise">
+                care for the animals you love
+            </h2>
+            <p class="animals-love__text text text_size_m text_black">
+                You can help to look after the animals you love with your gift today
+            </p>
+            <div class="animals-love__items">
+                <img src="/online-zoo/assets/images/main/animals-love/koala.png" alt="koala"
+                    class="animals-love__main-image" />
+                <div class="slider-item">
+                    <div class="slider-item__image animals-love__slider-item-image">
+                        <img class="slider-item__image-img"
+                            src="/online-zoo/assets/images/main/animals-love/image 4.png" alt="Lucas" />
+                    </div>
+                    <p class="slider-item__text text text_size_s text_white animals-love__slider-item-text">
+                        Your $30 could give Lucas a slice of panda cake, made with our
+                        secret recipe.
+                    </p>
+                    <a class="button slider-item__button">
+                        <span class="text text_button text_orange">feed</span>
+                        <img src="/online-zoo/assets/images/main/animals-love/arrow-orange.svg" alt="arrow"
+                            class="button__image" />
+                    </a>
+                </div>
+            </div>
+            <div class="animals-love__items">
+                <div class="slider-item">
+                    <div class="slider-item__image animals-love__slider-item-image">
+                        <img class="slider-item__image-img"
+                            src="/online-zoo/assets/images/main/animals-love/image 3.png" alt="Lucas" />
+                    </div>
+                    <p class="slider-item__text text text_size_s text_white animals-love__slider-item-text">
+                        Your $150 will help to care for Senja, a Sumatran tiger, for three
+                        weeks.
+                    </p>
+                    <a class="button slider-item__button">
+                        <span class="text text_button text_orange">feed</span>
+                        <img src="/online-zoo/assets/images/main/animals-love/arrow-orange.svg" alt="arrow"
+                            class="button__image" />
+                    </a>
+                </div>
+                <div class="slider-item">
+                    <div class="slider-item__image animals-love__slider-item-image">
+                        <img class="slider-item__image-img"
+                            src="/online-zoo/assets/images/main/animals-love/image 2.png" alt="Lucas" />
+                    </div>
+                    <p class="slider-item__text text text_size_s text_white animals-love__slider-item-text">
+                        With your support, we can give Andy his favorite fruits.
+                        Especially when it's not fruit season in its natural habitat.
+                    </p>
+                    <a class="button slider-item__button">
+                        <span class="text text_button text_orange">feed</span>
+                        <img src="/online-zoo/assets/images/main/animals-love/arrow-orange.svg" alt="arrow"
+                            class="button__image" />
+                    </a>
+                </div>
+                <div class="slider-item">
+                    <div class="slider-item__image animals-love__slider-item-image">
+                        <img class="slider-item__image-img"
+                            src="/online-zoo/assets/images/main/animals-love/image 1.png" alt="Lucas" />
+                    </div>
+                    <p class="slider-item__text text text_size_s text_white animals-love__slider-item-text">
+                        Sam & Lora have hatched and raised numerous young and will be
+                        happy with your help.
+                    </p>
+                    <a class="button slider-item__button">
+                        <span class="text text_button text_orange">feed</span>
+                        <img src="/online-zoo/assets/images/main/animals-love/arrow-orange.svg" alt="arrow"
+                            class="button__image" />
+                    </a>
+                </div>
+            </div>
+            <a class="button button_border_blue animals-love__button">
+                <span class="text text_button text_blue">choose your favourite</span>
+                <img src="/online-zoo/assets/images/main/arrow-right.svg" alt="arrow" class="button__image" />
+            </a>
+            <img src="/online-zoo/assets/images/main/animals-love/Touch the animal.png" alt="Touch the animal"
+                class="animals-love__image" />
+        </div>
     </div>
     <footer class="footer page_center">
         <div class="wrapper">
@@ -264,7 +578,8 @@
                                 class="menu__link text text_button text_white">Zoos</a>
                         </li>
                         <li class="menu__item">
-                            <a href="" class="menu__link text text_button text_white">Contact us</a>
+                            <a href="/online-zoo/pages/contacts/index.html"
+                                class="menu__link text text_button text_white">Contact us</a>
                         </li>
                     </ul>
                 </nav>
