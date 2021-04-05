@@ -1,0 +1,18 @@
+.map {
+  background-color: #ffffff;
+
+  &_wrapper {
+    align-items: center;
+  }
+
+  &__title {
+    margin-top: 40px;
+    max-width: 600px;
+  }
+
+  &__block-image {
+    margin-top: 70px;
+    margin-bottom: 150px;
+    position: relative;
+  }
+}

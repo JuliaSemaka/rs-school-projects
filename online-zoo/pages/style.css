@@ -2,11 +2,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap");
 * {
   margin: 0;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
   /* Убираем подчеркивание у ссылок */
 }
@@ -19,6 +21,16 @@ button {
 
 ul {
   list-style: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .text {
@@ -65,6 +77,87 @@ ul {
 .text_button {
   font-size: 18px;
   line-height: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.title_h2 {
+  font-size: 54px;
+  line-height: 66px;
+}
+
+.title_h3 {
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 51px;
+}
+
+.button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 5px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.button_border_white {
+  border: 1px solid #ffffff;
+}
+
+.button_orange {
+  background: #f58021;
+}
+
+.button__image {
+  margin-left: 10px;
+}
+
+.slider__arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.slider__button {
+  background-color: transparent;
+  padding: 19px 18px;
+  margin-right: 60px;
+}
+
+.page_center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .wrapper {
@@ -101,12 +194,6 @@ ul {
 .header {
   height: 110px;
   background: #f58021;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .header-links {
@@ -122,7 +209,7 @@ ul {
           align-items: center;
 }
 
-.header-menu__list {
+.menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,11 +224,12 @@ ul {
   height: 50px;
 }
 
-.menu__item {
-  margin-left: 48px;
+.menu__item:not(:first-child) {
+  margin-left: 47px;
 }
 
 .contacts__list {
+  margin-left: 65px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -151,12 +239,294 @@ ul {
           flex-direction: row;
 }
 
-.contacts__item {
+.contacts__item:not(:first-child) {
   margin-left: 30px;
 }
 
 .contacts__image {
   width: 40px;
   height: 40px;
+}
+
+.donation {
+  background: #20113d;
+}
+
+.donation_wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.donation-form__form {
+  margin-top: 10px;
+  width: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.donation-form__item {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.donation-form__span {
+  margin-left: 14px;
+}
+
+.donation-form__input {
+  margin-left: 7px;
+  max-width: 207px;
+  background-color: transparent;
+  border: none;
+}
+
+.donation-form__input::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.donation-form__input:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.donation-form__input::-ms-input-placeholder {
+  color: #ffffff;
+}
+
+.donation-form__input::placeholder {
+  color: #ffffff;
+}
+
+.donation-form__submit {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.description__text {
+  max-width: 610px;
+  margin-top: 20px;
+}
+
+.pay-feed {
+  background: #20113d;
+}
+
+.pay-feed__title {
+  margin-top: 90px;
+}
+
+.step {
+  margin-top: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.step-description {
+  margin-top: 82px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.step-description__block {
+  margin-left: 160px;
+  max-width: 560px;
+}
+
+.step-description__title {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.step-description__button {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.step__line {
+  margin-left: 93px;
+}
+
+.line {
+  border-top: 1px solid #ffffff;
+  width: 100%;
+}
+
+.users-think {
+  background-image: url(/online-zoo/assets/images/main/users-think.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.users-think_wraper {
+  position: relative;
+}
+
+.users-think__title {
+  margin-top: 100px;
+  max-width: 400px;
+}
+
+.users-think__text {
+  margin-top: 50px;
+  max-width: 560px;
+}
+
+.users-think__button {
+  padding-left: 77px;
+  padding-right: 77px;
+  margin-top: 1140px;
+  margin-bottom: 150px;
+}
+
+.reviews {
+  position: absolute;
+  top: 100px;
+  left: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.reviews__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.reviews__buttons {
+  margin-top: 10px;
+}
+
+.review {
+  padding: 50px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+}
+
+.review__title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.review__text {
+  width: 415px;
+  margin-bottom: 46px;
+}
+
+.review__author {
+  margin-bottom: 20px;
+}
+
+.footer {
+  background: #20113d;
+}
+
+.footer__logo:not(:last-child) {
+  margin-right: 65px;
+}
+
+.footer-nav {
+  margin-top: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-menu__button {
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.footer__line {
+  margin-top: 70px;
+}
+
+.footer__contacts {
+  margin-top: 39px;
+  margin-bottom: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer__contacts-item:not(:first-child) {
+  margin-left: 40px;
+}
+
+.donates {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donates__text:not(:last-child) {
+  margin-right: 50px;
 }
 /*# sourceMappingURL=style.css.map */

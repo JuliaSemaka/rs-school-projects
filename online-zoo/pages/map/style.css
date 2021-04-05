@@ -1,0 +1,21 @@
+.map {
+  background-color: #ffffff;
+}
+
+.map_wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.map__title {
+  margin-top: 40px;
+  max-width: 600px;
+}
+
+.map__block-image {
+  margin-top: 70px;
+  margin-bottom: 150px;
+  position: relative;
+}
+/*# sourceMappingURL=style.css.map */
