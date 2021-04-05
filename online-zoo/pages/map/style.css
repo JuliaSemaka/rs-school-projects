@@ -1,0 +1,103 @@
+.map {
+  background-color: #ffffff;
+}
+
+.map_wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.map__title {
+  margin-top: 40px;
+  max-width: 600px;
+}
+
+.map__block-image {
+  margin-top: 70px;
+  margin-bottom: 150px;
+  position: relative;
+}
+
+.map__anchor {
+  position: relative;
+}
+
+.map__anchor_tag {
+  position: absolute;
+  top: -25px;
+  left: -26px;
+}
+
+.map__anchor_tag-white {
+  position: absolute;
+  top: -34px;
+  left: -39px;
+}
+
+.map__anchor_image {
+  position: absolute;
+  top: 22px;
+  left: 15px;
+}
+
+.map__anchor:hover .tooltiptext {
+  visibility: visible;
+}
+
+.map__active {
+  display: block;
+}
+
+.map__display_none {
+  display: none;
+}
+
+.map__animals {
+  position: absolute;
+}
+
+.map__animals_eagle {
+  top: 45%;
+  left: 12%;
+}
+
+.map__animals_alligator {
+  top: 46%;
+  left: 21%;
+}
+
+.map__animals_lion {
+  top: 50.5%;
+  left: 41%;
+}
+
+.map__animals_gorilla {
+  top: 53%;
+  left: 49%;
+}
+
+.map__animals_lemur {
+  top: 67%;
+  left: 56.5%;
+}
+
+.map__animals_lemur .map__anchor_image {
+  left: 27px;
+}
+
+.map__animals_panda {
+  top: 39%;
+  left: 68%;
+}
+
+.map__animals_tiger {
+  top: 56%;
+  left: 72.5%;
+}
+
+.map__animals_coala {
+  top: 68%;
+  left: 82%;
+}
+/*# sourceMappingURL=style.css.map */

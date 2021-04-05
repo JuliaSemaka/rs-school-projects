@@ -1,0 +1,57 @@
+.contacts {
+
+    &__image {
+        margin-bottom: 150px;
+    }
+
+    &-inform {
+        display: flex;
+        justify-content: space-between;
+
+        &__description-title {
+            margin-bottom: 50px;
+        }
+
+        &__description-text {
+            width: 100%;
+            max-width: 545px;
+        }
+
+        &__form {
+            width: 50%;
+        }
+    }
+}
+
+.form {
+
+    &-input {
+
+        &__title {
+            margin-bottom: 10px;
+        }
+
+        &__input {
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 680px;
+            padding: 17px 20px 16px 20px;
+            color: #969696;
+            margin-bottom: 30px;
+        }
+    }
+
+    &-textarea {
+        height: 200px;
+        margin-bottom: 67px;
+        resize: none;
+    }
+
+    &-button {
+        padding: 26px 88px;
+        margin-bottom: 150px;
+    }
+
+}
