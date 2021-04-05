@@ -49,15 +49,15 @@
 }
 
 .sidebar {
-  width: 200px;
-  height: 500px;
-  background-color: turquoise;
+  background-color: #20113d;
   position: fixed;
   top: 110px;
 }
 
 .sidebar__undraw {
   position: relative;
+  height: 80px;
+  cursor: pointer;
 }
 
 .sidebar__undraw:not(:last-child) {
@@ -69,6 +69,12 @@
   float: right;
 }
 
+.sidebar__undraw_bottom {
+  position: absolute;
+  top: 36px;
+  left: 103px;
+}
+
 .sidebar__undraw_icon {
   position: absolute;
   left: 0;
@@ -76,26 +82,38 @@
 }
 
 .sidebar__animals-item {
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 170px;
+  width: 220px;
+  border-bottom: 1px solid #ffffff;
+}
+
+.sidebar__animals-active {
+  cursor: default;
 }
 
 .sidebar__circle {
   position: absolute;
+  visibility: hidden;
+}
+
+.sidebar__circle_active {
+  visibility: visible;
 }
 
 .sidebar__animal {
-  position: absolute;
-}
-
-.sidebar__circle-white {
-  position: relative;
-}
-
-.sidebar__circle-white .circle-white-1 {
-  position: absolute;
-}
-
-.sidebar__circle-white .circle-white-2 {
   position: absolute;
 }
 
@@ -278,7 +296,7 @@
 .did-you-know__button {
   position: absolute;
   top: 330px;
-  left: 285px;
+  left: 415px;
 }
 
 .did-you-know__image {
