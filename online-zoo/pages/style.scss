@@ -147,6 +147,14 @@ input[type="number"] {
       & .arrows__button_blue {
         display: none;
       }
+
+      & .slider-item__button_blue {
+        visibility: hidden;
+      }
+
+      & .slider-item__button_white {
+        visibility: visible;
+      }
     }
   }
 

@@ -163,6 +163,14 @@ input[type="number"] {
   display: none;
 }
 
+.button_border_blue:hover .slider-item__button_blue {
+  visibility: hidden;
+}
+
+.button_border_blue:hover .slider-item__button_white {
+  visibility: visible;
+}
+
 .button_orange {
   background: #f58021;
 }
