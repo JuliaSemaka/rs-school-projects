@@ -100,6 +100,13 @@
   border-bottom: 1px solid #ffffff;
 }
 
+.sidebar__animals-item:not(.sidebar__animals-active):hover .sidebar__circle {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
 .sidebar__animals-active {
   cursor: default;
 }
@@ -208,6 +215,11 @@
           align-items: center;
   overflow: hidden;
   border-radius: 5px;
+  cursor: text;
+}
+
+.donation-form__form:hover {
+  background: none !important;
 }
 
 .donation-form__item {
@@ -224,6 +236,7 @@
   max-width: 207px;
   background-color: transparent;
   border: none;
+  cursor: text;
 }
 
 .donation-form__input::-webkit-input-placeholder {
@@ -295,8 +308,26 @@
 
 .did-you-know__button {
   position: absolute;
+  padding-left: 28px;
+  padding-right: 28px;
   top: 330px;
   left: 415px;
+}
+
+.did-you-know__button:hover {
+  background: #f58021;
+}
+
+.did-you-know__button:hover .text_orange {
+  color: #ffffff;
+}
+
+.did-you-know__button:hover .slider-item__button_white {
+  visibility: visible;
+}
+
+.did-you-know__button:hover .item__button_orrange {
+  visibility: hidden;
 }
 
 .did-you-know__image {
