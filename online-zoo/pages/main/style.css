@@ -206,6 +206,11 @@
           align-items: center;
   overflow: hidden;
   border-radius: 5px;
+  cursor: text;
+}
+
+.donation-form__form:hover {
+  background: none !important;
 }
 
 .donation-form__item {
@@ -222,6 +227,7 @@
   max-width: 207px;
   background-color: transparent;
   border: none;
+  cursor: text;
 }
 
 .donation-form__input::-webkit-input-placeholder {
