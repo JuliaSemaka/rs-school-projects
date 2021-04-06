@@ -155,6 +155,14 @@ input[type="number"] {
   color: #ffffff;
 }
 
+.button_border_blue:hover .arrows__button_white {
+  display: block;
+}
+
+.button_border_blue:hover .arrows__button_blue {
+  display: none;
+}
+
 .button_orange {
   background: #f58021;
 }
@@ -189,6 +197,10 @@ input[type="number"] {
   background-color: transparent;
   padding: 19px 18px;
   margin-right: 60px;
+}
+
+.arrows__button_white {
+  display: none;
 }
 
 .page_center {
@@ -478,11 +490,23 @@ input[type="number"] {
   bottom: 0px;
 }
 
+.slider-item__button_white {
+  visibility: hidden;
+}
+
 .slider-item__button:hover {
   background: #f58021;
 }
 
 .slider-item__button:hover .text_orange {
   color: #ffffff;
+}
+
+.slider-item__button:hover .slider-item__button_white {
+  visibility: visible;
+}
+
+.slider-item__button:hover .item__button_orrange {
+  visibility: hidden;
 }
 /*# sourceMappingURL=style.css.map */

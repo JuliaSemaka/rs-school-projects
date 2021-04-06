@@ -139,6 +139,14 @@ input[type="number"] {
       & .text_blue {
         color: #ffffff;
       }
+
+      & .arrows__button_white {
+        display: block;
+      }
+
+      & .arrows__button_blue {
+        display: none;
+      }
     }
   }
 
@@ -171,6 +179,10 @@ input[type="number"] {
     background-color: transparent;
     padding: 19px 18px;
     margin-right: 60px;
+
+    &_white {
+      display: none;
+    }
   }
 }
 
@@ -386,11 +398,23 @@ input[type="number"] {
     position: absolute;
     bottom: 0px;
 
+    &_white {
+      visibility: hidden;
+    }
+
     &:hover {
       background: #f58021;
 
       & .text_orange {
         color: #ffffff;
+      }
+
+      & .slider-item__button_white {
+        visibility: visible;
+      }
+
+      & .item__button_orrange {
+        visibility: hidden;
       }
     }
   }
