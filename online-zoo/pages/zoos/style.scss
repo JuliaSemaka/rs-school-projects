@@ -81,6 +81,11 @@
       height: 170px;
       width: 220px;
       border-bottom: 1px solid #ffffff;
+
+      &:not(.sidebar__animals-active):hover .sidebar__circle {
+        transform: scale(1.2);
+        transition: all 1s;
+      }
     }
 
     &-active {
@@ -167,6 +172,11 @@
     align-items: center;
     overflow: hidden;
     border-radius: 5px;
+    cursor: text;
+
+    &:hover {
+      background: none !important;
+    }
   }
 
   &-form__item {
@@ -183,6 +193,7 @@
     max-width: 207px;
     background-color: transparent;
     border: none;
+    cursor: text;
   }
 
   &-form__input::placeholder {
@@ -236,8 +247,26 @@
 
   &__button {
     position: absolute;
+    padding-left: 28px;
+    padding-right: 28px;
     top: 330px;
     left: 415px;
+
+    &:hover {
+      background: #f58021;
+
+      & .text_orange {
+        color: #ffffff;
+      }
+
+      & .slider-item__button_white {
+        visibility: visible;
+      }
+
+      & .item__button_orrange {
+        visibility: hidden;
+      }
+    }
   }
 
   &__image {
