@@ -192,7 +192,7 @@
                         <div class="donation-form__item button">
                             <span class="donation-form__span text text_button text_white">$</span>
                             <input class="donation-form__input text text_button text_white" type="number"
-                                placeholder="Donation Amount">
+                                placeholder="Donation Amount" onkeypress="this.value=this.value.substring(0,3);">
                         </div>
                         <button type="submit" class="button button_orange donation-form__submit">
                             <img src="../../../assets/icons/arrow.svg" alt="arrow" />

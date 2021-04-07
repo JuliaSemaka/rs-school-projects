@@ -137,7 +137,7 @@
                     <div class="donation-form__item button">
                         <span class="donation-form__span text text_button text_white">$</span>
                         <input class="donation-form__input text text_button text_white" type="number"
-                            placeholder="Donation Amount" max="4" maxlength="4">
+                            placeholder="Donation Amount" onkeypress="this.value=this.value.substring(0,3);">
                     </div>
                     <button type="submit" class="button button_orange donation-form__submit">
                         <img src="../../assets/icons/arrow.svg" alt="arrow" />
@@ -170,7 +170,7 @@
             <div class="meet-pets-slider">
                 <div class="meet-pets-slider__items">
                     <div class="slider-item">
-                        <a href="../../pages/zoos/panda/index.html">
+                        <a class="slider-item__elem" href="../../pages/zoos/panda/index.html">
                             <div class="slider-item__image">
                                 <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
                                     alt="Lucas" />
@@ -194,7 +194,7 @@
                     </div>
 
                     <div class="slider-item">
-                        <a href="../../pages/zoos/lemur/index.html">
+                        <a class="slider-item__elem" href="../../pages/zoos/lemur/index.html">
                             <div class="slider-item__image">
                                 <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
                                     alt="Andy" />
@@ -218,7 +218,7 @@
                     </div>
 
                     <div class="slider-item">
-                        <a href="../../pages/zoos/gorilla/index.html">
+                        <a class="slider-item__elem" href="../../pages/zoos/gorilla/index.html">
                             <div class="slider-item__image">
                                 <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
                                     alt="Glen" />
@@ -241,30 +241,32 @@
                         </a>
                     </div>
                     <div class="slider-item">
-                        <div class="slider-item__image">
-                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Mike.png"
-                                alt="Mike" />
-                            <span class="slider-item__image-text text text_white text_size_m">Mike</span>
-                        </div>
-                        <p class="slider-item__title text text_size_m text_white">
-                            Chinese Alligator
-                        </p>
-                        <p class="slider-item__text text text_size_s text_white">
-                            From nose to tail, belly to back, hard scales protect this
-                            petite alligator.
-                        </p>
-                        <a class="button slider-item__button">
-                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
-                            <img class="slider-item__button_orrange button__image"
-                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
-                            <img class="slider-item__button_white button__image"
-                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        <a class="slider-item__elem">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Mike.png"
+                                    alt="Mike" />
+                                <span class="slider-item__image-text text text_white text_size_m">Mike</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Chinese Alligator
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                From nose to tail, belly to back, hard scales protect this
+                                petite alligator.
+                            </p>
+                            <a class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
                         </a>
                     </div>
                 </div>
                 <div class="meet-pets-slider__items">
                     <div class="slider-item">
-                        <a href="../../pages/zoos/eagle/index.html">
+                        <a class="slider-item__elem" href="../../pages/zoos/eagle/index.html">
                             <div class="slider-item__image">
                                 <img class="slider-item__image-img"
                                     src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
@@ -287,7 +289,7 @@
                         </a>
                     </div>
                     <div class="slider-item">
-                        <a href="">
+                        <a class="slider-item__elem" href="">
                             <div class="slider-item__image">
                                 <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
                                     alt="Liz" />
@@ -310,7 +312,7 @@
                         </a>
                     </div>
                     <div class="slider-item">
-                        <a href="">
+                        <a class="slider-item__elem" href="">
                             <div class="slider-item__image">
                                 <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
                                     alt="Shake" />
@@ -333,24 +335,26 @@
                         </a>
                     </div>
                     <div class="slider-item">
-                        <div class="slider-item__image">
-                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Senja.png"
-                                alt="Senja" />
-                            <span class="slider-item__image-text text text_white text_size_m">Senja</span>
-                        </div>
-                        <p class="slider-item__title text text_size_m text_white">
-                            Sumatran Tiger
-                        </p>
-                        <p class="slider-item__text text text_size_s text_white">
-                            Sumatran Tigers are the smallest of the five sub-species, and
-                            are found in Indonesia.
-                        </p>
-                        <a class="button slider-item__button">
-                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
-                            <img class="slider-item__button_orrange button__image"
-                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
-                            <img class="slider-item__button_white button__image"
-                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        <a class="slider-item__elem">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Senja.png"
+                                    alt="Senja" />
+                                <span class="slider-item__image-text text text_white text_size_m">Senja</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Sumatran Tiger
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Sumatran Tigers are the smallest of the five sub-species, and
+                                are found in Indonesia.
+                            </p>
+                            <a class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
                         </a>
                     </div>
                 </div>
@@ -499,7 +503,7 @@
                 <img src="../../assets/images/main/animals-love/koala.png" alt="koala"
                     class="animals-love__main-image" />
                 <div class="slider-item">
-                    <a href="../../pages/zoos/panda/index.html">
+                    <a class="slider-item__elem" href="../../pages/zoos/panda/index.html">
                         <div class="slider-item__image animals-love__slider-item-image">
                             <img class="slider-item__image-img" src="../../assets/images/main/animals-love/image 4.png"
                                 alt="Lucas" />
@@ -520,7 +524,7 @@
             </div>
             <div class="animals-love__items">
                 <div class="slider-item">
-                    <a href="">
+                    <a class="slider-item__elem" href="">
                         <div class="slider-item__image animals-love__slider-item-image">
                             <img class="slider-item__image-img" src="../../assets/images/main/animals-love/image 3.png"
                                 alt="Lucas" />
@@ -539,7 +543,7 @@
                     </a>
                 </div>
                 <div class="slider-item">
-                    <a href="../../pages/zoos/lemur/index.html">
+                    <a class="slider-item__elem" href="../../pages/zoos/lemur/index.html">
                         <div class="slider-item__image animals-love__slider-item-image">
                             <img class="slider-item__image-img" src="../../assets/images/main/animals-love/image 2.png"
                                 alt="Lucas" />
@@ -558,7 +562,7 @@
                     </a>
                 </div>
                 <div class="slider-item">
-                    <a href="../../pages/zoos/eagle/index.html">
+                    <a class="slider-item__elem" href="../../pages/zoos/eagle/index.html">
                         <div class="slider-item__image animals-love__slider-item-image">
                             <img class="slider-item__image-img" src="../../assets/images/main/animals-love/image 1.png"
                                 alt="Lucas" />

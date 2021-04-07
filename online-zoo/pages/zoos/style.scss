@@ -260,11 +260,11 @@
       }
 
       & .slider-item__button_white {
-        visibility: visible;
+        display: block;
       }
 
       & .item__button_orrange {
-        visibility: hidden;
+        display: none;
       }
     }
   }
