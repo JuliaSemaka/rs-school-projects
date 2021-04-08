@@ -29,8 +29,8 @@
     }
 
     &-slider {
-      margin-top: 100px;
-      margin-bottom: 150px;
+      margin-top: 94px;
+      margin-bottom: 146px;
       width: 100%;
 
       display: flex;
@@ -40,10 +40,18 @@
   }
 }
 
+.page-content {
+  height: fit-content;
+  width: 100%;
+}
+
 .sidebar {
+  z-index: 1;
   background-color: #20113d;
   position: fixed;
   top: 110px;
+  height: fit-content;
+  width: fit-content;
 
   &__undraw {
     position: relative;
@@ -164,6 +172,10 @@
     margin-bottom: 50px;
   }
 
+  &-form {
+    margin-top: -28px;
+  }
+
   &-form__form {
     margin-top: 10px;
     width: 320px;
@@ -208,7 +220,7 @@
 
 .description {
   &__text {
-    max-width: 610px;
+    max-width: 873px;
     margin-top: 20px;
   }
 }
@@ -237,7 +249,7 @@
     position: relative;
 
     &-string:not(:last-child) {
-      margin-bottom: 25px;
+      margin-bottom: 21px;
     }
   }
 
@@ -249,8 +261,8 @@
     position: absolute;
     padding-left: 28px;
     padding-right: 28px;
-    top: 330px;
-    left: 415px;
+    top: 310px;
+    left: 329px;
 
     &:hover {
       background: #f58021;
@@ -263,7 +275,7 @@
         display: block;
       }
 
-      & .item__button_orrange {
+      & .item__button_orange {
         display: none;
       }
     }
@@ -275,7 +287,8 @@
   }
 
   &__description {
-    margin-top: 110px;
+    margin-top: 134px;
     margin-bottom: 150px;
+    max-width: 1160px;
   }
 }
