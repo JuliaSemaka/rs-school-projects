@@ -33,8 +33,8 @@
 }
 
 .zoos__video-slider {
-  margin-top: 100px;
-  margin-bottom: 150px;
+  margin-top: 94px;
+  margin-bottom: 146px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -48,10 +48,24 @@
           align-items: center;
 }
 
+.page-content {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+
 .sidebar {
+  z-index: 1;
   background-color: #20113d;
   position: fixed;
   top: 110px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .sidebar__undraw {
@@ -200,6 +214,10 @@
   margin-bottom: 50px;
 }
 
+.donation-form {
+  margin-top: -28px;
+}
+
 .donation-form__form {
   margin-top: 10px;
   width: 320px;
@@ -261,7 +279,7 @@
 }
 
 .description__text {
-  max-width: 610px;
+  max-width: 873px;
   margin-top: 20px;
 }
 
@@ -299,7 +317,7 @@
 }
 
 .did-you-know__information-string:not(:last-child) {
-  margin-bottom: 25px;
+  margin-bottom: 21px;
 }
 
 .did-you-know_text {
@@ -310,8 +328,8 @@
   position: absolute;
   padding-left: 28px;
   padding-right: 28px;
-  top: 330px;
-  left: 415px;
+  top: 310px;
+  left: 329px;
 }
 
 .did-you-know__button:hover {
@@ -326,7 +344,7 @@
   display: block;
 }
 
-.did-you-know__button:hover .item__button_orrange {
+.did-you-know__button:hover .item__button_orange {
   display: none;
 }
 
@@ -336,7 +354,8 @@
 }
 
 .did-you-know__description {
-  margin-top: 110px;
+  margin-top: 134px;
   margin-bottom: 150px;
+  max-width: 1160px;
 }
 /*# sourceMappingURL=style.css.map */

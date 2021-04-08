@@ -188,7 +188,10 @@ input[type="number"] {
     height: 60px;
     background-color: transparent;
     padding: 19px 18px;
-    margin-right: 60px;
+
+    &:not(:last-child) {
+      margin-right: 57.5px;
+    }
 
     &_white {
       display: none;
@@ -241,15 +244,27 @@ input[type="number"] {
   }
 }
 
-.logo {
-  &__image {
-    width: 96px;
-    height: 50px;
-  }
-}
+// .logo {
+//   &__image {
+//     &-online-zoo {
+//       width: 96px;
+//       height: 50px;
+//     }
+
+//     &-yem-digital {
+//       width: 50px;
+//       height: 50px;
+//     }
+
+//     &-rs {
+//       width: 138px;
+//       height: 50px;
+//     }
+//   }
+// }
 
 .menu__item:not(:first-child) {
-  margin-left: 47px;
+  margin-left: 48px;
 }
 
 .social-media {
@@ -290,7 +305,7 @@ input[type="number"] {
   }
 
   &-nav {
-    margin-top: 70px;
+    margin-top: 69px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -303,7 +318,7 @@ input[type="number"] {
   }
 
   &__line {
-    margin-top: 70px;
+    margin-top: 67px;
   }
 
   &__social-media {
@@ -394,16 +409,16 @@ input[type="number"] {
       left: 0px;
       background: #20113d;
       border-radius: 5px 0px;
-      padding: 12.5px 19px;
+      padding: 12.5px 29px;
     }
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 17px;
   }
 
   &__text {
-    margin-bottom: 153px;
+    margin-bottom: 149px;
     width: 100%;
     max-width: 380px;
   }
@@ -430,7 +445,7 @@ input[type="number"] {
         display: block;
       }
 
-      & .slider-item__button_orrange {
+      & .slider-item__button_orange {
         display: none;
       }
     }
