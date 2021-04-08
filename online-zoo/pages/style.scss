@@ -184,6 +184,8 @@ input[type="number"] {
   flex-direction: row;
 
   &__button {
+    width: 60px;
+    height: 60px;
     background-color: transparent;
     padding: 19px 18px;
     margin-right: 60px;
@@ -428,7 +430,7 @@ input[type="number"] {
         display: block;
       }
 
-      & .item__button_orrange {
+      & .slider-item__button_orrange {
         display: none;
       }
     }
