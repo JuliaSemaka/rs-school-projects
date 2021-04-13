@@ -48,24 +48,26 @@
           align-items: center;
 }
 
-.page-content {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+.main-block {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page-content {
+  width: 100%;
+  margin-left: -259px;
 }
 
 .sidebar {
-  z-index: 1;
   background-color: #20113d;
-  position: fixed;
-  top: 110px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  position: -webkit-sticky;
+  position: sticky;
+  margin-right: 39px;
+  top: 0;
+  max-height: 846px;
+  z-index: 1;
 }
 
 .sidebar__undraw {
@@ -279,7 +281,7 @@
 }
 
 .description__text {
-  max-width: 873px;
+  max-width: 880px;
   margin-top: 20px;
 }
 
@@ -312,7 +314,7 @@
 }
 
 .did-you-know__information {
-  margin-top: 148px;
+  margin-top: 153px;
   position: relative;
 }
 
@@ -354,7 +356,7 @@
 }
 
 .did-you-know__description {
-  margin-top: 134px;
+  margin-top: 127px;
   margin-bottom: 150px;
   max-width: 1160px;
 }

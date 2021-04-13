@@ -40,18 +40,23 @@
   }
 }
 
-.page-content {
-  height: fit-content;
+.main-block {
   width: 100%;
+  display: flex;
+}
+
+.page-content {
+  width: 100%;
+  margin-left: -259px;
 }
 
 .sidebar {
-  z-index: 1;
   background-color: #20113d;
-  position: fixed;
-  top: 110px;
-  height: fit-content;
-  width: fit-content;
+  position: sticky;
+  margin-right: 39px;
+  top: 0;
+  max-height: 846px;
+  z-index: 1;
 
   &__undraw {
     position: relative;
@@ -220,7 +225,7 @@
 
 .description {
   &__text {
-    max-width: 873px;
+    max-width: 880px;
     margin-top: 20px;
   }
 }
@@ -245,7 +250,7 @@
   }
 
   &__information {
-    margin-top: 148px;
+    margin-top: 153px;
     position: relative;
 
     &-string:not(:last-child) {
@@ -287,7 +292,7 @@
   }
 
   &__description {
-    margin-top: 134px;
+    margin-top: 127px;
     margin-bottom: 150px;
     max-width: 1160px;
   }

@@ -223,6 +223,7 @@ input[type="number"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -287,6 +288,10 @@ input[type="number"] {
 .menu__item_active {
   color: #00a092;
   pointer-events: none;
+}
+
+.menu__item:hover .menu__link {
+  color: #00a092;
 }
 
 .menu__item:not(:first-child) {

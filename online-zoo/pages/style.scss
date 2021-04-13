@@ -202,6 +202,7 @@ input[type="number"] {
 .page_center {
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .wrapper {
@@ -241,6 +242,12 @@ input[type="number"] {
   &__item_active {
     color: #00a092;
     pointer-events: none;
+  }
+
+  &__item:hover {
+    & .menu__link {
+      color: #00a092;
+    }
   }
 }
 
