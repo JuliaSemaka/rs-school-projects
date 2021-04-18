@@ -646,6 +646,7 @@ input[type="number"] {
         -ms-flex-direction: column;
             flex-direction: column;
     margin-top: 48px;
+    margin-bottom: 49px;
   }
 }
 

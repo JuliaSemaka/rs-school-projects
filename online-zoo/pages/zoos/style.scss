@@ -18,6 +18,26 @@
       padding-top: 17px;
       padding-bottom: 17px;
     }
+
+    @media (max-width: 1060px) {
+      top: 859px;
+    }
+
+    @media (max-width: 1000px) {
+      top: 708px;
+    }
+
+    @media (max-width: 800px) {
+      top: 595px;
+    }
+
+    @media (max-width: 640px) {
+      top: 519px;
+      padding-top: 14px;
+      padding-bottom: 13px;
+      padding-left: 21px;
+      padding-right: 21px;
+    }
   }
 
   &__title {
@@ -26,6 +46,14 @@
     @media (max-width: 1200px) {
       margin-top: 30px;
       margin-left: -2.1vw;
+    }
+
+    @media (max-width: 800px) {
+      font-weight: 500;
+      font-size: 42px;
+      line-height: 51px;
+      margin-left: 9vw;
+      margin-top: 26px;
     }
   }
 
@@ -40,6 +68,32 @@
       & iframe {
         width: 85.4vw;
         height: 760px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      & iframe {
+        height: 700px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      & iframe {
+        height: 550px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      & iframe {
+        height: 460px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 23px;
+
+      & iframe {
+        height: 400px;
       }
     }
 
@@ -67,9 +121,30 @@
         margin-bottom: 96px;
       }
 
+      @media (max-width: 1060px) {
+        margin-top: 110px;
+      }
+
+      @media (max-width: 640px) {
+        margin-top: 85px;
+        margin-bottom: 77px;
+      }
+
       & .title {
         @media (max-width: 1200px) {
           margin-left: 7.4vw;
+        }
+
+        @media (max-width: 6400px) {
+          font-weight: 500;
+          font-size: 26px;
+          line-height: 130%;
+          text-transform: none;
+          margin-left: -14vw;
+
+          &::first-letter {
+            text-transform: uppercase;
+          }
         }
       }
     }
@@ -86,7 +161,27 @@
   margin-left: -259px;
 
   @media (max-width: 1200px) {
-    margin-left: -155px;
+    margin-left: -12.9vw;
+  }
+
+  @media (max-width: 1100px) {
+    margin-left: -13.2vw;
+  }
+
+  @media (max-width: 1000px) {
+    margin-left: -16.1vw;
+  }
+
+  @media (max-width: 900px) {
+    margin-left: -16.8vw;
+  }
+
+  @media (max-width: 700px) {
+    margin-left: -17.8vw;
+  }
+
+  @media (max-width: 640px) {
+    margin-left: -18.3vw;
   }
 }
 
@@ -159,7 +254,11 @@
 
         @media (max-width: 1200px) {
           display: flex;
-          width: 115px;
+          width: 9.6vw;
+        }
+
+        @media (max-width: 1000px) {
+          width: 12.2vw;
         }
       }
     }
@@ -203,6 +302,11 @@
     margin-left: 8.4vw;
   }
 
+  @media (max-width: 640px) {
+    margin-top: 20px;
+    margin-left: 27vw;
+  }
+
   &__block {
     cursor: pointer;
   }
@@ -218,6 +322,10 @@
   &__block:first-child,
   &__block:last-child {
     margin-top: -17px;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 
   &__list {
@@ -233,6 +341,10 @@
     @media (max-width: 1200px) {
       margin-right: 1.7vw;
     }
+
+    @media (max-width: 640px) {
+      margin-right: 3.4vw;
+    }
   }
 
   &__item {
@@ -243,6 +355,10 @@
       @media (max-width: 1200px) {
         width: 22vw;
       }
+      @media (max-width: 640px) {
+        width: 20.8vw;
+        height: 105px;
+      }
     }
   }
 
@@ -252,6 +368,11 @@
     left: 0;
     width: 189px;
     height: 44px;
+
+    @media (max-width: 640px) {
+      width: 72px;
+      height: 23px;
+    }
   }
 }
 
@@ -276,6 +397,12 @@
       margin-top: 31px;
       margin-bottom: 31px;
     }
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      margin-top: 51px;
+      margin-bottom: 50px;
+    }
   }
 
   &-form {
@@ -283,6 +410,10 @@
 
     @media (max-width: 1200px) {
       margin-top: -56px;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 30px;
     }
   }
 
@@ -299,28 +430,45 @@
     overflow: hidden;
     height: 75px;
 
+    @media (max-width: 640px) {
+      margin-top: 11px;
+      width: 362px;
+    }
+
     &:hover {
       background: none !important;
     }
   }
 
+  // исправила
   &-form__item {
-    padding-top: 24px;
+    padding-top: 21px;
     padding-bottom: 24px;
   }
 
   &-form__span {
     margin-left: 14px;
+
+    @media (max-width: 640px) {
+      margin-left: 39px;
+    }
   }
 
   &-form__input {
-    margin-left: 7px;
     max-width: 207px;
     background-color: transparent;
     border: none;
     cursor: text;
     // добавила
-    margin-left: 5px;
+    margin-left: 3px;
+
+    @media (max-width: 640px) {
+      margin-right: 20px;
+    }
+  }
+
+  &-form__title {
+    margin-left: 14.1vw;
   }
 
   &-form__input::placeholder {
@@ -330,19 +478,35 @@
   &-form__submit {
     padding-left: 25px;
     padding-right: 25px;
-    margin-left: 3px;
+    // добавила
+    margin-left: 6px;
   }
 }
 
 .description {
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   &__text {
     max-width: 880px;
     margin-top: 20px;
 
     @media (max-width: 1200px) {
-      max-width: 740px;
+      max-width: 61vw;
       margin-top: 21px;
       margin-left: 2px;
+      letter-spacing: -0.6px;
+    }
+
+    @media (max-width: 640px) {
+      max-width: 93vw;
+      margin-top: 32px;
+      margin-left: 0;
+      letter-spacing: 0;
     }
   }
 }
@@ -365,9 +529,19 @@
       padding: 30px 6.2vw;
     }
 
+    @media (max-width: 640px) {
+      margin-top: 80px;
+      padding-top: 24px;
+      padding-bottom: 46px;
+    }
+
     &-title {
       @media (max-width: 1200px) {
         margin-left: 3.5vw;
+      }
+
+      @media (max-width: 640px) {
+        margin-left: -1.3vw;
       }
     }
 
@@ -381,6 +555,13 @@
         margin-right: 1.5vw;
         margin-left: 1.5vw;
       }
+
+      @media (max-width: 640px) {
+        max-width: 81vw;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 31px;
+      }
     }
   }
 
@@ -390,6 +571,10 @@
 
     @media (max-width: 1200px) {
       margin-top: 100px;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 81px;
     }
 
     &-string:not(:last-child) {
@@ -424,6 +609,10 @@
     padding-left: 5.3vw;
     margin-top: -18px;
 
+    @media (max-width: 6400px) {
+      padding-left: 9.7vw;
+    }
+
     // добавила
     & .text {
       letter-spacing: 1.6px;
@@ -454,6 +643,13 @@
       left: 55.6vw;
       width: 38vw;
     }
+
+    @media (max-width: 640px) {
+      position: relative;
+      width: 100%;
+      left: 0;
+      margin-bottom: 74px;
+    }
   }
 
   &__description {
@@ -467,6 +663,11 @@
       line-height: 27.2px;
       margin-bottom: 98px;
       max-width: 95vw;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 48px;
+      letter-spacing: 0;
     }
   }
 }
