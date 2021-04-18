@@ -17,8 +17,23 @@
   padding-right: 35px;
 }
 
+@media (max-width: 1200px) {
+  .zoos__button {
+    top: 35px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+}
+
 .zoos__title {
   margin-top: 54px;
+}
+
+@media (max-width: 1200px) {
+  .zoos__title {
+    margin-top: 30px;
+    margin-left: -2.1vw;
+  }
 }
 
 .zoos__video {
@@ -26,10 +41,27 @@
   position: relative;
 }
 
+@media (max-width: 1200px) {
+  .zoos__video {
+    margin-top: 30px;
+    margin-left: 8vw;
+  }
+  .zoos__video iframe {
+    width: 85.4vw;
+    height: 760px;
+  }
+}
+
 .zoos__video_logo {
   position: absolute;
   bottom: 64px;
   right: 22px;
+}
+
+@media (max-width: 1200px) {
+  .zoos__video_logo {
+    right: 3.3vw;
+  }
 }
 
 .zoos__video-slider {
@@ -48,6 +80,19 @@
           align-items: center;
 }
 
+@media (max-width: 1200px) {
+  .zoos__video-slider {
+    margin-top: 7px;
+    margin-bottom: 96px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .zoos__video-slider .title {
+    margin-left: 7.4vw;
+  }
+}
+
 .main-block {
   width: 100%;
   display: -webkit-box;
@@ -58,6 +103,12 @@
 .page-content {
   width: 100%;
   margin-left: -259px;
+}
+
+@media (max-width: 1200px) {
+  .page-content {
+    margin-left: -155px;
+  }
 }
 
 .sidebar {
@@ -85,16 +136,29 @@
   float: right;
 }
 
+@media screen {
+  .sidebar__undraw_image {
+    margin: 27% 43%;
+    float: none;
+  }
+}
+
 .sidebar__undraw_bottom {
   position: absolute;
   top: 36px;
-  left: 103px;
+  left: 46%;
 }
 
 .sidebar__undraw_icon {
   position: absolute;
   left: 0;
   top: 0;
+}
+
+@media (max-width: 1200px) {
+  .sidebar__undraw_icon {
+    display: none;
+  }
 }
 
 .sidebar__animals-item {
@@ -111,7 +175,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 170px;
+  height: 171px;
   width: 220px;
   border-bottom: 1px solid #ffffff;
 }
@@ -121,6 +185,25 @@
           transform: scale(1.2);
   -webkit-transition: all 1s;
   transition: all 1s;
+}
+
+@media (max-width: 1200px) {
+  .sidebar__animals-item {
+    display: none;
+  }
+}
+
+.sidebar__animals-item_min {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .sidebar__animals-item_min {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 115px;
+  }
 }
 
 .sidebar__animals-active {
@@ -140,6 +223,14 @@
   position: absolute;
 }
 
+.sidebar__animal-min {
+  display: none;
+}
+
+.sidebar__animal-min_active {
+  display: block;
+}
+
 .video-choice {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,12 +248,28 @@
   margin-top: 30px;
 }
 
+@media (max-width: 1200px) {
+  .video-choice {
+    margin-left: 8.4vw;
+  }
+}
+
 .video-choice__block {
   cursor: pointer;
 }
 
 .video-choice__block:not(:last-child) {
   margin-right: 13px;
+}
+
+@media (max-width: 1200px) {
+  .video-choice__block:not(:last-child) {
+    margin-right: 16px;
+  }
+}
+
+.video-choice__block:first-child, .video-choice__block:last-child {
+  margin-top: -17px;
 }
 
 .video-choice__list {
@@ -185,8 +292,20 @@
   margin-right: 40px;
 }
 
+@media (max-width: 1200px) {
+  .video-choice__item:not(:last-child) {
+    margin-right: 1.7vw;
+  }
+}
+
 .video-choice__item {
   position: relative;
+}
+
+@media (max-width: 1200px) {
+  .video-choice__item iframe {
+    width: 22vw;
+  }
 }
 
 .video-choice__cam {
@@ -216,8 +335,21 @@
   margin-bottom: 50px;
 }
 
+@media (max-width: 1200px) {
+  .donation_wrapper {
+    margin-top: 31px;
+    margin-bottom: 31px;
+  }
+}
+
 .donation-form {
   margin-top: -28px;
+}
+
+@media (max-width: 1200px) {
+  .donation-form {
+    margin-top: -56px;
+  }
 }
 
 .donation-form__form {
@@ -236,6 +368,8 @@
   overflow: hidden;
   border-radius: 5px;
   cursor: text;
+  overflow: hidden;
+  height: 75px;
 }
 
 .donation-form__form:hover {
@@ -257,6 +391,7 @@
   background-color: transparent;
   border: none;
   cursor: text;
+  margin-left: 5px;
 }
 
 .donation-form__input::-webkit-input-placeholder {
@@ -278,11 +413,20 @@
 .donation-form__submit {
   padding-left: 25px;
   padding-right: 25px;
+  margin-left: 3px;
 }
 
 .description__text {
   max-width: 880px;
   margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .description__text {
+    max-width: 740px;
+    margin-top: 21px;
+    margin-left: 2px;
+  }
 }
 
 .did-you-know__block {
@@ -308,9 +452,31 @@
           align-items: center;
 }
 
+@media (max-width: 1200px) {
+  .did-you-know__block {
+    margin-top: 100px;
+    padding: 30px 6.2vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .did-you-know__block-title {
+    margin-left: 3.5vw;
+  }
+}
+
 .did-you-know__block-text {
   margin-top: 20px;
   max-width: 920px;
+}
+
+@media (max-width: 1200px) {
+  .did-you-know__block-text {
+    text-align: center;
+    max-width: 62vw;
+    margin-right: 1.5vw;
+    margin-left: 1.5vw;
+  }
 }
 
 .did-you-know__information {
@@ -318,20 +484,43 @@
   position: relative;
 }
 
+@media (max-width: 1200px) {
+  .did-you-know__information {
+    margin-top: 100px;
+  }
+}
+
 .did-you-know__information-string:not(:last-child) {
-  margin-bottom: 21px;
+  margin-bottom: 19px;
+}
+
+@media (max-width: 1200px) {
+  .did-you-know__information-string:nth-child(2), .did-you-know__information-string:nth-child(3) {
+    margin-bottom: 27px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .did-you-know__information-string:nth-child(4), .did-you-know__information-string:nth-child(5) {
+    margin-bottom: 17px;
+  }
+}
+
+.did-you-know__information-string:nth-child(8) {
+  float: left;
 }
 
 .did-you-know_text {
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
 .did-you-know__button {
-  position: absolute;
-  padding-left: 28px;
-  padding-right: 28px;
-  top: 310px;
-  left: 329px;
+  padding-left: 5.3vw;
+  margin-top: -18px;
+}
+
+.did-you-know__button .text {
+  letter-spacing: 1.6px;
 }
 
 .did-you-know__button:hover {
@@ -355,9 +544,26 @@
   left: 720px;
 }
 
+@media (max-width: 1200px) {
+  .did-you-know__image {
+    left: 55.6vw;
+    width: 38vw;
+  }
+}
+
 .did-you-know__description {
   margin-top: 127px;
   margin-bottom: 150px;
   max-width: 1160px;
+}
+
+@media (max-width: 1200px) {
+  .did-you-know__description {
+    letter-spacing: -0.56px;
+    margin-top: 123px;
+    line-height: 27.2px;
+    margin-bottom: 98px;
+    max-width: 95vw;
+  }
 }
 /*# sourceMappingURL=style.css.map */
