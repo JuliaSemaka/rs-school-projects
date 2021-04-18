@@ -1,6 +1,15 @@
 .map {
   background-color: #ffffff;
 
+  @media (max-width: 1200px) {
+    padding: 0;
+  }
+
+  &__image {
+    //  заполнить новое
+    width: 100%;
+  }
+
   &_wrapper {
     align-items: center;
   }

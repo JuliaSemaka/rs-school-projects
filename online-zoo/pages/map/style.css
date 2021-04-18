@@ -2,6 +2,16 @@
   background-color: #ffffff;
 }
 
+@media (max-width: 1200px) {
+  .map {
+    padding: 0;
+  }
+}
+
+.map__image {
+  width: 100%;
+}
+
 .map_wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
