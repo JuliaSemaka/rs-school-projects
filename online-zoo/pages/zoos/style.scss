@@ -12,20 +12,99 @@
     right: 0;
     padding-left: 35px;
     padding-right: 35px;
+
+    @media (max-width: 1200px) {
+      top: 35px;
+      padding-top: 17px;
+      padding-bottom: 17px;
+    }
+
+    @media (max-width: 1060px) {
+      top: 859px;
+    }
+
+    @media (max-width: 1000px) {
+      top: 708px;
+    }
+
+    @media (max-width: 800px) {
+      top: 595px;
+    }
+
+    @media (max-width: 640px) {
+      top: 519px;
+      padding-top: 14px;
+      padding-bottom: 13px;
+      padding-left: 21px;
+      padding-right: 21px;
+    }
   }
 
   &__title {
     margin-top: 54px;
+
+    @media (max-width: 1200px) {
+      margin-top: 30px;
+      margin-left: -2.1vw;
+    }
+
+    @media (max-width: 800px) {
+      font-weight: 500;
+      font-size: 42px;
+      line-height: 51px;
+      margin-left: 9vw;
+      margin-top: 26px;
+    }
   }
 
   &__video {
     margin-top: 50px;
     position: relative;
 
+    @media (max-width: 1200px) {
+      margin-top: 30px;
+      margin-left: 8vw;
+
+      & iframe {
+        width: 85.4vw;
+        height: 760px;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      & iframe {
+        height: 700px;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      & iframe {
+        height: 550px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      & iframe {
+        height: 460px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 23px;
+
+      & iframe {
+        height: 400px;
+      }
+    }
+
     &_logo {
       position: absolute;
       bottom: 64px;
       right: 22px;
+
+      @media (max-width: 1200px) {
+        right: 3.3vw;
+      }
     }
 
     &-slider {
@@ -36,22 +115,83 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      @media (max-width: 1200px) {
+        margin-top: 7px;
+        margin-bottom: 96px;
+      }
+
+      @media (max-width: 1060px) {
+        margin-top: 110px;
+      }
+
+      @media (max-width: 640px) {
+        margin-top: 85px;
+        margin-bottom: 77px;
+      }
+
+      & .title {
+        @media (max-width: 1200px) {
+          margin-left: 7.4vw;
+        }
+
+        @media (max-width: 6400px) {
+          font-weight: 500;
+          font-size: 26px;
+          line-height: 130%;
+          text-transform: none;
+          margin-left: -14vw;
+
+          &::first-letter {
+            text-transform: uppercase;
+          }
+        }
+      }
     }
   }
 }
 
-.page-content {
-  height: fit-content;
+.main-block {
   width: 100%;
+  display: flex;
+}
+
+.page-content {
+  width: 100%;
+  margin-left: -259px;
+
+  @media (max-width: 1200px) {
+    margin-left: -12.9vw;
+  }
+
+  @media (max-width: 1100px) {
+    margin-left: -13.2vw;
+  }
+
+  @media (max-width: 1000px) {
+    margin-left: -16.1vw;
+  }
+
+  @media (max-width: 900px) {
+    margin-left: -16.8vw;
+  }
+
+  @media (max-width: 700px) {
+    margin-left: -17.8vw;
+  }
+
+  @media (max-width: 640px) {
+    margin-left: -18.3vw;
+  }
 }
 
 .sidebar {
-  z-index: 1;
   background-color: #20113d;
-  position: fixed;
-  top: 110px;
-  height: fit-content;
-  width: fit-content;
+  position: sticky;
+  margin-right: 39px;
+  top: 0;
+  max-height: 846px;
+  z-index: 1;
 
   &__undraw {
     position: relative;
@@ -65,18 +205,27 @@
     &_image {
       margin: 30px;
       float: right;
+
+      @media screen {
+        margin: 27% 43%;
+        float: none;
+      }
     }
 
     &_bottom {
       position: absolute;
       top: 36px;
-      left: 103px;
+      left: 46%;
     }
 
     &_icon {
       position: absolute;
       left: 0;
       top: 0;
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
     }
   }
 
@@ -86,13 +235,31 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 170px;
+      height: 171px;
       width: 220px;
       border-bottom: 1px solid #ffffff;
 
       &:not(.sidebar__animals-active):hover .sidebar__circle {
         transform: scale(1.2);
         transition: all 1s;
+      }
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
+
+      // Добавила
+      &_min {
+        display: none;
+
+        @media (max-width: 1200px) {
+          display: flex;
+          width: 9.6vw;
+        }
+
+        @media (max-width: 1000px) {
+          width: 12.2vw;
+        }
       }
     }
 
@@ -112,6 +279,15 @@
 
   &__animal {
     position: absolute;
+
+    // добавила
+    &-min {
+      display: none;
+
+      &_active {
+        display: block;
+      }
+    }
   }
 }
 
@@ -122,12 +298,34 @@
   justify-content: center;
   margin-top: 30px;
 
+  @media (max-width: 1200px) {
+    margin-left: 8.4vw;
+  }
+
+  @media (max-width: 640px) {
+    margin-top: 20px;
+    margin-left: 27vw;
+  }
+
   &__block {
     cursor: pointer;
   }
 
   &__block:not(:last-child) {
     margin-right: 13px;
+
+    @media (max-width: 1200px) {
+      margin-right: 16px;
+    }
+  }
+
+  &__block:first-child,
+  &__block:last-child {
+    margin-top: -17px;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 
   &__list {
@@ -139,10 +337,29 @@
 
   &__item:not(:last-child) {
     margin-right: 40px;
+
+    @media (max-width: 1200px) {
+      margin-right: 1.7vw;
+    }
+
+    @media (max-width: 640px) {
+      margin-right: 3.4vw;
+    }
   }
 
   &__item {
     position: relative;
+
+    // добавила
+    & iframe {
+      @media (max-width: 1200px) {
+        width: 22vw;
+      }
+      @media (max-width: 640px) {
+        width: 20.8vw;
+        height: 105px;
+      }
+    }
   }
 
   &__cam {
@@ -151,6 +368,11 @@
     left: 0;
     width: 189px;
     height: 44px;
+
+    @media (max-width: 640px) {
+      width: 72px;
+      height: 23px;
+    }
   }
 }
 
@@ -170,10 +392,29 @@
   &_wrapper {
     margin-top: 50px;
     margin-bottom: 50px;
+
+    @media (max-width: 1200px) {
+      margin-top: 31px;
+      margin-bottom: 31px;
+    }
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      margin-top: 51px;
+      margin-bottom: 50px;
+    }
   }
 
   &-form {
     margin-top: -28px;
+
+    @media (max-width: 1200px) {
+      margin-top: -56px;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 30px;
+    }
   }
 
   &-form__form {
@@ -185,27 +426,49 @@
     overflow: hidden;
     border-radius: 5px;
     cursor: text;
+    // добавила
+    overflow: hidden;
+    height: 75px;
+
+    @media (max-width: 640px) {
+      margin-top: 11px;
+      width: 362px;
+    }
 
     &:hover {
       background: none !important;
     }
   }
 
+  // исправила
   &-form__item {
-    padding-top: 24px;
+    padding-top: 21px;
     padding-bottom: 24px;
   }
 
   &-form__span {
     margin-left: 14px;
+
+    @media (max-width: 640px) {
+      margin-left: 39px;
+    }
   }
 
   &-form__input {
-    margin-left: 7px;
     max-width: 207px;
     background-color: transparent;
     border: none;
     cursor: text;
+    // добавила
+    margin-left: 3px;
+
+    @media (max-width: 640px) {
+      margin-right: 20px;
+    }
+  }
+
+  &-form__title {
+    margin-left: 14.1vw;
   }
 
   &-form__input::placeholder {
@@ -215,13 +478,36 @@
   &-form__submit {
     padding-left: 25px;
     padding-right: 25px;
+    // добавила
+    margin-left: 6px;
   }
 }
 
 .description {
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   &__text {
-    max-width: 873px;
+    max-width: 880px;
     margin-top: 20px;
+
+    @media (max-width: 1200px) {
+      max-width: 61vw;
+      margin-top: 21px;
+      margin-left: 2px;
+      letter-spacing: -0.6px;
+    }
+
+    @media (max-width: 640px) {
+      max-width: 93vw;
+      margin-top: 32px;
+      margin-left: 0;
+      letter-spacing: 0;
+    }
   }
 }
 
@@ -238,31 +524,99 @@
     flex-direction: column;
     align-items: center;
 
+    @media (max-width: 1200px) {
+      margin-top: 100px;
+      padding: 30px 6.2vw;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 80px;
+      padding-top: 24px;
+      padding-bottom: 46px;
+    }
+
+    &-title {
+      @media (max-width: 1200px) {
+        margin-left: 3.5vw;
+      }
+
+      @media (max-width: 640px) {
+        margin-left: -1.3vw;
+      }
+    }
+
     &-text {
       margin-top: 20px;
       max-width: 920px;
+
+      @media (max-width: 1200px) {
+        text-align: center;
+        max-width: 62vw;
+        margin-right: 1.5vw;
+        margin-left: 1.5vw;
+      }
+
+      @media (max-width: 640px) {
+        max-width: 81vw;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: 31px;
+      }
     }
   }
 
   &__information {
-    margin-top: 148px;
+    margin-top: 153px;
     position: relative;
 
+    @media (max-width: 1200px) {
+      margin-top: 100px;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 81px;
+    }
+
     &-string:not(:last-child) {
-      margin-bottom: 21px;
+      margin-bottom: 19px;
+    }
+
+    &-string:nth-child(2),
+    &-string:nth-child(3) {
+      @media (max-width: 1200px) {
+        margin-bottom: 27px;
+      }
+    }
+
+    &-string:nth-child(4),
+    &-string:nth-child(5) {
+      @media (max-width: 1200px) {
+        margin-bottom: 17px;
+      }
+    }
+
+    &-string:nth-child(8) {
+      float: left;
     }
   }
 
   &_text {
-    margin-right: 20px;
+    margin-right: 16px;
   }
 
+  // изменила
   &__button {
-    position: absolute;
-    padding-left: 28px;
-    padding-right: 28px;
-    top: 310px;
-    left: 329px;
+    padding-left: 5.3vw;
+    margin-top: -18px;
+
+    @media (max-width: 6400px) {
+      padding-left: 9.7vw;
+    }
+
+    // добавила
+    & .text {
+      letter-spacing: 1.6px;
+    }
 
     &:hover {
       background: #f58021;
@@ -284,11 +638,36 @@
   &__image {
     position: absolute;
     left: 720px;
+
+    @media (max-width: 1200px) {
+      left: 55.6vw;
+      width: 38vw;
+    }
+
+    @media (max-width: 640px) {
+      position: relative;
+      width: 100%;
+      left: 0;
+      margin-bottom: 74px;
+    }
   }
 
   &__description {
-    margin-top: 134px;
+    margin-top: 127px;
     margin-bottom: 150px;
     max-width: 1160px;
+
+    @media (max-width: 1200px) {
+      letter-spacing: -0.56px;
+      margin-top: 123px;
+      line-height: 27.2px;
+      margin-bottom: 98px;
+      max-width: 95vw;
+    }
+
+    @media (max-width: 640px) {
+      margin-top: 48px;
+      letter-spacing: 0;
+    }
   }
 }
