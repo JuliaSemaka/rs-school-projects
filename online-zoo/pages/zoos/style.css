@@ -253,6 +253,12 @@
   display: flex;
 }
 
+@media (max-width: 780px) {
+  .main-block {
+    padding-top: 110px;
+  }
+}
+
 .page-content {
   width: 100%;
   margin-left: -259px;
