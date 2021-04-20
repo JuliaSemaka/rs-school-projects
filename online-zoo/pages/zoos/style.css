@@ -357,7 +357,7 @@
   float: right;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .sidebar__undraw_image {
     margin: 27% 43%;
     float: none;
@@ -1059,14 +1059,16 @@
 }
 
 .did-you-know__button {
-  display: inline;
-  margin-left: 5.2vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 24vw;
   margin-top: -18px;
 }
 
 @media (max-width: 768px) {
   .did-you-know__button {
-    margin-left: 9.7vw;
+    margin-left: 44.6vw;
   }
 }
 
@@ -1079,13 +1081,7 @@
 }
 
 .did-you-know__button .text {
-  letter-spacing: 0.6px;
-}
-
-@media (max-width: 768px) {
-  .did-you-know__button .text {
-    letter-spacing: 1.6px;
-  }
+  letter-spacing: 1.6px;
 }
 
 .did-you-know__button:hover {
@@ -1100,7 +1096,7 @@
   display: block;
 }
 
-.did-you-know__button:hover .item__button_orange {
+.did-you-know__button:hover .slider-item__button_orange {
   display: none;
 }
 
@@ -1145,7 +1141,7 @@
     letter-spacing: -0.8px;
     margin-top: 123px;
     line-height: 27.2px;
-    margin-bottom: 102px;
+    margin-bottom: 99px;
     max-width: 95vw;
   }
 }
