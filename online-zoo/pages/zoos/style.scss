@@ -287,7 +287,7 @@
       margin: 30px;
       float: right;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1200px) {
         margin: 27% 43%;
         float: none;
       }
@@ -830,12 +830,12 @@
 
   // изменила
   &__button {
-    display: inline;
-    margin-left: 5.2vw;
+    display: flex;
+    margin-left: 24vw;
     margin-top: -18px;
 
     @media (max-width: 768px) {
-      margin-left: 9.7vw;
+      margin-left: 44.6vw;
     }
 
     @media (max-width: 470px) {
@@ -846,11 +846,7 @@
 
     // добавила
     & .text {
-      letter-spacing: 0.6px;
-
-      @media (max-width: 768px) {
-        letter-spacing: 1.6px;
-      }
+      letter-spacing: 1.6px;
     }
 
     &:hover {
@@ -864,7 +860,7 @@
         display: block;
       }
 
-      & .item__button_orange {
+      & .slider-item__button_orange {
         display: none;
       }
     }
@@ -903,7 +899,7 @@
       letter-spacing: -0.8px;
       margin-top: 123px;
       line-height: 27.2px;
-      margin-bottom: 102px;
+      margin-bottom: 99px;
       max-width: 95vw;
     }
 
