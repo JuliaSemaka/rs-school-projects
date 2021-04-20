@@ -266,6 +266,10 @@
   max-height: 846px;
   z-index: 1;
 
+  @media (max-width: 640px) {
+    height: fit-content;
+  }
+
   @media (max-width: 470px) {
     max-height: 300px;
   }
@@ -274,6 +278,10 @@
     position: relative;
     height: 80px;
     cursor: pointer;
+
+    @media (max-width: 640px) {
+      height: 50px;
+    }
 
     @media (max-width: 470px) {
       height: 50.5px;
@@ -291,6 +299,14 @@
         margin: 27% 43%;
         float: none;
       }
+
+      @media (max-width: 640px) {
+        margin: 21% 41%;
+      }
+
+      @media (max-width: 470px) {
+        margin: 35% 34%;
+      }
     }
 
     &_bottom {
@@ -298,9 +314,14 @@
       top: 36px;
       left: 46%;
 
+      @media (max-width: 640px) {
+        top: 41%;
+        left: 41%;
+      }
+
       @media (max-width: 470px) {
-        top: 20px;
-        left: 34%;
+        top: 41%;
+        left: 35%;
       }
     }
 
@@ -332,6 +353,10 @@
 
       @media (max-width: 1200px) {
         display: none;
+      }
+
+      @media (max-width: 640px) {
+        height: 100px;
       }
 
       @media (max-width: 470px) {
@@ -380,6 +405,10 @@
 
       &_active {
         display: block;
+
+        @media (max-width: 640px) {
+          height: 30px;
+        }
 
         @media (max-width: 470px) {
           height: 19px;
@@ -674,10 +703,10 @@
     margin-top: 20px;
 
     @media (max-width: 1200px) {
-      max-width: 61vw;
+      max-width: 62vw;
       margin-top: 21px;
-      margin-left: 2px;
-      letter-spacing: -0.8px;
+      margin-left: -4px;
+      letter-spacing: -0.2px;
     }
 
     @media (max-width: 768px) {
@@ -896,7 +925,7 @@
     max-width: 1160px;
 
     @media (max-width: 1200px) {
-      letter-spacing: -0.8px;
+      letter-spacing: -0.36px;
       margin-top: 123px;
       line-height: 27.2px;
       margin-bottom: 99px;

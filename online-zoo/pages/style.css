@@ -593,7 +593,10 @@ input[type="number"] {
   }
   .footer-menu__button span {
     font-size: 18px;
-    text-transform: none;
+    text-transform: lowercase;
+  }
+  .footer-menu__button span::first-letter {
+    text-transform: uppercase;
   }
 }
 

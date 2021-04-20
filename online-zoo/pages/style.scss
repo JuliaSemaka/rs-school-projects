@@ -485,7 +485,11 @@ input[type="number"] {
 
       & span {
         font-size: 18px;
-        text-transform: none;
+        text-transform: lowercase;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
     }
   }
