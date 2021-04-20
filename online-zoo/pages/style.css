@@ -812,14 +812,14 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
   .slider-item {
     width: 290px;
     height: 600px;
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 600px) {
   .slider-item {
     width: 300px;
   }
@@ -862,6 +862,12 @@ input[type="number"] {
   }
 }
 
+@media (max-width: 600px) {
+  .slider-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
 .slider-item__image {
   position: relative;
   width: 100%;
@@ -875,11 +881,17 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
   .slider-item__image {
     width: 290px;
     height: 333px;
     margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-item__image {
+    width: 100%;
   }
 }
 
@@ -915,7 +927,7 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
   .slider-item__title {
     margin-bottom: 11px;
   }
@@ -934,7 +946,7 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
   .slider-item__text {
     max-width: 238px;
   }
@@ -957,7 +969,7 @@ input[type="number"] {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
   .slider-item__button {
     margin-bottom: 10px;
   }
