@@ -100,7 +100,7 @@
   .contacts-inform__description-text {
     max-width: 70vw;
     margin-left: 7vw;
-    margin-bottom: 7.4vh;
+    margin-bottom: 47px;
     line-height: 27.5px;
   }
 }
@@ -110,13 +110,13 @@
     width: 94vw;
     max-width: 100%;
     margin-left: auto;
-    margin-bottom: 7.3vh;
+    margin-bottom: 49px;
   }
 }
 
 @media (max-width: 320px) {
   .contacts-inform__description-text {
-    margin-bottom: 6vh;
+    margin-bottom: 40px;
   }
 }
 
@@ -148,6 +148,9 @@
 }
 
 @media (max-width: 640px) {
+  .form-input__title {
+    margin-bottom: 8.8px;
+  }
   .form-input__title span {
     margin-right: 0.9vw;
   }
@@ -155,7 +158,7 @@
 
 @media (max-width: 640px) {
   .form-input__title {
-    margin-bottom: 4px;
+    margin-bottom: 3.8px;
   }
 }
 
@@ -174,7 +177,7 @@
 @media (max-width: 1200px) {
   .form-input__input {
     max-width: 100%;
-    margin-bottom: 4.6vh;
+    margin-bottom: 31px;
   }
 }
 
@@ -192,7 +195,7 @@
 
 @media (max-width: 1200px) {
   .form-textarea {
-    margin-bottom: 6.6vh;
+    margin-bottom: 44px;
   }
 }
 
@@ -209,7 +212,8 @@
 
 @media (max-width: 1200px) {
   .form-button {
-    margin-bottom: 14.7vh;
+    margin-bottom: 99px;
+    padding: 25px 88px;
   }
 }
 
@@ -222,9 +226,8 @@
 
 @media (max-width: 320px) {
   .form-button {
-    margin: 0 auto 14.7vh;
     padding: 12px 57px;
-    margin: 0 auto 79px;
+    margin: 0 auto 80px;
   }
 }
 /*# sourceMappingURL=style.css.map */
