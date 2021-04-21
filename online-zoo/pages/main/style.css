@@ -412,7 +412,7 @@
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1030px) {
   .meet-pets__text {
     max-width: 95vw;
     margin-bottom: 50px;
