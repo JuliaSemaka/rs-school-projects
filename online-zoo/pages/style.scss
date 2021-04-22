@@ -201,7 +201,7 @@ input[type="number"] {
 
 .block-header_top {
   @media (max-width: 780px) {
-    padding-top: 110px;
+    padding-top: 110px !important;
   }
 }
 

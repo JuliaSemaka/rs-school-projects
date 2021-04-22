@@ -108,10 +108,11 @@
       position: absolute;
       left: 0.7vw;
       top: 18px;
-      width: 4.2vw;
+      width: auto;
 
       @media (max-width: 1200px) {
         left: 1.6vw;
+        width: 4.2vw;
       }
 
       @media (max-width: 1000px) {
@@ -290,10 +291,10 @@
       }
 
       & .map__anchor_image {
-        width: 4.8vw;
+        width: auto;
 
-        @media (max-width: 820px) {
-          width: 4.4vw;
+        @media (max-width: 1200px) {
+          width: 4.8vw;
         }
 
         @media (max-width: 680px) {
@@ -395,10 +396,11 @@
       }
 
       & .map__anchor_image {
-        width: 3vw;
+        width: auto;
         left: 1.7vw;
 
         @media (max-width: 1200px) {
+          width: 3vw;
           left: 2.4vw;
         }
 
@@ -531,11 +533,12 @@
       }
 
       & .map__anchor_image {
-        width: 3.7vw;
+        width: auto;
         top: 18px;
         left: 1.1vw;
 
         @media (max-width: 1200px) {
+          width: 3.7vw;
           left: 2vw;
         }
 
