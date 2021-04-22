@@ -436,7 +436,7 @@ input[type="number"] {
 
 @media (max-width: 450px) {
   .menu__item-footer:not(:first-child) {
-    margin-left: 4.6vw;
+    margin-left: 4.55vw;
   }
 }
 
