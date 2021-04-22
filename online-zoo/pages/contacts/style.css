@@ -156,7 +156,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 320px) {
   .form-input__title {
     margin-bottom: 3.8px;
   }
@@ -199,7 +199,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 320px) {
   .form-textarea {
     margin-bottom: 26px;
   }
