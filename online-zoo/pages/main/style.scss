@@ -1208,6 +1208,12 @@ section.online-zoo {
   background-repeat: no-repeat;
   background-size: cover;
 
+  @media (max-width: 980px) {
+    background-color: #20113d;
+    background-size: contain;
+    background-position: bottom;
+  }
+
   &_wraper {
     position: relative;
   }
