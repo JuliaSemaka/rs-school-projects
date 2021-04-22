@@ -1546,6 +1546,14 @@
   background-size: cover;
 }
 
+@media (max-width: 980px) {
+  .users-think {
+    background-color: #20113d;
+    background-size: contain;
+    background-position: bottom;
+  }
+}
+
 .users-think_wraper {
   position: relative;
 }
