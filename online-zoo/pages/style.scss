@@ -10,6 +10,10 @@ body {
   background-color: #fff;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 a {
   cursor: pointer;
   text-decoration: none;
@@ -61,6 +65,10 @@ input[type="number"] {
 
   &_blue {
     color: #20113d;
+  }
+
+  &_notactive {
+    color: #a4a8ae;
   }
 
   &_size_s {
@@ -172,6 +180,14 @@ input[type="number"] {
     &:hover {
       background: #05786e;
     }
+
+    &-notactive {
+      background: rgba(0, 160, 146, 0.5);
+
+      &:hover {
+        background: #05786e;
+      }
+    }
   }
 
   &__image {
@@ -269,6 +285,17 @@ input[type="number"] {
     @media (max-width: 780px) {
       display: none;
     }
+
+    &_active {
+      display: block;
+      position: fixed;
+    }
+  }
+
+  &-social-media {
+    @media (max-width: 780px) {
+      display: none;
+    }
   }
 
   &-burger {
@@ -280,6 +307,7 @@ input[type="number"] {
       width: 30px;
       height: 30px;
       margin-right: 4.3vw;
+      z-index: 1;
 
       &__span {
         position: absolute;
@@ -288,6 +316,7 @@ input[type="number"] {
         height: 2px;
         left: 0;
         top: 14px;
+        transition: all 0.3s ease 0s;
       }
 
       &::before,
@@ -298,6 +327,7 @@ input[type="number"] {
         width: 100%;
         height: 2px;
         left: 0;
+        transition: all 0.3s ease 0s;
       }
 
       &::before {
@@ -312,6 +342,36 @@ input[type="number"] {
     @media (max-width: 320px) {
       margin-right: 16px;
       width: 22px;
+    }
+
+    &_active {
+      & .header-burger__span {
+        transform: scale(0);
+        background-color: #ffffff;
+      }
+
+      &::before {
+        background-color: #ffffff;
+        transform: rotate(45deg);
+        top: 14px;
+      }
+
+      &::after {
+        background-color: #ffffff;
+        transform: rotate(-45deg);
+        bottom: 14px;
+      }
+    }
+  }
+
+  &-menu {
+    @media (max-width: 780px) {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 311px;
+      height: 754px;
+      background-color: #20113d;
     }
   }
 }
@@ -330,6 +390,10 @@ input[type="number"] {
 .menu {
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
 
   &__item_active {
     color: #00a092;
@@ -351,6 +415,20 @@ input[type="number"] {
 
     @media (max-width: 940px) {
       margin-left: 2vw;
+    }
+
+    @media (max-width: 780px) {
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__item:first-child {
+    @media (max-width: 780px) {
+      margin-top: 150px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -374,6 +452,11 @@ input[type="number"] {
       @media (max-width: 450px) {
         margin-left: 4.55vw;
       }
+    }
+  }
+  &__link:not(.menu__item_active) {
+    @media (max-width: 780px) {
+      color: #ffffff;
     }
   }
 }

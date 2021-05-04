@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Zoo</title>
+    <link rel="icon" href="../../assets/icons/Favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="../script.js" defer></script>
 </head>
 
 <body>
@@ -17,11 +19,11 @@
             <a href="../../pages/main/index.html" class="logo">
                 <img class="logo__image" src="../../assets/images/Logo.svg" alt="logo">
             </a>
-            <div class="header-burger">
+            <div class="header-burger" id="header-burger">
                 <span class="header-burger__span"></span>
             </div>
-            <div class="header-links">
-                <nav class="header-menu">
+            <div class="header-links" id="header-links">
+                <nav class="header-menu" id="header-menu">
                     <ul class="menu">
                         <li class="menu__item">
                             <a href="../../pages/main/index.html"
@@ -463,7 +465,7 @@
                         make a real personal impact. Never doubt that your donation can
                         make a difference even if it is small.
                     </p>
-                    <a class="button button_orange step-description__button">
+                    <a class="button button_orange step-description__button" id="donate-now">
                         <span class="text text_button text_white">donate now</span>
                         <img src="../../assets/icons/arrow.svg" alt="arrow" class="button__image" />
                     </a>
@@ -747,6 +749,122 @@
         </div>
     </footer>
 
+    <div class="cover hidden" id="cover"></div>
+
+    <div class="popup-donate popup hidden" id="form-donate">
+        <div class="popup-donate__cross">
+            <span class="popup-donate__cross_span" id="donate-cross"></span>
+        </div>
+        <img class="popup-donate__image" src="../../assets/images/popup/donate.png" alt="donate">
+        <h2 class="title title_h2 popup-donate__title text_orange">
+            together we care, save and protect!
+        </h2>
+        <p class="popup-donate__text text text_size_s">
+            Your most generous gift not only cares for countless animals, but it also offers hope and a vital lifeline
+            to the world’s most endangered wildlife relying on us to survive.
+        </p>
+        <div class="popup-donate__form">
+            <button class="button button_turquoise popup-donate__form_item">
+                <span class="text text_button text_white">$20</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item">
+                <span class="text text_button text_white">$30</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item">
+                <span class="text text_button text_white">$50</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item">
+                <span class="text text_button text_white">$80</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item">
+                <span class="text text_button text_white">$100</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item">
+                <span class="text text_button text_white">Other amount</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="popup-donation popup " id="form-make-your-donation">
+        <div class="popup-donation__header">
+            <h3 class="popup-donation__title title title_h3 text_white">
+                make your donation
+            </h3>
+        </div>
+        <main class="popup-donation__main">
+            <p class="popup-donation__main_text text text_size_s text_semi-bold">
+                Donation Information:
+            </p>
+            <div class="popup-donation__main_line line"></div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Choose your donation amount:
+            </p>
+            <div class="popup-donation__main_form">
+                <button class="button button_turquoise-notactive popup-donation__main_item">
+                    <span class="text text_button text_white">$10</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item">
+                    <span class="text text_button text_white">$20</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item">
+                    <span class="text text_button text_white">$30</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item">
+                    <span class="text text_button text_white">$50</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item">
+                    <span class="text text_button text_white">$80</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item">
+                    <span class="text text_button text_white">$100</span>
+                </button>
+            </div>
+            <div class="popup-donation__other">
+                <button class="button button_turquoise popup-donation__other_button">
+                    <span class="text text_button text_white">Other amount</span>
+                </button>
+                <input type="number" class="text popup-donation__other_input">
+            </div>
+            <div class="popup-donation__special-pet">
+                <button class="button button_turquoise-notactive popup-donation__special-pet_button">
+                    <span class="text text_button text_white">Other amount</span>
+                </button>
+                <div class="popup-donation__special-pet_select">
+                    <div class="text text_notactive popup-donation__special-pet_select-arrow"
+                        id="donation-select">
+                        <span>Choose your favourite</span>
+                    </div>
+                    <div class="popup-donation__special-pet_options hidden" id="donation-options">
+                        <div class="text popup-donation__special-pet_options-item">Lukas the Panda</div>
+                        <div class="text popup-donation__special-pet_options-item">Andy the Lemur</div>
+                        <div class="text popup-donation__special-pet_options-item">Glen the Gorilla</div>
+                        <div class="text popup-donation__special-pet_options-item">Bald Eagle</div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-donation__confirm">
+                <input type="checkbox" id="confirm-checkbox" class="popup-donation__confirm_input">
+                <label for="confirm-checkbox" class="text popup-donation__confirm_label">Make this a monthly
+                    recurring gift</label>
+            </div>
+        </main>
+
+        <div class="popup-donation__footer">
+            <div class="popup-donation__footer-scroll">
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item"></span>
+                <span class="popup-donation__footer-scroll-item"></span>
+            </div>
+            <button type="submit" class="button form-button button_turquoise popup-donation__footer-button">
+                <p class="form-button__text text_button text_white">
+                    next
+                </p>
+                <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
+                    alt="send message" />
+            </button>
+        </div>
+
+    </div>
 </body>
 
 </html>
