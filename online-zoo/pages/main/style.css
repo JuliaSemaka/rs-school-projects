@@ -2038,6 +2038,10 @@
   overflow: visible;
 }
 
+.popup-donation_active {
+  background: #00a092;
+}
+
 .popup-donation__header {
   width: 100%;
   height: 135px;
@@ -2062,16 +2066,72 @@
 
 .popup-donation__main_text {
   margin-left: 123px;
+  margin-right: 123px;
 }
 
 .popup-donation__main_text-form {
   margin-left: 120px;
+  margin-right: 120px;
   margin-top: 40px;
+}
+
+.popup-donation__main_input {
+  padding: 17px 20px;
+  width: 100%;
+  border: 1px solid #000000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: text;
 }
 
 .popup-donation__main_line {
   border-top: 1px solid #a4a8ae;
   margin-top: 10px;
+}
+
+.popup-donation__main_card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+
+.popup-donation__main_card-info-input .popup-donation__main_text-form,
+.popup-donation__main_card-info-input .popup-donation__main_form {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.popup-donation__main_card-info-input:first-child {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 420px;
+          flex: 0 0 420px;
+}
+
+.popup-donation__main_card-info-input:last-child {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 198px;
+          flex: 0 0 198px;
+  margin-left: 40px;
+}
+
+.popup-donation__main_card-info-select {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.popup-donation__main_card-info-select:last-child {
+  margin-left: 40px;
+}
+
+.popup-donation__main_card .popup-donation__special-pet_select-arrow {
+  width: 201px;
+  height: 65px;
 }
 
 .popup-donation__main_form {
@@ -2204,6 +2264,14 @@
           align-items: center;
 }
 
+.popup-donation__special-pet_select-arrow:hover::after {
+  background: #05786e;
+}
+
+.popup-donation__special-pet_select-arrow span {
+  margin-left: -32px;
+}
+
 .popup-donation__special-pet_options {
   position: absolute;
   background: #ffffff;
@@ -2217,6 +2285,7 @@
   padding: 20px 0;
   width: 100.5%;
   left: -1px;
+  z-index: 2;
   /* полоса прокрутки (скроллбар) */
   /* ползунок скроллбара */
   /* Стрелки */
@@ -2269,7 +2338,7 @@
   opacity: 0;
 }
 
-.popup-donation__confirm_input:checked + .popup-make-your-donation__confirm_label::before {
+.popup-donation__confirm_input:checked + .popup-donation__confirm_label::before {
   border: none;
   background-color: #80cfc8;
   background-image: url(../../assets/icons/main/arrow-bottom.svg);
@@ -2341,13 +2410,34 @@
 }
 
 .popup-donation__footer-button {
-  margin-left: 325px;
   width: 200px;
   height: 74px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border: none;
+}
+
+.popup-donation__footer-button-back {
+  margin-left: 55px;
+}
+
+.popup-donation__footer-button-back .text_button {
+  text-transform: lowercase;
+  text-decoration: underline;
+}
+
+.popup-donation__footer-button-back .text_button::first-letter {
+  text-transform: uppercase;
+}
+
+.popup-donation__footer-button-next {
+  margin-left: 70px;
+}
+
+.popup-donation__footer-button-complete {
+  margin-left: 16px;
+  width: 359px;
 }
 
 .hidden {

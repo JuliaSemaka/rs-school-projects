@@ -183,6 +183,14 @@ input[type="number"] {
   background: #f58021;
 }
 
+.button_orange:disabled {
+  background: #f5802161;
+}
+
+.button_orange:disabled:hover {
+  background: #f5802161;
+}
+
 .button_orange:hover {
   background: #d26004;
 }
@@ -201,6 +209,22 @@ input[type="number"] {
 
 .button_turquoise-notactive:hover {
   background: #05786e;
+}
+
+.button_transparent {
+  background-color: inherit;
+}
+
+.button_transparent:hover {
+  background: #05786e;
+}
+
+.button_transparent:hover .text_button {
+  color: #ffffff;
+}
+
+.button_hidden {
+  visibility: hidden;
 }
 
 .button__image {

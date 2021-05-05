@@ -169,6 +169,14 @@ input[type="number"] {
   &_orange {
     background: #f58021;
 
+    &:disabled {
+      background: #f5802161;
+
+      &:hover {
+        background: #f5802161;
+      }
+    }
+
     &:hover {
       background: #d26004;
     }
@@ -188,6 +196,22 @@ input[type="number"] {
         background: #05786e;
       }
     }
+  }
+
+  &_transparent {
+    background-color: inherit;
+
+    &:hover {
+      background: #05786e;
+
+      & .text_button {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &_hidden {
+    visibility: hidden;
   }
 
   &__image {

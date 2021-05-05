@@ -158,10 +158,10 @@
                     <div class="donation-form__item button">
                         <span class="donation-form__span text text_button text_white">$</span>
                         <input class="donation-form__input text text_button text_white" type="number"
-                            placeholder="Donation Amount" pattern="[0-9]{3}"
+                            id="donation-amount-main-page" placeholder="Donation Amount" pattern="[0-9]{3}"
                             onkeypress="this.value=this.value.substring(0,3);" />
                     </div>
-                    <button type="submit" class="button button_orange donation-form__submit">
+                    <button type="submit" class="button button_orange donation-form__submit" id="donation-submit">
                         <img src="../../assets/icons/arrow.svg" alt="arrow" />
                     </button>
                 </form>
@@ -751,6 +751,7 @@
 
     <div class="cover hidden" id="cover"></div>
 
+    <!-- Popap  -->
     <div class="popup-donate popup hidden" id="form-donate">
         <div class="popup-donate__cross">
             <span class="popup-donate__cross_span" id="donate-cross"></span>
@@ -763,29 +764,30 @@
             Your most generous gift not only cares for countless animals, but it also offers hope and a vital lifeline
             to the world’s most endangered wildlife relying on us to survive.
         </p>
-        <div class="popup-donate__form">
-            <button class="button button_turquoise popup-donate__form_item">
+        <div class="popup-donate__form" id="checked-donate-sum">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="20">
                 <span class="text text_button text_white">$20</span>
             </button>
-            <button class="button button_turquoise popup-donate__form_item">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="30">
                 <span class="text text_button text_white">$30</span>
             </button>
-            <button class="button button_turquoise popup-donate__form_item">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="50">
                 <span class="text text_button text_white">$50</span>
             </button>
-            <button class="button button_turquoise popup-donate__form_item">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="80">
                 <span class="text text_button text_white">$80</span>
             </button>
-            <button class="button button_turquoise popup-donate__form_item">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="100">
                 <span class="text text_button text_white">$100</span>
             </button>
-            <button class="button button_turquoise popup-donate__form_item">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="other">
                 <span class="text text_button text_white">Other amount</span>
             </button>
         </div>
     </div>
 
-    <div class="popup-donation popup " id="form-make-your-donation">
+    <!-- Popap step 1 -->
+    <div class="popup-donation popup hidden" id="form-make-your-donation">
         <div class="popup-donation__header">
             <h3 class="popup-donation__title title title_h3 text_white">
                 make your donation
@@ -799,39 +801,39 @@
             <p class="popup-donation__main_text-form text text_size_s">
                 <span class="text_turquoise">*</span> Choose your donation amount:
             </p>
-            <div class="popup-donation__main_form">
-                <button class="button button_turquoise-notactive popup-donation__main_item">
+            <div class="popup-donation__main_form" id="sum-amount">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="10">
                     <span class="text text_button text_white">$10</span>
                 </button>
-                <button class="button button_turquoise-notactive popup-donation__main_item">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="20">
                     <span class="text text_button text_white">$20</span>
                 </button>
-                <button class="button button_turquoise-notactive popup-donation__main_item">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="30">
                     <span class="text text_button text_white">$30</span>
                 </button>
-                <button class="button button_turquoise-notactive popup-donation__main_item">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="50">
                     <span class="text text_button text_white">$50</span>
                 </button>
-                <button class="button button_turquoise-notactive popup-donation__main_item">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="80">
                     <span class="text text_button text_white">$80</span>
                 </button>
-                <button class="button button_turquoise-notactive popup-donation__main_item">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="100">
                     <span class="text text_button text_white">$100</span>
                 </button>
             </div>
-            <div class="popup-donation__other">
-                <button class="button button_turquoise popup-donation__other_button">
+            <div class="popup-donation__other" id="other-amount">
+                <button class="button button_turquoise-notactive popup-donation__other_button">
                     <span class="text text_button text_white">Other amount</span>
                 </button>
-                <input type="number" class="text popup-donation__other_input">
+                <input type="number" class="text popup-donation__other_input" pattern="[0-9]{3}"
+                    onkeypress="this.value=this.value.substring(0,3);">
             </div>
             <div class="popup-donation__special-pet">
-                <button class="button button_turquoise-notactive popup-donation__special-pet_button">
-                    <span class="text text_button text_white">Other amount</span>
+                <button class="button button_turquoise-notactive popup-donation__special-pet_button" id="special-pet">
+                    <span class="text text_button text_white">for special pet</span>
                 </button>
                 <div class="popup-donation__special-pet_select">
-                    <div class="text text_notactive popup-donation__special-pet_select-arrow"
-                        id="donation-select">
+                    <div class="text text_notactive popup-donation__special-pet_select-arrow" id="donation-select">
                         <span>Choose your favourite</span>
                     </div>
                     <div class="popup-donation__special-pet_options hidden" id="donation-options">
@@ -855,9 +857,157 @@
                 <span class="popup-donation__footer-scroll-item"></span>
                 <span class="popup-donation__footer-scroll-item"></span>
             </div>
-            <button type="submit" class="button form-button button_turquoise popup-donation__footer-button">
+            <button type="submit"
+                class="button form-button button_transparent popup-donation__footer-button popup-donation__footer-button-back button_hidden">
+                <p class="form-button__text text_button text_turquoise">
+                    Back
+                </p>
+            </button>
+            <button type="submit" id="step1_next"
+                class="button form-button button_turquoise popup-donation__footer-button popup-donation__footer-button-next">
                 <p class="form-button__text text_button text_white">
                     next
+                </p>
+                <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
+                    alt="send message" />
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Popap step 2 -->
+    <div class="popup-donation popup hidden" id="form-make-your-donation-step2">
+        <div class="popup-donation__header">
+            <h3 class="popup-donation__title title title_h3 text_white">
+                make your donation
+            </h3>
+        </div>
+        <main class="popup-donation__main" id="billing-information">
+            <p class="popup-donation__main_text text text_size_s text_semi-bold">
+                Billing Information:
+            </p>
+            <div class="popup-donation__main_line line"></div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Your Name
+            </p>
+            <div class="popup-donation__main_form">
+                <input class="text text_size_s popup-donation__main_input" type="text" placeholder="First and last name"
+                    required />
+            </div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Your Email Address
+            </p>
+            <div class="popup-donation__main_form">
+                <input class="text text_size_s popup-donation__main_input" type="text" placeholder="Enter your email"
+                    required />
+            </div>
+            <p class="popup-donation__main_text text text_size_s">
+                You will receive emails from the Online Zoo, including updates and news on the latest discoveries and
+                translations. You can unsubscribe at any time.
+            </p>
+
+        </main>
+
+        <div class="popup-donation__footer">
+            <div class="popup-donation__footer-scroll">
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item"></span>
+            </div>
+            <button type="submit" id="step2_back"
+                class="button form-button button_transparent popup-donation__footer-button popup-donation__footer-button-back">
+                <p class="form-button__text text_button text_turquoise">
+                    Back
+                </p>
+            </button>
+            <button type="submit" id="step2_next"
+                class="button form-button button_turquoise popup-donation__footer-button popup-donation__footer-button-next">
+                <p class="form-button__text text_button text_white">
+                    next
+                </p>
+                <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
+                    alt="send message" />
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Popap step 3 -->
+    <div class="popup-donation popup hidden" id="form-make-your-donation-step3">
+        <div class="popup-donation__header">
+            <h3 class="popup-donation__title title title_h3 text_white">
+                make your donation
+            </h3>
+        </div>
+        <main class="popup-donation__main" id="data-card-number">
+            <p class="popup-donation__main_text text text_size_s text_semi-bold">
+                Payment Information:
+            </p>
+            <div class="popup-donation__main_line line"></div>
+            <div class="popup-donation__main_card">
+                <div class="popup-donation__main_card-info-input">
+                    <p class="popup-donation__main_text-form text text_size_s">
+                        <span class="text_turquoise">*</span> Credit Card Number
+                    </p>
+                    <div class="popup-donation__main_form">
+                        <input class="text text_size_s popup-donation__main_input" type="text"
+                            onkeypress="this.value=this.value.substring(0,15);" required />
+                    </div>
+                </div>
+                <div class="popup-donation__main_card-info-input">
+                    <p class="popup-donation__main_text-form text text_size_s">
+                        <span class="text_turquoise">*</span> CVV Number
+                    </p>
+                    <div class="popup-donation__main_form">
+                        <input class="text text_size_s popup-donation__main_input" type="text"
+                            onkeypress="this.value=this.value.substring(0,2);" required />
+                    </div>
+                </div>
+            </div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Expiration Date
+            </p>
+            <div class="popup-donation__main_card">
+                <div class="popup-donation__main_card-info-select">
+                    <div class="popup-donation__special-pet_select">
+                        <div class="text text_notactive popup-donation__special-pet_select-arrow"
+                            id="donation-month-select">
+                            <span>Month</span>
+                        </div>
+                        <div class="popup-donation__special-pet_options hidden" id="donation-month-options">
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-donation__main_card-info-select">
+                    <div class="popup-donation__special-pet_select">
+                        <div class="text text_notactive popup-donation__special-pet_select-arrow"
+                            id="donation-year-select">
+                            <span>Year</span>
+                        </div>
+                        <div class="popup-donation__special-pet_options hidden" id="donation-year-options">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="popup-donation__footer">
+            <div class="popup-donation__footer-scroll">
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+            </div>
+            <button type="submit" id="step3_back"
+                class="button form-button button_transparent popup-donation__footer-button popup-donation__footer-button-back">
+                <p class="form-button__text text_button text_turquoise">
+                    Back
+                </p>
+            </button>
+            <button type="submit" id="step3_next" disabled="disabled"
+                class="button form-button button_orange popup-donation__footer-button popup-donation__footer-button-complete">
+                <p class="form-button__text text_button text_white">
+                    complete donation
                 </p>
                 <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
                     alt="send message" />

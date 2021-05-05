@@ -1606,6 +1606,10 @@ section.online-zoo {
     @media (max-width: 980px) {
     }
 
+    &_active {
+      background: #00a092;
+    }
+
     &__header {
       width: 100%;
       height: 135px;
@@ -1623,16 +1627,66 @@ section.online-zoo {
 
       &_text {
         margin-left: 123px;
+        margin-right: 123px;
 
         &-form {
           margin-left: 120px;
+          margin-right: 120px;
           margin-top: 40px;
         }
+      }
+
+      &_input {
+        padding: 17px 20px;
+        width: 100%;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        cursor: text;
       }
 
       &_line {
         border-top: 1px solid #a4a8ae;
         margin-top: 10px;
+      }
+
+      &_card {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 120px;
+        margin-right: 120px;
+
+        &-info-input {
+          & .popup-donation__main_text-form,
+          & .popup-donation__main_form {
+            margin-left: 0;
+            margin-right: 0;
+          }
+
+          &:first-child {
+            flex: 0 0 420px;
+          }
+
+          &:last-child {
+            flex: 0 0 198px;
+            margin-left: 40px;
+          }
+        }
+
+        &-info-select {
+          margin-top: 10px;
+          margin-bottom: 50px;
+
+          &:last-child {
+            margin-left: 40px;
+          }
+        }
+
+        & .popup-donation__special-pet_select-arrow {
+          width: 201px;
+          height: 65px;
+        }
       }
 
       &_form {
@@ -1727,6 +1781,16 @@ section.online-zoo {
             justify-content: center;
             align-items: center;
           }
+
+          &:hover {
+            &::after {
+              background: #05786e;
+            }
+          }
+
+          & span {
+            margin-left: -32px;
+          }
         }
       }
 
@@ -1742,6 +1806,7 @@ section.online-zoo {
         padding: 20px 0;
         width: 100.5%;
         left: -1px;
+        z-index: 2;
 
         /* полоса прокрутки (скроллбар) */
         &::-webkit-scrollbar {
@@ -1791,7 +1856,7 @@ section.online-zoo {
         position: absolute;
         opacity: 0;
 
-        &:checked + .popup-make-your-donation__confirm_label::before {
+        &:checked + .popup-donation__confirm_label::before {
           border: none;
           background-color: #80cfc8;
           background-image: url(../../assets/icons/main/arrow-bottom.svg);
@@ -1850,11 +1915,32 @@ section.online-zoo {
       }
 
       &-button {
-        margin-left: 325px;
         width: 200px;
         height: 74px;
         align-items: center;
         border: none;
+
+        &-back {
+          margin-left: 55px;
+
+          & .text_button {
+            text-transform: lowercase;
+            text-decoration: underline;
+
+            &::first-letter {
+              text-transform: uppercase;
+            }
+          }
+        }
+
+        &-next {
+          margin-left: 70px;
+        }
+
+        &-complete {
+          margin-left: 16px;
+          width: 359px;
+        }
       }
     }
   }
