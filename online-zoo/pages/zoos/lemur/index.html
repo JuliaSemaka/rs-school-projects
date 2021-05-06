@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Zoo</title>
+    <link rel="icon" href="../../../assets/icons/Favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../../../pages/style.css">
     <link rel="stylesheet" href="../../../pages/zoos/style.css">
+    <script src="../script.js" defer></script>
 </head>
 
 <body>
@@ -71,12 +73,15 @@
     </header>
 
     <main class="main-block block-header_top">
-        <asside class="sidebar">
-            <div class="sidebar__undraw">
-                <img class="sidebar__undraw_image" src="../../../assets/icons/zoos/two-arrows.svg" alt="arrows">
+        <asside class="sidebar" id="sidebar">
+            <div class="sidebar__undraw" id="button-undraw">
+                <img class="sidebar__undraw_image sidebar__undraw_image-right"
+                    src="../../../assets/icons/zoos/two-arrows.svg" alt="arrows">
+                <img class="sidebar__undraw_image  sidebar__undraw_image-left"
+                    src="../../../assets/icons/zoos/two-arrows-left.svg" alt="arrows">
                 <img class="sidebar__undraw_icon" src="../../../assets/icons/zoos/life-cam.svg" alt="life-cam">
             </div>
-            <div class="sidebar__animals">
+            <div class="sidebar__animals" id="sidebar-animals">
                 <a href="../../../pages/zoos/lemur/">
                     <div class="sidebar__animals-item sidebar__animals-active">
                         <img class="sidebar__circle" src="../../../assets/icons/zoos/animals/circle.svg" alt="circle">
@@ -91,6 +96,8 @@
                             src="../../../assets/icons/zoos/animals-min-active/Lemur.svg" alt="animal">
                         <img class="sidebar__animal sidebar__animal-min"
                             src="../../../assets/icons/zoos/animals-min/Lemur.svg" alt="animal">
+                        <p class="text text_white text_size_s sidebar__animal-description">Watch live from China's Panda
+                            Center </p>
                     </div>
                 </a>
                 <a href="../../../pages/zoos/panda/index.html">
@@ -108,6 +115,8 @@
                             src="../../../assets/icons/zoos/animals-min-active/Panda.svg" alt="animal">
                         <img class="sidebar__animal sidebar__animal-min_active"
                             src="../../../assets/icons/zoos/animals-min/Panda.svg" alt="animal">
+                        <p class="text text_white text_size_s sidebar__animal-description">Watch The Bald Eagles Nest
+                            from West End cam</p>
                     </div>
                 </a>
                 <a href="../../../pages/zoos/eagle/index.html">
@@ -125,6 +134,8 @@
                             src="../../../assets/icons/zoos/animals-min-active/Eagle.svg" alt="animal">
                         <img class="sidebar__animal sidebar__animal-min_active"
                             src="../../../assets/icons/zoos/animals-min/Eagle.svg" alt="animal">
+                        <p class="text text_white text_size_s sidebar__animal-description">Livestream from Gorilla
+                            Forest Corridor habitat cam Center</p>
                     </div>
                 </a>
                 <a href="../../../pages/zoos/gorilla/index.html">
@@ -142,9 +153,11 @@
                             src="../../../assets/icons/zoos/animals-min-active/Gorilla.svg" alt="animal">
                         <img class="sidebar__animal sidebar__animal-min_active"
                             src="../../../assets/icons/zoos/animals-min/Gorilla.svg" alt="animal">
+                        <p class="text text_white text_size_s sidebar__animal-description">The ring-tailed lemurs play
+                            in Madagascar, Lemuria Land</p>
                     </div>
                 </a>
-                <div class="sidebar__undraw">
+                <div class="sidebar__undraw" id="undraw-bottom">
                     <img class="sidebar__undraw_bottom" src="../../../assets/icons/zoos/animals/circle-bottom.svg"
                         alt="arrows">
                 </div>
@@ -158,7 +171,7 @@
                         <img src="../../../assets/icons/arrow.svg" alt="arrow" class="button__image" />
                     </a>
                     <h2 class="zoos__title title title_h2 text_turquoise">lemurs cams</h2>
-                    <div class="zoos__video">
+                    <div class="zoos__video" id="zoos-video">
                         <iframe width="1400" height="787" src="https://www.youtube.com/embed/Cbc-OxD6Uw4"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -168,10 +181,58 @@
                     <div class="zoos__video-slider">
                         <h3 class="title title_h3">more live views</h3>
                         <div class="video-choice">
-                            <div class="video-choice__block">
+                            <div class="video-choice__block" id="left">
                                 <img src="../../../assets/icons/zoos/left.svg" alt="Left">
                             </div>
-                            <div class="video-choice__block video-choice__list">
+                            <div class="video-choice__block video-choice__list" id="video-choice-list">
+                                <div class="video-choice__item">
+                                    <iframe width="320" height="209" src="https://www.youtube.com/embed/J3JXA9Kmo98"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    <div class="plug"></div>
+                                    <img class="video-choice__cam" src="../../../assets/icons/zoos/cam1.svg" alt="cam">
+                                </div>
+                                <div class="video-choice__item">
+                                    <iframe width="320" height="209" src="https://www.youtube.com/embed/eCfKfG7U-Kw"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    <div class="plug"></div>
+                                    <img class="video-choice__cam" src="../../../assets/icons/zoos/cam2.svg" alt="cam">
+                                </div>
+                                <div class="video-choice__item">
+                                    <iframe width="320" height="209" src="https://www.youtube.com/embed/JKjCL3KtBlk"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    <div class="plug"></div>
+                                    <img class="video-choice__cam" src="../../../assets/icons/zoos/cam3.svg" alt="cam">
+                                </div>
+                                <div class="video-choice__item">
+                                    <iframe width="320" height="209" src="https://www.youtube.com/embed/J3JXA9Kmo98"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    <div class="plug"></div>
+                                    <img class="video-choice__cam" src="../../../assets/icons/zoos/cam1.svg" alt="cam">
+                                </div>
+                                <div class="video-choice__item">
+                                    <iframe width="320" height="209" src="https://www.youtube.com/embed/eCfKfG7U-Kw"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    <div class="plug"></div>
+                                    <img class="video-choice__cam" src="../../../assets/icons/zoos/cam2.svg" alt="cam">
+                                </div>
+                                <div class="video-choice__item">
+                                    <iframe width="320" height="209" src="https://www.youtube.com/embed/JKjCL3KtBlk"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    <div class="plug"></div>
+                                    <img class="video-choice__cam" src="../../../assets/icons/zoos/cam3.svg" alt="cam">
+                                </div>
                                 <div class="video-choice__item">
                                     <iframe width="320" height="209" src="https://www.youtube.com/embed/J3JXA9Kmo98"
                                         title="YouTube video player" frameborder="0"
@@ -197,7 +258,7 @@
                                     <img class="video-choice__cam" src="../../../assets/icons/zoos/cam3.svg" alt="cam">
                                 </div>
                             </div>
-                            <div class="video-choice__block">
+                            <div class="video-choice__block" id="right">
                                 <img src="../../../assets/icons/zoos/right.svg" alt="Right">
                             </div>
                         </div>

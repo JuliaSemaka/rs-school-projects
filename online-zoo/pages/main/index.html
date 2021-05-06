@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Zoo</title>
+    <link rel="icon" href="../../assets/icons/Favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style.css">
+    <script src="../script.js" defer></script>
+    <script src="./carousel.js" defer></script>
 </head>
 
 <body>
@@ -17,11 +20,11 @@
             <a href="../../pages/main/index.html" class="logo">
                 <img class="logo__image" src="../../assets/images/Logo.svg" alt="logo">
             </a>
-            <div class="header-burger">
+            <div class="header-burger" id="header-burger">
                 <span class="header-burger__span"></span>
             </div>
-            <div class="header-links">
-                <nav class="header-menu">
+            <div class="header-links" id="header-links">
+                <nav class="header-menu" id="header-menu">
                     <ul class="menu">
                         <li class="menu__item">
                             <a href="../../pages/main/index.html"
@@ -156,10 +159,10 @@
                     <div class="donation-form__item button">
                         <span class="donation-form__span text text_button text_white">$</span>
                         <input class="donation-form__input text text_button text_white" type="number"
-                            placeholder="Donation Amount" pattern="[0-9]{3}"
+                            id="donation-amount-main-page" placeholder="Donation Amount" pattern="[0-9]{3}"
                             onkeypress="this.value=this.value.substring(0,3);" />
                     </div>
-                    <button type="submit" class="button button_orange donation-form__submit">
+                    <button type="submit" class="button button_orange donation-form__submit" id="donation-submit">
                         <img src="../../assets/icons/arrow.svg" alt="arrow" />
                     </button>
                 </form>
@@ -178,16 +181,16 @@
                 used.
             </p>
             <div class="arrows meet-pets__arrows">
-                <button class="button button_border_blue arrows__button">
+                <button class="button button_border_blue arrows__button" id="arrow-left">
                     <img class="arrows__button_blue" src="../../assets/images/main/arrow-left.svg" alt="arrow" />
                     <img class="arrows__button_white" src="../../assets/icons/arrow-left-w.svg" alt="arrow" />
                 </button>
-                <button class="button button_border_blue arrows__button">
+                <button class="button button_border_blue arrows__button" id="arrow-right">
                     <img class="arrows__button_blue" src="../../assets/images/main/arrow-right.svg" alt="arrow" />
                     <img class="arrows__button_white" src="../../assets/icons/arrow-right-w.svg" alt="arrow" />
                 </button>
             </div>
-            <div class="meet-pets-slider">
+            <div class="meet-pets-slider" id="meet-pets-slider">
                 <div class="meet-pets-slider__items">
                     <div class="slider-item">
                         <a class="slider-item__elem" href="../zoos/panda/index.html">
@@ -212,7 +215,6 @@
                             </a>
                         </a>
                     </div>
-
                     <div class="slider-item">
                         <a class="slider-item__elem" href="../zoos/lemur/index.html">
                             <div class="slider-item__image">
@@ -236,7 +238,6 @@
                             </a>
                         </a>
                     </div>
-
                     <div class="slider-item">
                         <a class="slider-item__elem" href="../zoos/gorilla/index.html">
                             <div class="slider-item__image">
@@ -279,6 +280,255 @@
                                 src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
                             <img class="slider-item__button_white button__image"
                                 src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/panda/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
+                                    alt="Lucas" />
+                                <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Giant Panda
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Native to central China, giant pandas have come to symbolize
+                                vulnerable species.
+                            </p>
+                            <a href="../zoos/panda/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/lemur/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
+                                    alt="Andy" />
+                                <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Madagascarian Lemur
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Lemurs are considered the world’s most endangered group of
+                                mammals.
+                            </p>
+                            <a href="../zoos/lemur/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/gorilla/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
+                                    alt="Glen" />
+                                <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Gorilla in Congo
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Variety of snacks very important for the healthy life of
+                                gorillas and his plenty of babies.
+                            </p>
+                            <a href="../zoos/gorilla/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Mike.png"
+                                alt="Mike" />
+                            <span class="slider-item__image-text text text_white text_size_m">Mike</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Chinese Alligator
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            From nose to tail, belly to back, hard scales protect this
+                            petite alligator.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/panda/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
+                                    alt="Lucas" />
+                                <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Giant Panda
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Native to central China, giant pandas have come to symbolize
+                                vulnerable species.
+                            </p>
+                            <a href="../zoos/panda/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/lemur/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
+                                    alt="Andy" />
+                                <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Madagascarian Lemur
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Lemurs are considered the world’s most endangered group of
+                                mammals.
+                            </p>
+                            <a href="../zoos/lemur/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/gorilla/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
+                                    alt="Glen" />
+                                <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Gorilla in Congo
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Variety of snacks very important for the healthy life of
+                                gorillas and his plenty of babies.
+                            </p>
+                            <a href="../zoos/gorilla/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Mike.png"
+                                alt="Mike" />
+                            <span class="slider-item__image-text text text_white text_size_m">Mike</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Chinese Alligator
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            From nose to tail, belly to back, hard scales protect this
+                            petite alligator.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/panda/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
+                                    alt="Lucas" />
+                                <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Giant Panda
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Native to central China, giant pandas have come to symbolize
+                                vulnerable species.
+                            </p>
+                            <a href="../zoos/panda/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/lemur/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
+                                    alt="Andy" />
+                                <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Madagascarian Lemur
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Lemurs are considered the world’s most endangered group of
+                                mammals.
+                            </p>
+                            <a href="../zoos/lemur/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/gorilla/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
+                                    alt="Glen" />
+                                <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Gorilla in Congo
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Variety of snacks very important for the healthy life of
+                                gorillas and his plenty of babies.
+                            </p>
+                            <a href="../zoos/gorilla/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
                         </a>
                     </div>
                 </div>
@@ -360,6 +610,243 @@
                         <p class="slider-item__text text text_size_s text_white">
                             Sumatran Tigers are the smallest of the five sub-species, and
                             are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/eagle/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img"
+                                    src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                                <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                West End Bald Eagles
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Pair of eagle parents lay and protect eggs, feed their chicks
+                                and teach them to hunt and fly.
+                            </p>
+                            <a href="../zoos/eagle/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Senja.png"
+                                alt="Senja" />
+                            <span class="slider-item__image-text text text_white text_size_m">Senja</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Sumatran Tiger
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Sumatran Tigers are the smallest of the five sub-species, and
+                            are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/eagle/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img"
+                                    src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                                <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                West End Bald Eagles
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Pair of eagle parents lay and protect eggs, feed their chicks
+                                and teach them to hunt and fly.
+                            </p>
+                            <a href="../zoos/eagle/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Senja.png"
+                                alt="Senja" />
+                            <span class="slider-item__image-text text text_white text_size_m">Senja</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Sumatran Tiger
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Sumatran Tigers are the smallest of the five sub-species, and
+                            are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/eagle/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img"
+                                    src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                                <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                West End Bald Eagles
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Pair of eagle parents lay and protect eggs, feed their chicks
+                                and teach them to hunt and fly.
+                            </p>
+                            <a href="../zoos/eagle/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
                         </p>
                         <a class="button slider-item__button">
                             <span class="text text_button text_orange">VIEW LIVE CAM</span>
@@ -463,7 +950,7 @@
                         make a real personal impact. Never doubt that your donation can
                         make a difference even if it is small.
                     </p>
-                    <a class="button button_orange step-description__button">
+                    <a class="button button_orange step-description__button" id="donate-now">
                         <span class="text text_button text_white">donate now</span>
                         <img src="../../assets/icons/arrow.svg" alt="arrow" class="button__image" />
                     </a>
@@ -473,8 +960,60 @@
     </div>
     <div class="users-think page_center">
         <div class="wrapper wraper_relative users-think_wraper">
-            <div class="reviews">
+            <div class="reviews" id="reviews">
                 <div class="reviews__line">
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            New Jersey, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            I am writing to thank you for your mission is to bring people
+                            closer to nature! Like myself, children were very impressed by
+                            the opportunity to explore the life of incredible animals in
+                            real-time.
+                        </p>
+                        <span class="review__author text text_button">Karen Maithlan</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            Toronto, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            We so enjoy the ever-evolving selection of animals from around
+                            the globe. THANK YOU for sharing these fascinating animal
+                            friends with us so that we may learn and increase our
+                            understanding of the animal kingdom.
+                        </p>
+                        <span class="review__author text text_button">Carol Larsen</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            New Jersey, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            I am writing to thank you for your mission is to bring people
+                            closer to nature! Like myself, children were very impressed by
+                            the opportunity to explore the life of incredible animals in
+                            real-time.
+                        </p>
+                        <span class="review__author text text_button">Karen Maithlan</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            Toronto, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            We so enjoy the ever-evolving selection of animals from around
+                            the globe. THANK YOU for sharing these fascinating animal
+                            friends with us so that we may learn and increase our
+                            understanding of the animal kingdom.
+                        </p>
+                        <span class="review__author text text_button">Carol Larsen</span>
+                    </div>
                     <div class="review">
                         <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
                         <p class="review__title text text_size_m">
@@ -527,6 +1066,54 @@
                         </p>
                         <span class="review__author text text_button">Tomas Ray</span>
                     </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            London, February 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            A fantastic experience for kids and adults alike! If anyone is
+                            looking for an attraction that educates people on wild animals –
+                            it's for you! I highly recommend seeing for yourself the variety
+                            of animals on your screen.
+                        </p>
+                        <span class="review__author text text_button">C. Stockman</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">Amsterdam, June 2020</p>
+                        <p class="review__text text text_size_s">
+                            I want to thank you for the amazing sites you find to put your
+                            cameras to let each of us see things that we would probably
+                            never see on our own. There are so many positives on Zoo Online
+                            and I'm grateful for it. Thank you so much!
+                        </p>
+                        <span class="review__author text text_button">Tomas Ray</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            London, February 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            A fantastic experience for kids and adults alike! If anyone is
+                            looking for an attraction that educates people on wild animals –
+                            it's for you! I highly recommend seeing for yourself the variety
+                            of animals on your screen.
+                        </p>
+                        <span class="review__author text text_button">C. Stockman</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">Amsterdam, June 2020</p>
+                        <p class="review__text text text_size_s">
+                            I want to thank you for the amazing sites you find to put your
+                            cameras to let each of us see things that we would probably
+                            never see on our own. There are so many positives on Zoo Online
+                            and I'm grateful for it. Thank you so much!
+                        </p>
+                        <span class="review__author text text_button">Tomas Ray</span>
+                    </div>
                 </div>
                 <div class="points-selector reviews__points-selector">
                     <span class="points-selector__item points-selector__item_active"></span>
@@ -535,10 +1122,10 @@
                     <span class="points-selector__item"></span>
                 </div>
                 <div class="arrows reviews__buttons">
-                    <button class="button button_border_white arrows__button">
+                    <button class="button button_border_white arrows__button" id="reviews-left">
                         <img src="../../assets/icons/arrow-left.svg" alt="arrow" />
                     </button>
-                    <button class="button button_border_white arrows__button">
+                    <button class="button button_border_white arrows__button" id="reviews-right">
                         <img src="../../assets/icons/arrow-right.svg" alt="arrow" />
                     </button>
                 </div>
@@ -747,6 +1334,272 @@
         </div>
     </footer>
 
+    <div class="cover hidden" id="cover"></div>
+
+    <!-- Popap  -->
+    <div class="popup-donate popup hidden" id="form-donate">
+        <div class="popup-donate__cross">
+            <span class="popup-donate__cross_span" id="donate-cross"></span>
+        </div>
+        <img class="popup-donate__image" src="../../assets/images/popup/donate.png" alt="donate">
+        <h2 class="title title_h2 popup-donate__title text_orange">
+            together we care, save and protect!
+        </h2>
+        <p class="popup-donate__text text text_size_s">
+            Your most generous gift not only cares for countless animals, but it also offers hope and a vital lifeline
+            to the world’s most endangered wildlife relying on us to survive.
+        </p>
+        <div class="popup-donate__form" id="checked-donate-sum">
+            <button class="button button_turquoise popup-donate__form_item" data-sum="20">
+                <span class="text text_button text_white">$20</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item" data-sum="30">
+                <span class="text text_button text_white">$30</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item" data-sum="50">
+                <span class="text text_button text_white">$50</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item" data-sum="80">
+                <span class="text text_button text_white">$80</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item" data-sum="100">
+                <span class="text text_button text_white">$100</span>
+            </button>
+            <button class="button button_turquoise popup-donate__form_item" data-sum="other">
+                <span class="text text_button text_white">Other amount</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Popap step 1 -->
+    <div class="popup-donation popup hidden" id="form-make-your-donation">
+        <div class="popup-donation__header">
+            <h3 class="popup-donation__title title title_h3 text_white">
+                make your donation
+            </h3>
+        </div>
+        <main class="popup-donation__main">
+            <p class="popup-donation__main_text text text_size_s text_semi-bold">
+                Donation Information:
+            </p>
+            <div class="popup-donation__main_line line"></div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Choose your donation amount:
+            </p>
+            <div class="popup-donation__main_form" id="sum-amount">
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="10">
+                    <span class="text text_button text_white">$10</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="20">
+                    <span class="text text_button text_white">$20</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="30">
+                    <span class="text text_button text_white">$30</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="50">
+                    <span class="text text_button text_white">$50</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="80">
+                    <span class="text text_button text_white">$80</span>
+                </button>
+                <button class="button button_turquoise-notactive popup-donation__main_item" data-sum="100">
+                    <span class="text text_button text_white">$100</span>
+                </button>
+            </div>
+            <div class="popup-donation__other" id="other-amount">
+                <button class="button button_turquoise-notactive popup-donation__other_button">
+                    <span class="text text_button text_white">Other amount</span>
+                </button>
+                <input type="number" class="text popup-donation__other_input" pattern="[0-9]{3}"
+                    onkeypress="this.value=this.value.substring(0,3);">
+            </div>
+            <div class="popup-donation__special-pet">
+                <button class="button button_turquoise-notactive popup-donation__special-pet_button" id="special-pet">
+                    <span class="text text_button text_white">for special pet</span>
+                </button>
+                <div class="popup-donation__special-pet_select">
+                    <div class="text text_notactive popup-donation__special-pet_select-arrow" id="donation-select">
+                        <span>Choose your favourite</span>
+                    </div>
+                    <div class="popup-donation__special-pet_options hidden" id="donation-options">
+                        <div class="text popup-donation__special-pet_options-item">Lukas the Panda</div>
+                        <div class="text popup-donation__special-pet_options-item">Andy the Lemur</div>
+                        <div class="text popup-donation__special-pet_options-item">Glen the Gorilla</div>
+                        <div class="text popup-donation__special-pet_options-item">Bald Eagle</div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-donation__confirm">
+                <input type="checkbox" id="confirm-checkbox" class="popup-donation__confirm_input">
+                <label for="confirm-checkbox" class="text popup-donation__confirm_label">Make this a monthly
+                    recurring gift</label>
+            </div>
+        </main>
+
+        <div class="popup-donation__footer">
+            <div class="popup-donation__footer-scroll">
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item"></span>
+                <span class="popup-donation__footer-scroll-item"></span>
+            </div>
+            <button type="submit"
+                class="button form-button button_transparent popup-donation__footer-button popup-donation__footer-button-back button_hidden">
+                <p class="form-button__text text_button text_turquoise">
+                    Back
+                </p>
+            </button>
+            <button type="submit" id="step1_next"
+                class="button form-button button_turquoise popup-donation__footer-button popup-donation__footer-button-next">
+                <p class="form-button__text text_button text_white">
+                    next
+                </p>
+                <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
+                    alt="send message" />
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Popap step 2 -->
+    <div class="popup-donation popup hidden" id="form-make-your-donation-step2">
+        <div class="popup-donation__header">
+            <h3 class="popup-donation__title title title_h3 text_white">
+                make your donation
+            </h3>
+        </div>
+        <main class="popup-donation__main" id="billing-information">
+            <p class="popup-donation__main_text text text_size_s text_semi-bold">
+                Billing Information:
+            </p>
+            <div class="popup-donation__main_line line"></div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Your Name
+            </p>
+            <div class="popup-donation__main_form">
+                <input class="text text_size_s popup-donation__main_input" type="text" placeholder="First and last name"
+                    required />
+            </div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Your Email Address
+            </p>
+            <div class="popup-donation__main_form">
+                <input class="text text_size_s popup-donation__main_input" type="text" placeholder="Enter your email"
+                    required />
+            </div>
+            <p class="popup-donation__main_text text text_size_s">
+                You will receive emails from the Online Zoo, including updates and news on the latest discoveries and
+                translations. You can unsubscribe at any time.
+            </p>
+
+        </main>
+
+        <div class="popup-donation__footer">
+            <div class="popup-donation__footer-scroll">
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item"></span>
+            </div>
+            <button type="submit" id="step2_back"
+                class="button form-button button_transparent popup-donation__footer-button popup-donation__footer-button-back">
+                <p class="form-button__text text_button text_turquoise">
+                    Back
+                </p>
+            </button>
+            <button type="submit" id="step2_next"
+                class="button form-button button_turquoise popup-donation__footer-button popup-donation__footer-button-next">
+                <p class="form-button__text text_button text_white">
+                    next
+                </p>
+                <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
+                    alt="send message" />
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Popap step 3 -->
+    <div class="popup-donation popup hidden" id="form-make-your-donation-step3">
+        <div class="popup-donation__header">
+            <h3 class="popup-donation__title title title_h3 text_white">
+                make your donation
+            </h3>
+        </div>
+        <main class="popup-donation__main" id="data-card-number">
+            <p class="popup-donation__main_text text text_size_s text_semi-bold">
+                Payment Information:
+            </p>
+            <div class="popup-donation__main_line line"></div>
+            <div class="popup-donation__main_card">
+                <div class="popup-donation__main_card-info-input">
+                    <p class="popup-donation__main_text-form text text_size_s">
+                        <span class="text_turquoise">*</span> Credit Card Number
+                    </p>
+                    <div class="popup-donation__main_form">
+                        <input class="text text_size_s popup-donation__main_input" type="text"
+                            onkeypress="this.value=this.value.substring(0,15);" required />
+                    </div>
+                </div>
+                <div class="popup-donation__main_card-info-input">
+                    <p class="popup-donation__main_text-form text text_size_s">
+                        <span class="text_turquoise">*</span> CVV Number
+                    </p>
+                    <div class="popup-donation__main_form">
+                        <input class="text text_size_s popup-donation__main_input" type="text"
+                            onkeypress="this.value=this.value.substring(0,2);" required />
+                    </div>
+                </div>
+            </div>
+            <p class="popup-donation__main_text-form text text_size_s">
+                <span class="text_turquoise">*</span> Expiration Date
+            </p>
+            <div class="popup-donation__main_card">
+                <div class="popup-donation__main_card-info-select">
+                    <div class="popup-donation__special-pet_select">
+                        <div class="text text_notactive popup-donation__special-pet_select-arrow"
+                            id="donation-month-select">
+                            <span>Month</span>
+                        </div>
+                        <div class="popup-donation__special-pet_options hidden" id="donation-month-options">
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-donation__main_card-info-select">
+                    <div class="popup-donation__special-pet_select">
+                        <div class="text text_notactive popup-donation__special-pet_select-arrow"
+                            id="donation-year-select">
+                            <span>Year</span>
+                        </div>
+                        <div class="popup-donation__special-pet_options hidden" id="donation-year-options">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="popup-donation__footer">
+            <div class="popup-donation__footer-scroll">
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+                <span class="popup-donation__footer-scroll-item popup-donation__footer-scroll-item_active"></span>
+            </div>
+            <button type="submit" id="step3_back"
+                class="button form-button button_transparent popup-donation__footer-button popup-donation__footer-button-back">
+                <p class="form-button__text text_button text_turquoise">
+                    Back
+                </p>
+            </button>
+            <button type="submit" id="step3_next" disabled="disabled"
+                class="button form-button button_orange popup-donation__footer-button popup-donation__footer-button-complete">
+                <p class="form-button__text text_button text_white">
+                    complete donation
+                </p>
+                <img class="form-button__image button__image" src="../../assets/images/contacts/arrow-right-white.svg"
+                    alt="send message" />
+            </button>
+        </div>
+
+    </div>
 </body>
 
 </html>
