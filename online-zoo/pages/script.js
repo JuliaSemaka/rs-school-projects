@@ -1,6 +1,7 @@
 const headerBurger = document.getElementById("header-burger");
 const headerLinks = document.getElementById("header-links");
 const donateNow = document.getElementById("donate-now");
+const donateForVolunteers = document.getElementById("donate-for-volunteers");
 const formDonate = document.getElementById("form-donate");
 const cover = document.getElementById("cover");
 const donateCross = document.getElementById("donate-cross");
@@ -143,6 +144,10 @@ headerBurger.addEventListener("click", () => {
 });
 
 donateNow.addEventListener("click", () => {
+  donate();
+});
+
+donateForVolunteers.addEventListener("click", () => {
   donate();
 });
 
