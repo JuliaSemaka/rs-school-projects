@@ -14,9 +14,18 @@ buttonUndraw.addEventListener("click", () => {
 
 videoChoiceList.addEventListener("click", (event) => {
   let video = event.target.parentElement.firstElementChild;
-  zoosVideo.innerHTML = video.outerHTML;
+  let videoBig = zoosVideo.firstElementChild;
+  zoosVideo.firstElementChild.remove();
+  zoosVideo.insertAdjacentHTML("afterbegin", video.outerHTML);
   zoosVideo.firstElementChild.width = 1400;
   zoosVideo.firstElementChild.height = 787;
+  event.target.parentElement.firstElementChild.remove();
+  event.target.parentElement.insertAdjacentHTML(
+    "afterbegin",
+    videoBig.outerHTML
+  );
+  event.target.parentElement.firstElementChild.width = 320;
+  event.target.parentElement.firstElementChild.height = 209;
 });
 
 const gap = 40;
