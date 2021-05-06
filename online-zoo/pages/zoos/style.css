@@ -400,6 +400,10 @@
   }
 }
 
+.sidebar__undraw_image-left {
+  display: none;
+}
+
 .sidebar__undraw_bottom {
   height: 9px;
 }
@@ -414,6 +418,18 @@
   .sidebar__undraw_icon {
     display: none;
   }
+}
+
+.sidebar__animals .sidebar__undraw {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .sidebar__animals-item {
@@ -486,7 +502,7 @@
 }
 
 .sidebar__animals-active {
-  cursor: default;
+  cursor: pointer;
 }
 
 .sidebar__circle {
@@ -520,6 +536,45 @@
   .sidebar__animal-min_active {
     height: 19px;
   }
+}
+
+.sidebar__animal-description {
+  display: none;
+}
+
+.sidebar_active .sidebar__undraw_image-left {
+  display: block;
+}
+
+.sidebar_active .sidebar__undraw_image-right {
+  display: none;
+}
+
+.sidebar_active .sidebar__animals-item {
+  display: none;
+  width: 300px;
+}
+
+.sidebar_active .sidebar__animals-item_min {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.sidebar_active .sidebar__animal {
+  position: unset;
+}
+
+.sidebar_active .sidebar__animal-description {
+  display: block;
+  max-width: 169px;
 }
 
 .video-choice {
@@ -597,6 +652,38 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  max-width: 1040px;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .video-choice__list {
+    max-width: 829px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .video-choice__list {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .video-choice__list {
+    max-width: 70vw;
+  }
+}
+
+@media (max-width: 950px) {
+  .video-choice__list {
+    max-width: 68vw;
+  }
+}
+
+@media (max-width: 470px) {
+  .video-choice__list {
+    max-width: 95vw;
+  }
 }
 
 .video-choice__item:not(:last-child) {
@@ -1202,5 +1289,9 @@
     margin-top: 25px;
     margin-bottom: 72px;
   }
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

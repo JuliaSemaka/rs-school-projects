@@ -342,6 +342,7 @@ section.online-zoo {
     position: absolute;
     top: 424px;
     left: 0px;
+    transition: all 0.7s ease 0s;
 
     @media (max-width: 980px) {
       position: static;
@@ -575,7 +576,7 @@ section.online-zoo {
         margin-right: 40px;
       }
 
-      @media (max-width: 1500px) {
+      @media (max-width: 1200px) {
         margin-right: 0;
       }
     }
@@ -1287,6 +1288,8 @@ section.online-zoo {
   left: 600px;
   display: flex;
   flex-direction: column;
+  max-width: 1090px;
+  overflow: hidden;
 
   @media (max-width: 1500px) {
     top: 443px;
@@ -1324,6 +1327,7 @@ section.online-zoo {
   &__line {
     display: flex;
     flex-direction: row;
+    transition: all 0.7s ease 0s;
 
     @media (max-width: 980px) {
       &:nth-child(2) {

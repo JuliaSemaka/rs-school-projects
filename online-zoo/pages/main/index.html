@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style.css">
     <script src="../script.js" defer></script>
+    <script src="./carousel.js" defer></script>
 </head>
 
 <body>
@@ -180,16 +181,16 @@
                 used.
             </p>
             <div class="arrows meet-pets__arrows">
-                <button class="button button_border_blue arrows__button">
+                <button class="button button_border_blue arrows__button" id="arrow-left">
                     <img class="arrows__button_blue" src="../../assets/images/main/arrow-left.svg" alt="arrow" />
                     <img class="arrows__button_white" src="../../assets/icons/arrow-left-w.svg" alt="arrow" />
                 </button>
-                <button class="button button_border_blue arrows__button">
+                <button class="button button_border_blue arrows__button" id="arrow-right">
                     <img class="arrows__button_blue" src="../../assets/images/main/arrow-right.svg" alt="arrow" />
                     <img class="arrows__button_white" src="../../assets/icons/arrow-right-w.svg" alt="arrow" />
                 </button>
             </div>
-            <div class="meet-pets-slider">
+            <div class="meet-pets-slider" id="meet-pets-slider">
                 <div class="meet-pets-slider__items">
                     <div class="slider-item">
                         <a class="slider-item__elem" href="../zoos/panda/index.html">
@@ -214,7 +215,6 @@
                             </a>
                         </a>
                     </div>
-
                     <div class="slider-item">
                         <a class="slider-item__elem" href="../zoos/lemur/index.html">
                             <div class="slider-item__image">
@@ -238,7 +238,6 @@
                             </a>
                         </a>
                     </div>
-
                     <div class="slider-item">
                         <a class="slider-item__elem" href="../zoos/gorilla/index.html">
                             <div class="slider-item__image">
@@ -281,6 +280,255 @@
                                 src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
                             <img class="slider-item__button_white button__image"
                                 src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/panda/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
+                                    alt="Lucas" />
+                                <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Giant Panda
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Native to central China, giant pandas have come to symbolize
+                                vulnerable species.
+                            </p>
+                            <a href="../zoos/panda/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/lemur/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
+                                    alt="Andy" />
+                                <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Madagascarian Lemur
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Lemurs are considered the world’s most endangered group of
+                                mammals.
+                            </p>
+                            <a href="../zoos/lemur/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/gorilla/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
+                                    alt="Glen" />
+                                <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Gorilla in Congo
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Variety of snacks very important for the healthy life of
+                                gorillas and his plenty of babies.
+                            </p>
+                            <a href="../zoos/gorilla/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Mike.png"
+                                alt="Mike" />
+                            <span class="slider-item__image-text text text_white text_size_m">Mike</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Chinese Alligator
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            From nose to tail, belly to back, hard scales protect this
+                            petite alligator.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/panda/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
+                                    alt="Lucas" />
+                                <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Giant Panda
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Native to central China, giant pandas have come to symbolize
+                                vulnerable species.
+                            </p>
+                            <a href="../zoos/panda/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/lemur/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
+                                    alt="Andy" />
+                                <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Madagascarian Lemur
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Lemurs are considered the world’s most endangered group of
+                                mammals.
+                            </p>
+                            <a href="../zoos/lemur/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/gorilla/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
+                                    alt="Glen" />
+                                <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Gorilla in Congo
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Variety of snacks very important for the healthy life of
+                                gorillas and his plenty of babies.
+                            </p>
+                            <a href="../zoos/gorilla/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Mike.png"
+                                alt="Mike" />
+                            <span class="slider-item__image-text text text_white text_size_m">Mike</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Chinese Alligator
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            From nose to tail, belly to back, hard scales protect this
+                            petite alligator.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/panda/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Lucas.png"
+                                    alt="Lucas" />
+                                <span class="slider-item__image-text text text_white text_size_m">Lucas</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Giant Panda
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Native to central China, giant pandas have come to symbolize
+                                vulnerable species.
+                            </p>
+                            <a href="../zoos/panda/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/lemur/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Andy.png"
+                                    alt="Andy" />
+                                <span class="slider-item__image-text text text_white text_size_m">Andy</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Madagascarian Lemur
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Lemurs are considered the world’s most endangered group of
+                                mammals.
+                            </p>
+                            <a href="../zoos/lemur/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/gorilla/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Glen.png"
+                                    alt="Glen" />
+                                <span class="slider-item__image-text text text_white text_size_m">Glen</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                Gorilla in Congo
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Variety of snacks very important for the healthy life of
+                                gorillas and his plenty of babies.
+                            </p>
+                            <a href="../zoos/gorilla/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
                         </a>
                     </div>
                 </div>
@@ -362,6 +610,243 @@
                         <p class="slider-item__text text text_size_s text_white">
                             Sumatran Tigers are the smallest of the five sub-species, and
                             are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/eagle/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img"
+                                    src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                                <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                West End Bald Eagles
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Pair of eagle parents lay and protect eggs, feed their chicks
+                                and teach them to hunt and fly.
+                            </p>
+                            <a href="../zoos/eagle/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Senja.png"
+                                alt="Senja" />
+                            <span class="slider-item__image-text text text_white text_size_m">Senja</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Sumatran Tiger
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Sumatran Tigers are the smallest of the five sub-species, and
+                            are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/eagle/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img"
+                                    src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                                <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                West End Bald Eagles
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Pair of eagle parents lay and protect eggs, feed their chicks
+                                and teach them to hunt and fly.
+                            </p>
+                            <a href="../zoos/eagle/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Senja.png"
+                                alt="Senja" />
+                            <span class="slider-item__image-text text text_white text_size_m">Senja</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Sumatran Tiger
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Sumatran Tigers are the smallest of the five sub-species, and
+                            are found in Indonesia.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a class="slider-item__elem" href="../zoos/eagle/index.html">
+                            <div class="slider-item__image">
+                                <img class="slider-item__image-img"
+                                    src="../../assets/images/main/meet-pets/Sam & Lora.png" alt="Sam & Lora" />
+                                <span class="slider-item__image-text text text_white text_size_m">Sam & Lora</span>
+                            </div>
+                            <p class="slider-item__title text text_size_m text_white">
+                                West End Bald Eagles
+                            </p>
+                            <p class="slider-item__text text text_size_s text_white">
+                                Pair of eagle parents lay and protect eggs, feed their chicks
+                                and teach them to hunt and fly.
+                            </p>
+                            <a href="../zoos/eagle/index.html" class="button slider-item__button">
+                                <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                                <img class="slider-item__button_orrange button__image"
+                                    src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                                <img class="slider-item__button_white button__image"
+                                    src="../../assets/images/main/arrow.svg" alt="arrow" />
+                            </a>
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Liz.png"
+                                alt="Liz" />
+                            <span class="slider-item__image-text text text_white text_size_m">Liz</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            Australian Koala
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            The elevated walkways bring you to eye level with the koalas as
+                            they perch in their forest.
+                        </p>
+                        <a class="button slider-item__button">
+                            <span class="text text_button text_orange">VIEW LIVE CAM</span>
+                            <img class="slider-item__button_orrange button__image"
+                                src="../../assets/images/main/arrow-orange.svg" alt="arrow" />
+                            <img class="slider-item__button_white button__image"
+                                src="../../assets/images/main/arrow.svg" alt="arrow" />
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <div class="slider-item__image">
+                            <img class="slider-item__image-img" src="../../assets/images/main/meet-pets/Shake.png"
+                                alt="Shake" />
+                            <span class="slider-item__image-text text text_white text_size_m">Shake</span>
+                        </div>
+                        <p class="slider-item__title text text_size_m text_white">
+                            African Lion
+                        </p>
+                        <p class="slider-item__text text text_size_s text_white">
+                            Lions roam the savannas and grasslands of Africa, hunting and
+                            raising cubs in the pride.
                         </p>
                         <a class="button slider-item__button">
                             <span class="text text_button text_orange">VIEW LIVE CAM</span>
@@ -475,8 +960,60 @@
     </div>
     <div class="users-think page_center">
         <div class="wrapper wraper_relative users-think_wraper">
-            <div class="reviews">
+            <div class="reviews" id="reviews">
                 <div class="reviews__line">
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            New Jersey, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            I am writing to thank you for your mission is to bring people
+                            closer to nature! Like myself, children were very impressed by
+                            the opportunity to explore the life of incredible animals in
+                            real-time.
+                        </p>
+                        <span class="review__author text text_button">Karen Maithlan</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            Toronto, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            We so enjoy the ever-evolving selection of animals from around
+                            the globe. THANK YOU for sharing these fascinating animal
+                            friends with us so that we may learn and increase our
+                            understanding of the animal kingdom.
+                        </p>
+                        <span class="review__author text text_button">Carol Larsen</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            New Jersey, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            I am writing to thank you for your mission is to bring people
+                            closer to nature! Like myself, children were very impressed by
+                            the opportunity to explore the life of incredible animals in
+                            real-time.
+                        </p>
+                        <span class="review__author text text_button">Karen Maithlan</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            Toronto, November 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            We so enjoy the ever-evolving selection of animals from around
+                            the globe. THANK YOU for sharing these fascinating animal
+                            friends with us so that we may learn and increase our
+                            understanding of the animal kingdom.
+                        </p>
+                        <span class="review__author text text_button">Carol Larsen</span>
+                    </div>
                     <div class="review">
                         <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
                         <p class="review__title text text_size_m">
@@ -529,6 +1066,54 @@
                         </p>
                         <span class="review__author text text_button">Tomas Ray</span>
                     </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            London, February 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            A fantastic experience for kids and adults alike! If anyone is
+                            looking for an attraction that educates people on wild animals –
+                            it's for you! I highly recommend seeing for yourself the variety
+                            of animals on your screen.
+                        </p>
+                        <span class="review__author text text_button">C. Stockman</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">Amsterdam, June 2020</p>
+                        <p class="review__text text text_size_s">
+                            I want to thank you for the amazing sites you find to put your
+                            cameras to let each of us see things that we would probably
+                            never see on our own. There are so many positives on Zoo Online
+                            and I'm grateful for it. Thank you so much!
+                        </p>
+                        <span class="review__author text text_button">Tomas Ray</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">
+                            London, February 2020
+                        </p>
+                        <p class="review__text text text_size_s">
+                            A fantastic experience for kids and adults alike! If anyone is
+                            looking for an attraction that educates people on wild animals –
+                            it's for you! I highly recommend seeing for yourself the variety
+                            of animals on your screen.
+                        </p>
+                        <span class="review__author text text_button">C. Stockman</span>
+                    </div>
+                    <div class="review">
+                        <img class="review__commas" src="../../assets/icons/main/commas.svg" alt="Кавычки" />
+                        <p class="review__title text text_size_m">Amsterdam, June 2020</p>
+                        <p class="review__text text text_size_s">
+                            I want to thank you for the amazing sites you find to put your
+                            cameras to let each of us see things that we would probably
+                            never see on our own. There are so many positives on Zoo Online
+                            and I'm grateful for it. Thank you so much!
+                        </p>
+                        <span class="review__author text text_button">Tomas Ray</span>
+                    </div>
                 </div>
                 <div class="points-selector reviews__points-selector">
                     <span class="points-selector__item points-selector__item_active"></span>
@@ -537,10 +1122,10 @@
                     <span class="points-selector__item"></span>
                 </div>
                 <div class="arrows reviews__buttons">
-                    <button class="button button_border_white arrows__button">
+                    <button class="button button_border_white arrows__button" id="reviews-left">
                         <img src="../../assets/icons/arrow-left.svg" alt="arrow" />
                     </button>
-                    <button class="button button_border_white arrows__button">
+                    <button class="button button_border_white arrows__button" id="reviews-right">
                         <img src="../../assets/icons/arrow-right.svg" alt="arrow" />
                     </button>
                 </div>

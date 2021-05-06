@@ -311,6 +311,10 @@
         height: 15px;
         float: none;
       }
+
+      &-left {
+        display: none;
+      }
     }
 
     &_bottom {
@@ -329,6 +333,11 @@
   }
 
   &__animals {
+    & .sidebar__undraw {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     &-item {
       display: flex;
       flex-direction: column;
@@ -375,7 +384,7 @@
     }
 
     &-active {
-      cursor: default;
+      cursor: pointer;
     }
   }
 
@@ -391,7 +400,6 @@
   &__animal {
     position: absolute;
 
-    // добавила
     &-min {
       display: none;
 
@@ -404,6 +412,48 @@
 
         @media (max-width: 470px) {
           height: 19px;
+        }
+      }
+    }
+
+    &-description {
+      display: none;
+    }
+  }
+
+  &_active {
+    .sidebar {
+      &__undraw {
+        &_image {
+          &-left {
+            display: block;
+          }
+
+          &-right {
+            display: none;
+          }
+        }
+      }
+
+      &__animals {
+        &-item {
+          display: none;
+          width: 300px;
+        }
+
+        &-item_min {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+        }
+      }
+
+      &__animal {
+        position: unset;
+
+        &-description {
+          display: block;
+          max-width: 169px;
         }
       }
     }
@@ -457,6 +507,28 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    max-width: 1040px;
+    overflow: hidden;
+
+    @media (max-width: 1200px) {
+      max-width: 829px;
+    }
+
+    @media (max-width: 1100px) {
+      max-width: 760px;
+    }
+
+    @media (max-width: 1000px) {
+      max-width: 70vw;
+    }
+
+    @media (max-width: 950px) {
+      max-width: 68vw;
+    }
+
+    @media (max-width: 470px) {
+      max-width: 95vw;
+    }
   }
 
   &__item:not(:last-child) {
@@ -937,4 +1009,8 @@
       margin-bottom: 72px;
     }
   }
+}
+
+.hidden {
+  display: none;
 }
