@@ -1,9 +1,10 @@
-import { Header } from "./components/header/header";
-import { Main } from "./components/main/main";
+import { Header } from './components/header/header';
+import { Main } from './components/main/main';
 
 export class App {
-private readonly header: Header;
-private readonly main: Main;
+  private readonly header: Header;
+
+  private readonly main: Main;
 
   constructor(private readonly rootElement: HTMLElement) {
     this.header = new Header();
