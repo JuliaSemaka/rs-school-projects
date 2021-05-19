@@ -1,0 +1,13 @@
+[
+  {
+    "category": "animals",
+    "images": [
+      "beetle.png",
+      "elephant.png",
+      "hippo.png",
+      "panda.png",
+      "parrot.png",
+      "shark.png"
+    ]
+  }
+]

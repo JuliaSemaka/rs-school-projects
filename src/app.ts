@@ -3,7 +3,6 @@ import { Main } from './components/main/main';
 
 export class App {
   private readonly header: Header;
-
   private readonly main: Main;
 
   constructor(private readonly rootElement: HTMLElement) {

@@ -19,9 +19,9 @@
       border-radius: 4px;
 
       &:hover > * {
-        transform: translateZ(40px);
-        box-shadow: 4px 10px 15px rgb(0 0 0 / 20%), 0px 3px 4px rgb(0 0 0 / 12%),
-          0px 2px 4px rgb(0 0 0 / 14%);
+        // transform: translateZ(30px);
+        box-shadow: 4px 15px 25px rgb(0 0 0 / 37%), 0px 3px 4px rgb(0 0 0 / 36%),
+          0px 2px 4px rgb(0 0 0 / 34%);
       }
 
       &_flipped {
@@ -40,17 +40,18 @@
       width: 100%;
       backface-visibility: hidden;
       border-radius: inherit;
+      background-size: cover;
+      background-position: center;
     }
 
     &__front {
       background-color: aquamarine;
-      transform: rotateY(180deg);
     }
 
     &__back {
-      background-image: url(./assets/back.png);
-      background-position: center;
       background-size: auto;
+      background-image: url("../../../assets/back.png");
+      transform: rotateY(180deg);
     }
   }
 }
