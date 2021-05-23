@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -17,8 +18,34 @@ a {
   font-size: 12px;
   line-height: 15px;
   color: #000000;
+  letter-spacing: 0.4px;
 
-  &-button {
+  &-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.15px;
+    color: #333333;
+  }
+
+  &-name {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.1px;
+    color: #333333;
+  }
+
+  &-score {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  &-button,
+  &-logo {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -26,12 +53,14 @@ a {
     text-transform: uppercase;
   }
 
-  &-logo {
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 16px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
+  &-number {
+    font-size: 24px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+    color: #ffffff;
   }
 
   &-white {

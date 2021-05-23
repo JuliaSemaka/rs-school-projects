@@ -3,7 +3,7 @@ import { Card } from '../main/card/card';
 import { MainCards } from '../main/main-cards/main-cards';
 import { delay } from "../../shared/delay"
 
-const FLIP_DELAY = 3000;
+const FLIP_DELAY = 1000;
 export class Game extends BaseComponent {
   private readonly mainCards: MainCards;
   private activeCard?: Card;
