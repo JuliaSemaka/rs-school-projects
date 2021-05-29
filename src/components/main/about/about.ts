@@ -9,8 +9,7 @@ export class About extends BaseComponent {
     super('div', ['about']);
     this.aboutBlock = new AboutBlock();
 
-    this.element.innerHTML = `<p class="about__title text text-title">How to play?</p>`;
+    this.element.innerHTML = '<p class="about__title text text-title">How to play?</p>';
     this.element.appendChild(this.aboutBlock.element);
   }
-
 }

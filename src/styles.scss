@@ -11,6 +11,10 @@ a {
   cursor: pointer;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .text {
   font-family: Roboto;
   font-style: normal;

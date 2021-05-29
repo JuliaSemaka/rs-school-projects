@@ -1,24 +1,14 @@
 import './header.scss';
 import { BaseComponent } from '../base-component';
-import { HeaderLogo } from './header-logo/header-logo';
-import { HeaderMenu } from './header-menu/header-menu';
-import { HeaderAuth } from './header-auth/header-auth';
+import { HeaderWrapper } from './header-wrapper/header-wrapper';
 
 export class Header extends BaseComponent {
-  private readonly headerLogo: HeaderLogo;
-
-  private readonly headerMenu: HeaderMenu;
-
-  private readonly headerAuth: HeaderAuth;
+  private readonly headerWrapper: HeaderWrapper;
 
   constructor() {
     super('header', ['header']);
-    this.headerLogo = new HeaderLogo();
-    this.headerMenu = new HeaderMenu();
-    this.headerAuth = new HeaderAuth();
+    this.headerWrapper = new HeaderWrapper();
 
-    this.element.appendChild(this.headerLogo.element);
-    this.element.appendChild(this.headerMenu.element);
-    this.element.appendChild(this.headerAuth.element);
+    this.element.appendChild(this.headerWrapper.element);
   }
 }

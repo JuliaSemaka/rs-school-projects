@@ -1,0 +1,57 @@
+.main {
+  &-card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s;
+    transform-origin: right;
+    border-radius: inherit;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12),
+      0px 2px 4px rgba(0, 0, 0, 0.14);
+
+    &__container {
+      flex: 0 0 22%;
+      width: 168px;
+      height: 168px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      perspective: 400px;
+      border-radius: 4px;
+
+      &:hover > * {
+        // transform: translateZ(30px);
+        box-shadow: 4px 15px 25px rgb(0 0 0 / 37%), 0px 3px 4px rgb(0 0 0 / 36%),
+          0px 2px 4px rgb(0 0 0 / 34%);
+      }
+
+      &_flipped {
+        & > * {
+          transform: rotateY(180deg) translateX(-100%);
+          transform-origin: left;
+        }
+      }
+    }
+
+    & > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      backface-visibility: hidden;
+      border-radius: inherit;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &__front {
+      background-color: aquamarine;
+    }
+
+    &__back {
+      background-size: auto;
+      background-image: url("../../../../../assets/back.png");
+      transform: rotateY(180deg);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import './styles.scss';
 import { App } from './app';
 
-window.onload = () => {
-  return new App(document.body);
-};
+export const APP = new App(document.body);
+
+window.onload = () => APP;
