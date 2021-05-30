@@ -6,25 +6,25 @@ import { Checked } from '../checked/checked';
 export class Email extends BaseComponent {
   public renderInput: RenderInput;
 
-  public readonly validation: Object;
-
-  public value: string;
+  public readonly validation: { email: boolean; errorSymbols: string[] };
 
   public start: boolean;
 
   public checked: Checked;
 
+  public valid: boolean;
+
   constructor() {
     super('div', ['form__input', 'form__email']);
-    this.value = '';
     this.start = false;
 
-    this.renderInput = new RenderInput(this.value, 'email');
+    this.renderInput = new RenderInput('', 'email');
     this.checked = new Checked();
     this.validation = {
-      empty: false,
       email: true,
+      errorSymbols: [],
     };
+    this.valid = false;
 
     this.element.innerHTML = '<p class="text text-gray">E-mail</p>';
     this.element.appendChild(this.renderInput.element);

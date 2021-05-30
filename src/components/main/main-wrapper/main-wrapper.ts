@@ -1,7 +1,6 @@
 import './main-wrapper.scss';
 import { BaseComponent } from '../../base-component';
 import { Game } from '../game/game';
-import { ImageCategoryModel } from '../../../models/image-category-model';
 import { Router } from '../../../shared/router';
 import { BestScore } from '../best-score/best-score';
 import { Setting } from '../setting/setting';

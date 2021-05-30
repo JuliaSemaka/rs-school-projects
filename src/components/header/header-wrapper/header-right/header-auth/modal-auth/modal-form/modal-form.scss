@@ -22,4 +22,8 @@
   &:first-child {
     margin-top: 33px;
   }
+
+  &_error {
+    background: rgb(244 67 54 / 35%);
+  }
 }

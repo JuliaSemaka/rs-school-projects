@@ -31,7 +31,15 @@ export class HeaderRight extends BaseComponent {
   addEvents() : void {
     this.headerAuth.element.addEventListener('click', () => this.togglePopup());
     this.cover.element.addEventListener('click', () => this.togglePopup());
-    this.modalAuth.modalForm.buttonCancel.element.addEventListener('click', () => this.togglePopup());
+    this.modalAuth.modalForm.buttonAdd.element.addEventListener('click', () => {
+      this.togglePopup();
+      this.modalAuth.addUser();
+    });
+
+    this.modalAuth.modalForm.buttonCancel.element.addEventListener('click', () => {
+      this.togglePopup();
+      this.modalAuth.clearData();
+    });
   }
 
   togglePopup() : void {

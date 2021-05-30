@@ -8,17 +8,17 @@ import { Email } from './email/email';
 import { Avatar } from './avatar/avatar';
 
 export class ModalForm extends BaseComponent {
-  private readonly firstName: FirstName;
+  public readonly firstName: FirstName;
 
-  private readonly lastName: LastName;
+  public readonly lastName: LastName;
 
-  private readonly email: Email;
+  public readonly email: Email;
 
-  private readonly avatar: Avatar;
+  public readonly avatar: Avatar;
 
   public readonly buttonCancel: ButtonCancel;
 
-  private readonly buttonAdd: ButtonAdd;
+  public readonly buttonAdd: ButtonAdd;
 
   constructor() {
     super('div', ['popup-form']);
@@ -37,40 +37,48 @@ export class ModalForm extends BaseComponent {
     this.element.appendChild(this.buttonAdd.element);
     this.element.appendChild(this.buttonCancel.element);
 
-    this.firstName.renderInput.element.addEventListener('change', () => this.isValid(this.firstName));
-    this.lastName.renderInput.element.addEventListener('change', () => this.isValid(this.lastName));
-    this.email.renderInput.element.addEventListener('change', () => this.isValid(this.email));
+    this.firstName.renderInput.element.addEventListener('input', () => this.isValid(this.firstName));
+    this.lastName.renderInput.element.addEventListener('input', () => this.isValid(this.lastName));
+    this.email.renderInput.element.addEventListener('input', () => this.isValid(this.email));
   }
 
-  isValid(elem : FirstName | LastName | Email) {
-    elem.value = (elem.renderInput.element as HTMLInputElement).value;
+  isValid(elem : FirstName | LastName | Email) : void {
+    const { value } = elem.renderInput.element as HTMLInputElement;
     let isCorrect = true;
-    //   this.validation = {
-    //     'empty' : false,
-    //     'onlyDigit' : false,
-    //     'errorSymbols' : ['~', '!', '@', '#', '$', '%', '*', '(',')', '_', '—', '+', '=', '|', ':', ';', '\"', '\'', '\`', '<', '>', ',', '.', '?', '/', '^']
-    // };
-    for (const key in elem.validation) {
-      if (key === 'empty') {
-        if (elem.value.trim() === '') {
-          isCorrect = false;
-        }
-      } else if (key === 'onlyDigit') {
-        if (typeof elem.value.trim() === 'number') {
+    Object.keys(elem.validation).forEach((key) => {
+      if (key === 'onlyDigit') {
+        if (!Number.isNaN(Number(value.trim()))) {
           isCorrect = false;
         }
       } else if (key === 'errorSymbols') {
-        // let re = elem.validation
-        // if (!re.test(String(elem.value.trim()).toLowerCase())) {
-        //   isCorrect = false;
-        // }
+        if (Object.keys(elem.validation[key]).length !== 0) {
+          isCorrect = elem.validation[key].every((item) => !value.trim().includes(item));
+        }
       } else if (key === 'email') {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (!re.test(String(elem.value.trim()).toLowerCase())) {
+        const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!reg.test(String(value.trim()).toLowerCase())) {
           isCorrect = false;
         }
       }
+    });
+
+    if (value.trim() === '') {
+      isCorrect = false;
     }
-    elem.element.appendChild(elem.checked.element);
+
+    if (isCorrect && !elem.valid) {
+      elem.valid = true;
+      elem.element.appendChild(elem.checked.element);
+      elem.element.classList.remove('form__input_error');
+    } else if (!isCorrect) {
+      elem.valid = false;
+      elem.checked.element.remove();
+      elem.element.classList.add('form__input_error');
+    }
+
+    if (this.firstName.valid && this.lastName.valid && this.email.valid) {
+      this.buttonAdd.element.removeAttribute('disabled');
+    }
   }
 }

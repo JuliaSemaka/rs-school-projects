@@ -5,6 +5,7 @@ export class ButtonAdd extends BaseComponent {
   constructor() {
     super('input', ['button', 'button-blue', 'text-button', 'form__button-add']);
     this.element.setAttribute('type', 'submit');
+    this.element.setAttribute('disabled', 'true');
 
     this.element.innerHTML = 'Add user';
   }

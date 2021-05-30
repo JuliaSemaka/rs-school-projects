@@ -6,23 +6,23 @@ import { Checked } from '../checked/checked';
 export class FirstName extends BaseComponent {
   public renderInput: RenderInput;
 
-  public readonly validation: Object;
-
-  public value: string;
+  public readonly validation: { onlyDigit: boolean; errorSymbols: string[] };
 
   public checked: Checked;
 
+  public valid: boolean;
+
   constructor() {
     super('div', ['form__input', 'form__first-name']);
-    this.value = '';
 
-    this.renderInput = new RenderInput(this.value, 'text');
+    this.renderInput = new RenderInput('', 'text');
     this.checked = new Checked();
     this.validation = {
-      empty: false,
       onlyDigit: false,
-      errorSymbols: ['~', '!', '@', '#', '$', '%', '*', '(', ')', '_', '—', '+', '=', '|', ':', ';', '\"', '\'', '\`', '<', '>', ',', '.', '?', '/', '^'],
+      errorSymbols: ['~', '!', '@', '#', '$', '%', '*', '(', ')', '_', '—', '+', '=', '|',
+        ':', ';', '"', '\'', '`', '<', '>', ',', '.', '?', '/', '^'],
     };
+    this.valid = false;
 
     this.element.innerHTML = '<p class="text text-gray">First Name</p>';
     this.element.appendChild(this.renderInput.element);
