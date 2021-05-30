@@ -5,7 +5,8 @@ import { ModalForm } from './modal-form/modal-form';
 
 export class ModalAuth extends BaseComponent {
   private readonly modalHeader: ModalHeader;
-  private readonly modalForm: ModalForm;
+
+  public readonly modalForm: ModalForm;
 
   constructor() {
     super('div', ['popup', 'hidden']);
@@ -14,6 +15,5 @@ export class ModalAuth extends BaseComponent {
 
     this.element.appendChild(this.modalHeader.element);
     this.element.appendChild(this.modalForm.element);
-
   }
 }

@@ -6,7 +6,9 @@ import { ModalAuth } from './header-auth/modal-auth/modal-auth';
 
 export class HeaderRight extends BaseComponent {
   private readonly headerAuth: HeaderAuth;
+
   private readonly cover: Cover;
+
   private readonly modalAuth: ModalAuth;
 
   constructor() {
@@ -18,15 +20,23 @@ export class HeaderRight extends BaseComponent {
     this.showAuth();
   }
 
-  showAuth() {
+  showAuth() : void {
     this.element.appendChild(this.headerAuth.element);
     this.element.appendChild(this.cover.element);
     this.element.appendChild(this.modalAuth.element);
 
-    this.element.addEventListener("click", () => {
-        this.modalAuth.element.classList.toggle("hidden")
-        this.cover.element.classList.toggle("hidden")
-        document.body.classList.toggle("lock");
-    });
+    this.addEvents();
+  }
+
+  addEvents() : void {
+    this.headerAuth.element.addEventListener('click', () => this.togglePopup());
+    this.cover.element.addEventListener('click', () => this.togglePopup());
+    this.modalAuth.modalForm.buttonCancel.element.addEventListener('click', () => this.togglePopup());
+  }
+
+  togglePopup() : void {
+    this.modalAuth.element.classList.toggle('hidden');
+    this.cover.element.classList.toggle('hidden');
+    document.body.classList.toggle('lock');
   }
 }

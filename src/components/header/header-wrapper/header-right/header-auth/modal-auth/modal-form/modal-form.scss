@@ -1,6 +1,25 @@
 .popup-form {
   width: 100%;
-  margin-top: 33px;
-  margin-bottom: 26px;
+  height: 100%;
   position: relative;
+  background: #fafafa;
+}
+.form__input {
+  width: 328px;
+  height: 56px;
+  margin-top: 16px;
+  margin-left: 21px;
+  background: rgba(33, 33, 33, 0.08);
+  border-radius: 4px 4px 0px 0px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12),
+    0px 2px 4px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-left: 52px;
+
+  &:first-child {
+    margin-top: 33px;
+  }
 }

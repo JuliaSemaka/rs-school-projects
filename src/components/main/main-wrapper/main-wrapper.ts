@@ -8,23 +8,11 @@ import { Setting } from '../setting/setting';
 import { About } from '../about/about';
 
 export class MainWrapper extends BaseComponent {
-  private readonly bestScore: BestScore;
-
-  private readonly setting: Setting;
-
-  private readonly about: About;
-
-  private readonly game: Game;
-
   private readonly route: Router;
 
   constructor() {
     super('div', ['main-wrapper']);
-    this.bestScore = new BestScore();
-    this.setting = new Setting();
-    this.about = new About();
     this.route = new Router();
-    this.game = new Game();
 
     this.listen();
     this.showPage();
@@ -49,28 +37,24 @@ export class MainWrapper extends BaseComponent {
   }
 
   runGame() : void {
-    this.element.appendChild(this.game.element);
-    this.start();
+    const game = new Game();
+    this.element.appendChild(game.element);
+    game.start();
   }
 
   runAbout() : void {
-    this.element.appendChild(this.about.element);
+    const about = new About();
+    this.element.appendChild(about.element);
   }
 
   runSetting() : void {
-    this.element.appendChild(this.setting.element);
+    const setting = new Setting();
+    this.element.appendChild(setting.element);
   }
 
   runBestScore() : void {
-    this.element.appendChild(this.bestScore.element);
-  }
-
-  async start() : Promise<void> {
-    const res = await fetch('./images.json');
-    const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[0];
-    const images = cat.images.map((name) => `${cat.category}/${name}`);
-    this.game.newGame(images);
+    const bestScore = new BestScore();
+    this.element.appendChild(bestScore.element);
   }
 
   listen(): void {

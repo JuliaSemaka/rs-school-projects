@@ -4,6 +4,7 @@ import { BestTable } from './best-table/best-table';
 
 export class BestScore extends BaseComponent {
   private readonly bestTable: BestTable;
+
   private readonly bestTable2: BestTable;
 
   constructor() {

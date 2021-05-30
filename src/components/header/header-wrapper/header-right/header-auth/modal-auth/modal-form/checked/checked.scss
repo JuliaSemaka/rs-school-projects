@@ -1,0 +1,11 @@
+.form__checked {
+  position: absolute;
+  left: 319px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_image {
+    position: absolute;
+  }
+}
