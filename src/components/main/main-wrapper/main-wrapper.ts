@@ -9,9 +9,18 @@ import { About } from '../about/about';
 export class MainWrapper extends BaseComponent {
   private readonly route: Router;
 
+  private readonly about: About;
+
+  private readonly setting: Setting;
+
+  private readonly bestScore: BestScore;
+
   constructor() {
     super('div', ['main-wrapper']);
     this.route = new Router();
+    this.about = new About();
+    this.setting = new Setting();
+    this.bestScore = new BestScore();
 
     this.listen();
     this.showPage();
@@ -38,22 +47,22 @@ export class MainWrapper extends BaseComponent {
   runGame() : void {
     const game = new Game();
     this.element.appendChild(game.element);
-    game.start();
+    const difficult = (this.setting.settingBlockTwo.selector.element as HTMLInputElement).value;
+    const gameCards = (this.setting.settingBlock.selector.element as HTMLInputElement).value;
+
+    game.start(difficult, gameCards);
   }
 
   runAbout() : void {
-    const about = new About();
-    this.element.appendChild(about.element);
+    this.element.appendChild(this.about.element);
   }
 
   runSetting() : void {
-    const setting = new Setting();
-    this.element.appendChild(setting.element);
+    this.element.appendChild(this.setting.element);
   }
 
   runBestScore() : void {
-    const bestScore = new BestScore();
-    this.element.appendChild(bestScore.element);
+    this.element.appendChild(this.bestScore.element);
   }
 
   listen(): void {

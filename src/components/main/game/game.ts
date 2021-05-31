@@ -24,20 +24,31 @@ export class Game extends BaseComponent {
     this.element.appendChild(this.mainCards.element);
   }
 
-  async start() : Promise<void> {
+  async start(difficult : string, gameCards : string) : Promise<void> {
     const res = await fetch('./images.json');
     const categories: ImageCategoryModel[] = await res.json();
-    const cat = categories[0];
-    const images = cat.images.map((name) => `${cat.category}/${name}`);
-    this.newGame(images);
+    let cat : string[] = [];
+    let categ = '';
+    categories.forEach((item) => {
+      if (item.category === gameCards) {
+        cat = item.images;
+        categ = item.category;
+      }
+    });
+    const dif = difficult.slice(0, 1);
+    const numberCards = (+dif) ** 2 / 2;
+    cat = cat.slice(0, numberCards);
+
+    const images = cat.map((name) => `${categ}/${name}`);
+    this.newGame(images, +dif);
   }
 
-  newGame(images: string[]) : void {
+  newGame(images: string[], dif : number) : void {
     this.cleanGame();
 
     const cards = images
       .concat(images)
-      .map((url) => new Card(url))
+      .map((url) => new Card(url, dif))
       .sort(() => Math.random() - 0.5);
 
     cards.forEach((card) => card.element.addEventListener('click', () => this.cardHandler(card)));

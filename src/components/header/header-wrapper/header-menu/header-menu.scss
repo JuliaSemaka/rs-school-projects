@@ -14,7 +14,8 @@
     width: 96px;
     text-align: center;
 
-    &:hover {
+    &:hover,
+    &_active {
       background: #1e88e5;
     }
 

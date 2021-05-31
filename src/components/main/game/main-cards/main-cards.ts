@@ -5,7 +5,7 @@ import { Card } from './card/card';
 const SHOW_TIME = 5;
 
 export class MainCards extends BaseComponent {
-  private cards: Card[] = [];
+  public cards: Card[] = [];
 
   constructor() {
     super('div', ['main-cards']);
