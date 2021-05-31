@@ -9,7 +9,7 @@ export class HeaderWrapper extends BaseComponent {
 
   private readonly headerMenu: HeaderMenu;
 
-  private readonly headerRight: HeaderRight;
+  public readonly headerRight: HeaderRight;
 
   constructor() {
     super('div', ['header-wrapper']);

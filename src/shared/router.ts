@@ -30,7 +30,10 @@ export class Router {
     return this.root;
   }
 
-  setRoute(): void {
+  setRoute(root = ''): void {
+    if (root !== '') {
+      window.location.hash = root;
+    }
     this.root = window.location.hash.toString().replace(/#/, '');
   }
 }

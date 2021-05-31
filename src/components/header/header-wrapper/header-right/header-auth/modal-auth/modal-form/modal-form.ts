@@ -45,22 +45,26 @@ export class ModalForm extends BaseComponent {
   isValid(elem : FirstName | LastName | Email) : void {
     const { value } = elem.renderInput.element as HTMLInputElement;
     let isCorrect = true;
-    Object.keys(elem.validation).forEach((key) => {
+    isCorrect = Object.keys(elem.validation).every((key) => {
       if (key === 'onlyDigit') {
         if (!Number.isNaN(Number(value.trim()))) {
-          isCorrect = false;
+          return false;
         }
-      } else if (key === 'errorSymbols') {
+        return true;
+      } if (key === 'errorSymbols') {
         if (Object.keys(elem.validation[key]).length !== 0) {
-          isCorrect = elem.validation[key].every((item) => !value.trim().includes(item));
+          return elem.validation[key].every((item) => !value.trim().includes(item));
         }
-      } else if (key === 'email') {
+        return true;
+      } if (key === 'email') {
         const reg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!reg.test(String(value.trim()).toLowerCase())) {
-          isCorrect = false;
+          return false;
         }
+        return true;
       }
+      return true;
     });
 
     if (value.trim() === '') {

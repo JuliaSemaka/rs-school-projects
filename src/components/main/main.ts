@@ -3,7 +3,7 @@ import { BaseComponent } from '../base-component';
 import { MainWrapper } from './main-wrapper/main-wrapper';
 
 export class Main extends BaseComponent {
-  private readonly mainWrapper: MainWrapper;
+  public readonly mainWrapper: MainWrapper;
 
   constructor() {
     super('main', ['main']);
