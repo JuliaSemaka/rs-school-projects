@@ -13,14 +13,11 @@ export class MainWrapper extends BaseComponent {
 
   private readonly setting: Setting;
 
-  private readonly bestScore: BestScore;
-
   constructor() {
     super('div', ['main-wrapper']);
     this.route = new Router();
     this.about = new About();
     this.setting = new Setting();
-    this.bestScore = new BestScore();
 
     this.listen();
     this.showPage();
@@ -62,11 +59,12 @@ export class MainWrapper extends BaseComponent {
   }
 
   runBestScore() : void {
-    this.element.appendChild(this.bestScore.element);
+    const bestScore = new BestScore();
+    this.element.appendChild(bestScore.element);
   }
 
   listen(): void {
-    setInterval(() => this.interval(), 500);
+    setInterval(() => this.interval(), 100);
   }
 
   interval(): boolean {

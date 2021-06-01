@@ -17,7 +17,8 @@ export class IndexedDb {
     return indexedDB.open('juliasemaka-JSFE2021Q1', 1);
   }
 
-  static addData(newData : { firstName: string; lastName: string; email: string }, tableName = 'score') : void {
+  static addData(newData : { firstName: string; lastName: string; email: string } | { score: number },
+    tableName = 'score') : void {
     const openRequest = IndexedDb.openDb();
 
     openRequest.onsuccess = () => {
