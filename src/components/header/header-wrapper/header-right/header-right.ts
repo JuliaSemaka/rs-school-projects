@@ -5,6 +5,7 @@ import { Cover } from './cover/cover';
 import { ModalAuth } from './header-auth/modal-auth/modal-auth';
 import { IndexedDb } from '../../../../shared/indexeddb';
 import { HeaderStartGame } from './header-start-game/header-start-game';
+import { HeaderAvatar } from './header-avatar/header-avatar';
 
 export class HeaderRight extends BaseComponent {
   public readonly headerAuth: HeaderAuth;
@@ -35,6 +36,12 @@ export class HeaderRight extends BaseComponent {
       this.showAuth();
     } else {
       this.element.appendChild(this.headerStartGame.element);
+      const user = (userAuth as []).shift();
+      if (!user) throw Error();
+      const arrUser = Object.values(user);
+
+      const headerAvatar = new HeaderAvatar(<string>arrUser[3]);
+      this.element.appendChild(headerAvatar.element);
     }
   }
 

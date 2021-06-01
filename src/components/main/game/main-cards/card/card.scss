@@ -45,7 +45,8 @@
     }
 
     &__front {
-      background-color: aquamarine;
+      background-color: #ffffff;
+      transition: background-color 2s;
     }
 
     &__back {
@@ -54,4 +55,14 @@
       transform: rotateY(180deg);
     }
   }
+}
+
+.main__card_success .main-card__front {
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: #6bdb61;
+}
+
+.main__card_error .main-card__front {
+  filter: drop-shadow(2px 4px 6px black);
+  background-color: #ee581c;
 }

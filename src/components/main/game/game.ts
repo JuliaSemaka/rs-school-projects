@@ -8,7 +8,7 @@ import { ImageCategoryModel } from '../../../models/image-category-model';
 import { IndexedDb } from '../../../shared/indexeddb';
 
 const FLIP_DELAY = 1000;
-// const URL_SCORE = '/best-score';
+const URL_SCORE = '/best-score';
 let successFlipped = 0;
 export class Game extends BaseComponent {
   private readonly mainTimer: MainTimer;
@@ -88,8 +88,8 @@ export class Game extends BaseComponent {
         const time = (+timeArr[0] * 60) + timeArr[1];
         const score = (successFlipped * 100) - (+time * 10);
         IndexedDb.addData({ score });
-        // const win = confirm(`Игра окончена! Ваш результат ${score}`);
-        // if (win) window.location.hash = URL_SCORE;
+        const win = window.confirm(`Игра окончена! Ваш результат ${score}`);
+        if (win) window.location.hash = URL_SCORE;
       }
     }
 

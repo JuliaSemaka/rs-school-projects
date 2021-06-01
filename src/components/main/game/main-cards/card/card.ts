@@ -35,6 +35,7 @@ export class Card extends BaseComponent {
   }
 
   flipToBack(): Promise<void> {
+    this.element.classList.remove(CARD_ERROR);
     this.isFlipped = true;
     return this.flip(true);
   }

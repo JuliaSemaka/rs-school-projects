@@ -26,6 +26,7 @@ export class ModalAuth extends BaseComponent {
       firstName: (this.modalForm.firstName.renderInput.element as HTMLInputElement).value,
       lastName: (this.modalForm.lastName.renderInput.element as HTMLInputElement).value,
       email: (this.modalForm.email.renderInput.element as HTMLInputElement).value,
+      image: document.querySelector('.image-avatar')?.getAttribute('src'),
     };
 
     IndexedDb.addData(user, 'users');
