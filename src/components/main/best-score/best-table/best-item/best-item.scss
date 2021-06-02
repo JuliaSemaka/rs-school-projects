@@ -14,7 +14,14 @@
     height: 40px;
     border-radius: 50%;
     background-size: cover;
+    overflow: hidden;
     background-image: url("../../../../../assets/unknown.png");
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &-contact {

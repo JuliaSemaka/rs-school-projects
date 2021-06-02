@@ -19,6 +19,11 @@ export class BestItem extends BaseComponent {
       <p class="text-score text">Score:  <span class="best-score__item-score-num text-blue">${score}</span></p>
     </div>
     `;
-    // this.element.appendChild(this.mainTimer.element);
+
+    if (arrUser[3]) {
+      const img = new Image();
+      img.setAttribute('src', arrUser[3]);
+      this.element.querySelector('.best-score__item-image')?.append(img);
+    }
   }
 }

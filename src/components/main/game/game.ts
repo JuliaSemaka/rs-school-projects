@@ -13,7 +13,7 @@ let successFlipped = 0;
 export class Game extends BaseComponent {
   private readonly mainTimer: MainTimer;
 
-  private readonly mainCards: MainCards;
+  public readonly mainCards: MainCards;
 
   private activeCard?: Card;
 
@@ -64,7 +64,8 @@ export class Game extends BaseComponent {
 
   private async cardHandler(card: Card) {
     if (this.isAnimation) return;
-    if (!card.flipToBack) return;
+    if (!card.isFlipped) return;
+
     this.isAnimation = true;
     await card.flipToFront();
     if (!this.activeCard) {
