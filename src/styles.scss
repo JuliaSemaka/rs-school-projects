@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+.text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 21px;
+  color: #000000;
+  letter-spacing: 0.4px;
+
+  &-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.15px;
+    color: #333333;
+  }
+
+  &-number {
+    font-size: 24px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.25px;
+    color: #ffffff;
+  }
+
+  &-button {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+
+  &-uppercase {
+    text-transform: uppercase;
+  }
+
+  &-white {
+    color: #ffffff;
+  }
+
+  &-green {
+    color: #8fbc8f;
+  }
+
+  &-gray {
+    color: rgba(0, 0, 0, 0.38);
+  }
+}
+
+.backgraund {
+  &-white {
+    background: #ffffff;
+  }
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
+    0px 6px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &-green {
+    background: linear-gradient(#8fbc8f, #8fbc8fab);
+    color: #f2f9fe;
+
+    &:hover {
+      background: #8fbc8fab;
+    }
+
+    &:active {
+      background: #8fbc8f;
+    }
+  }
+
+  &-white {
+    background: #f2f9fe;
+    color: #8fbc8f;
+
+    &:hover {
+      background: #8fbc8f26;
+    }
+
+    &:active {
+      background: #c5e0c5;
+      color: #ffffff;
+    }
+
+    &:disabled {
+      background: #80808040;
+      cursor: no-drop;
+      box-shadow: none;
+    }
+  }
+}
+
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 6%;
+  background: linear-gradient(#8fbc8f, #8fbc8fab);
+  color: #ffffff;
+}
+
+.main-wrapper {
+  margin: 2% 4%;
+}
+
+.views-page {
+  display: flex;
+
+  & > .button:first-child {
+    margin-right: 2%;
+  }
+}
+
+.settings {
+  margin-top: 4%;
+
+  &-auto {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
+
+    & > input:not(:last-child) {
+      margin-right: 2%;
+    }
+
+    &_input {
+      border-radius: 5px;
+      border: 1px solid #55555557;
+      padding: 6px;
+      color: #555555ed;
+    }
+  }
+}
+
+.cars {
+  margin-top: 4%;
+}
+
+.car {
+  margin-top: 3%;
+
+  &-settings {
+    display: flex;
+    align-items: center;
+
+    & > input {
+      margin-right: 1%;
+      padding: 6px;
+    }
+  }
+
+  &-puth {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 28px;
+    margin-bottom: 10px;
+
+    &__buttons {
+      top: -23px;
+      position: absolute;
+      display: flex;
+      align-items: center;
+
+      & > .button {
+        padding: 2px 5px;
+
+        &:first-child {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    &__road {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid #72717129;
+      border-bottom: 1px solid #72717129;
+      height: 45px;
+      width: 100%;
+      background: linear-gradient(#9999993b, #d1d0d03b);
+
+      & > span {
+        width: 100%;
+        border-top: 4px dashed #ffffff;
+      }
+    }
+
+    &__car {
+      height: 50px;
+      transform: rotate(-180deg);
+    }
+
+    &__flag {
+      position: absolute;
+      top: 0;
+      right: 70px;
+    }
+  }
+}
+
+.winners {
+  width: 100%;
+  margin-top: 4%;
+
+  &-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 80%;
+    margin-top: 2%;
+
+    &__header {
+      background: linear-gradient(#8fbc8f, #8fbc8fab);
+
+      & > .winners-table__item {
+        font-weight: 500;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+    }
+
+    &__str {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+
+    &__item {
+      flex: 0 0 17%;
+
+      & > img {
+        height: 34px;
+      }
+    }
+  }
+}
+
+.navigation {
+  margin-top: 20px;
+  display: flex;
+
+  & > .button:first-child {
+    margin-right: 1%;
+  }
+}
