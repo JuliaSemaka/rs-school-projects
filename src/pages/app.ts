@@ -4,7 +4,7 @@ import { renderGarage } from './garage/renderGarage';
 import { renderWinner } from './winner/renderWinner';
 
 export async function render(): Promise<void> {
-  const app = `<header class="header text text-uppercase">${store.view}</header>
+  const app: string = `<header class="header text text-uppercase">${store.view}</header>
   <main class="main-wrapper">
     <div class="views-page">
       <button type="button" class="button button-green text-button views-page__garage">To Garage</button>

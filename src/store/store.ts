@@ -9,7 +9,7 @@ const store: IStore = {
   winnersPage: 1,
   winners: [],
   winnersCount: 0,
-  animation: {},
+  animation: [],
   view: 'garage',
   sortBy: null,
   sortOrder: null,

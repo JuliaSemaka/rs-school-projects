@@ -8,8 +8,14 @@ export interface IStore {
   winnersPage: number,
   winners: IWinnerResponse[],
   winnersCount: number,
-  animation: Object,
+  animation: IAnimation[],
   view: 'garage' | 'winner',
   sortBy: null,
   sortOrder: null,
+}
+
+export interface IAnimation {
+  id: string,
+  idAnimation: number,
+  positionCar: number
 }
