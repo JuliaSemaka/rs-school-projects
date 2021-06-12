@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack serve --env development",
-    "lint": "eslint --fix --ext .ts ."
+    "lint": "eslint --fix --ext .ts .",
+    "lint-dev": "eslint src"
   },
   "author": "Kris Casper",
   "devDependencies": {

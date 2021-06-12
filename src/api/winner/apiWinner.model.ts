@@ -5,11 +5,11 @@ export interface IWinnerResponse {
 }
 
 export interface IGetWinners {
-  items: IWinnerResponse,
+  items: IWinnerResponse[],
   count: string,
 }
 
 export interface IUpdateDataWinners {
   wins: number,
-  time: number
+  time: number,
 }

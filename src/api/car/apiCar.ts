@@ -1,47 +1,47 @@
-import { garage } from "../api.config"
-import { IGetCars, ICarsResponse, ICreateCarParams } from "./apiCar.model"
+import { GARAGE } from '../api.config';
+import { IGetCars, ICarsResponse, ICreateCarParams } from './apiCar.model';
 
-export async function getCars(page: number, limit: number = 7): Promise<IGetCars> {
-  const response: Response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
+export async function getCars(page: number, limit = 7): Promise<IGetCars> {
+  const response: Response = await fetch(`${GARAGE}?_page=${page}&_limit=${limit}`);
 
   return {
-    items: await response.json() as ICarsResponse,
+    items: await response.json(),
     count: response.headers.get('X-Total-Count') as string,
-  }
+  };
 }
 
 export async function getCar(id: number): Promise<ICarsResponse> {
-  return (await fetch(`${garage}?id=${id}`)).json();
+  return (await fetch(`${GARAGE}/${id}`)).json();
 }
 
 export async function createCar(data: ICreateCarParams): Promise<ICarsResponse> {
-  const response: Response = await fetch(garage, {
+  const response: Response = await fetch(GARAGE, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
 
-  return await response.json();
+  return response.json();
 }
 
-export async function deleteCar(id: number): Promise<object> {
-  const response: Response = await fetch(`${garage}?id=${id}`, {
+export async function deleteCar(id: number): Promise<number> {
+  const response: Response = await fetch(`${GARAGE}/${id}`, {
     method: 'DELETE',
   });
 
-  return await response.json() as object;
+  return response.status;
 }
 
 export async function updateCar(id: number, data: ICreateCarParams): Promise<ICarsResponse> {
-  const response: Response = await fetch(`${garage}?id=${id}`, {
+  const response: Response = await fetch(`${GARAGE}/${id}`, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
 
-  return await response.json();
+  return response.json();
 }

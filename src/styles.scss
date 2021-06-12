@@ -13,10 +13,24 @@ a {
 
 input {
   outline: none;
+
+  &:disabled {
+    cursor: no-drop;
+  }
 }
 
 body.lock {
   overflow: hidden;
+}
+
+fragment {
+  width: 100%;
+}
+
+.error {
+  border: 1px solid #ec272766 !important;
+  box-shadow: 0px 3px 5px rgba(230, 22, 22, 0.2),
+    0px 1px 18px rgba(236, 15, 15, 0.12), 0px 6px 10px rgba(250, 9, 9, 0.14);
 }
 
 .text {
@@ -161,6 +175,7 @@ body.lock {
       border: 1px solid #55555557;
       padding: 6px;
       color: #555555ed;
+      transition: border 0.5s;
     }
   }
 }
@@ -215,6 +230,7 @@ body.lock {
       background: linear-gradient(#9999993b, #d1d0d03b);
 
       & > span {
+        display: block;
         width: 100%;
         border-top: 4px dashed #ffffff;
       }
