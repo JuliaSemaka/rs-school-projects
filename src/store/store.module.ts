@@ -18,4 +18,3 @@ export interface IAnimation {
   id: string,
   dataAnimation: IFrameId,
 }
-

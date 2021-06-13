@@ -3,7 +3,7 @@ import { IGetWinners, IUpdateDataWinners, IWinnerResponse } from './apiWinner.mo
 
 // type sortName = 'id'|'wins'|'time';
 // type orderName = 'ASC'|'DESC';
-export async function getWinners(page: number, limit: number = 10, sort: string = 'id', order: string = 'ASC'): Promise<IGetWinners> {
+export async function getWinners(page: number, limit = 10, sort = 'id', order = 'ASC'): Promise<IGetWinners> {
   const response: Response = await fetch(`${WINNER}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
 
   return {

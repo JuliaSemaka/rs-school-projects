@@ -3,4 +3,5 @@ export interface IFrameId {
   positionCar: number,
   start: boolean,
   finish: boolean,
+  drive: boolean
 }

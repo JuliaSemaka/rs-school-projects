@@ -15,9 +15,9 @@ function getRandomCar(): ICreateCarParams {
   };
 }
 
-export function generateRandomCars(count: number = 100): ICreateCarParams[] {
+export function generateRandomCars(count = 100): ICreateCarParams[] {
   const generateArr: ICreateCarParams[] = new Array(count);
-  return generateArr.fill({ name:'', color:'' }).map(() => {
+  return generateArr.fill({ name: '', color: '' }).map(() => {
     const { name, color }: ICreateCarParams = getRandomCar();
     return { name, color };
   });

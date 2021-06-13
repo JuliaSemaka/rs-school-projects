@@ -1,1 +1,1 @@
-export const BASE_COLOR: string = '#ffffff';
+export const BASE_COLOR = '#ffffff';

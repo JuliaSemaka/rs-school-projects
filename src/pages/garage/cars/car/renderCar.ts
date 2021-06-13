@@ -11,8 +11,8 @@ export function renderCar(car: ICarsResponse): string {
     </div>
     <div class="car-puth">
       <div class="car-puth__buttons">
-        <input type="button" class="button button-white text-button start-car" value="A">
-        <input type="button" class="button button-white text-button finish-car" value="B" disabled>
+        <input type="button" id="start${car.id}" class="button button-white text-button start-car" value="A">
+        <input type="button" id="stop${car.id}" class="button button-white text-button finish-car" value="B" disabled>
       </div>
       <div class="car-puth__road"><span></span></div>
       <picture class="car-puth__car" data-color="${car.color}">${packageCar(car.color)}</picture>

@@ -10,5 +10,7 @@ export function renderCars(): string {
         ${store.cars.map((car) => renderCar(car)).join('')}
       </fragment>
     </div>
+
+    <div class="winner-element"></div>
   `;
 }
