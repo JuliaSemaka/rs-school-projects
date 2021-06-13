@@ -7,9 +7,7 @@ export function renderCars(): string {
     <p class="text">Page #<span>${store.carsPage}</span></p>
     <div class="cars__item">
       <fragment>
-        ${store.cars.map((car) => `
-          ${renderCar(car)}
-        `).join('')}
+        ${store.cars.map((car) => renderCar(car)).join('')}
       </fragment>
     </div>
   `;

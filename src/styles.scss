@@ -239,6 +239,10 @@ fragment {
     &__car {
       height: 50px;
       transform: rotate(-180deg);
+
+      & > svg {
+        height: 100%;
+      }
     }
 
     &__flag {

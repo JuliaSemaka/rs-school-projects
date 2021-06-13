@@ -7,7 +7,7 @@ import './styles.scss';
 // await
 async function startApp(): Promise<void> {
   await initStore();
-  await render();
+  render();
   listenApp();
 }
 

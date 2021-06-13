@@ -1,6 +1,7 @@
 import { deleteCar } from '../../../api/car/apiCar';
 import { driveCarsEngine, startCarsEngine } from '../../../api/engine/apiEngine';
 import store from '../../../store/store';
+import { IAnimation } from '../../../store/store.module';
 import { DISABLED } from '../../app.config';
 import { carUpdate, updateStageGarage } from '../listenGarage';
 import { MILLISECONDS, ONE_SECONDS, PERCENT_ALL, STOPPED } from './cars.config';
@@ -17,7 +18,7 @@ export function listenCars(): void {
       carUpdate(idCar, nameCar, colorCar);
     }
     if (target.classList.contains('remove-car')) {
-      const idCar: number = +(target.closest('.car')?.id as string);
+      const idCar: number = +(target.closest('.car')?.id.slice(4) as string);
       await deleteCar(idCar);
       await updateStageGarage(store.carsPage);
     }
@@ -34,32 +35,36 @@ async function listenCar() {
       const parentEl: HTMLElement = target.closest('.car') as HTMLElement;
       const finishButton: HTMLElement = parentEl.querySelector('.finish-car') as HTMLElement;
       const carId: string = (parentEl?.id as string).slice(4);
-      console.log(carId);
 
       const {velocity, distance} = await startCarsEngine(+carId);
-      const idAnimation = animationCar(carId, distance, velocity);
-      store.animation.push({
-        id: carId,
-        idAnimation: idAnimation.id,
-        positionCar: idAnimation.positionCar,
-      });
+      const dataAnimation: IFrameId = await animationCar(carId, distance, velocity);
       finishButton.removeAttribute(DISABLED);
 
-      finishButton.addEventListener('click', async () => {
-        cancelAnimation(carId, idAnimation.id);
-      })
+      store.animation.push({
+        id: carId,
+        dataAnimation: dataAnimation,
+      });
 
       const { success } = await driveCarsEngine(+carId);
       if (!success) {
-        cancelAnimationFrame(idAnimation.id);
+        cancelAnimationFrame(dataAnimation.id);
       }
+      dataAnimation.start = true;
+      dataAnimation.finish = true;
+      target.removeAttribute(DISABLED);
+    }
+    if (target.classList.contains('finish-car')) {
+      const parentEl: HTMLElement = target.closest('.car') as HTMLElement;
+      const carId: string = (parentEl?.id as string).slice(4);
+      const currentAnimat: IAnimation = store.animation.find(item => item.id === carId) as IAnimation;
+      cancelAnimation(carId, currentAnimat?.dataAnimation.id);
     }
   });
 }
 
-function animationCar(car: string, distance: number, timeAnimation: number): IFrameId {
+export async function animationCar(car: string, distance: number, timeAnimation: number): Promise<IFrameId> {
   const startTime: number = new Date().getTime();
-  const animFrameId: IFrameId = {id: 0, positionCar: 0};
+  const animFrameId: IFrameId = {id: 0, positionCar: 0, start: false, finish: true};
   animFrameId.id = requestAnimationFrame(function animate() {
     const currTime: number = new Date().getTime();
     const timeMove: number = (distance / timeAnimation) / MILLISECONDS;
@@ -78,7 +83,7 @@ function animationCar(car: string, distance: number, timeAnimation: number): IFr
 return animFrameId;
 }
 
-async function cancelAnimation(carId: string, animatId: number) {
+export async function cancelAnimation(carId: string, animatId: number): Promise<void> {
   cancelAnimationFrame(animatId);
   const carEl = (document.getElementById(`car-${carId}`) as HTMLElement);
 
@@ -86,6 +91,5 @@ async function cancelAnimation(carId: string, animatId: number) {
 
   const {velocity, distance} = await startCarsEngine(+carId, STOPPED);
   animationCar(carId, distance, velocity);
-  store.animation.filter(item => item.id !== carId);
-  (carEl?.querySelector('.start-car') as HTMLElement).removeAttribute(DISABLED);
+  store.animation = store.animation.filter(item => item.id !== carId);
 }

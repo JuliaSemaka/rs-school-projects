@@ -16,8 +16,8 @@ export function renderGarage(): string {
       update-car__button" disabled value="Update">
     </div>
     <div class="settings-auto settings-auto__buttons">
-      <input type="button" class="button button-white text-button" value="Race">
-      <input type="button" class="button button-white text-button" value="Reset">
+      <input type="button" class="button button-white text-button race-all" value="Race">
+      <input type="button" class="button button-white text-button reset-all" value="Reset" disabled>
       <input type="button" class="button button-white text-button generate-cars" value="Generate cars">
     </div>
   </div>

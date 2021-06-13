@@ -1,9 +1,11 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+export function packageCar(color: string): string {
+  return `
+  <?xml version="1.0" encoding="iso-8859-1"?>
 <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 434.669 434.669" style="enable-background:new 0 0 434.669 434.669;" xml:space="preserve">
 <g>
-	<path id="path4400-3-2" style="fill:#222222;" d="M178.471,107.469c-0.036,0.001-0.15,0.018-0.24,0.02
+	<path id="path4400-3-2" style="fill:${color}" d="M178.471,107.469c-0.036,0.001-0.15,0.018-0.24,0.02
 		c-0.878,0.019-3.998,0.094-5.7,0.48c-1.903,0.431-3.806,1.018-5.48,2.02c-2.505,1.5-4.617,3.641-6.56,5.82
 		c-1.622,1.818-2.862,3.944-4.2,5.98c-0.538,0.819-1.232,1.584-1.52,2.52c-0.04,0.129-0.093,0.245-0.12,0.38
 		c-31.257,0.088-62.513,0.31-93.76,1.02c-18.762,0.627-37.167,10.052-47.44,25.98c-4.402,5.134-7.214,11.198-8.48,17.76
@@ -94,3 +96,6 @@
 <g>
 </g>
 </svg>
+`;
+}
+

@@ -1,13 +1,13 @@
 import { ICreateCarParams } from '../api/car/apiCar.model';
 
-const models = ['Tesla', 'Mersedes', 'BMW', 'Toyota', 'Zhiguli', 'Moskvich', 'Mazda', 'Reno'];
-const names = ['S', 'ML', '6', 'X5', '3', 'Y', '5', 'G'];
-const colors = ['#FF1493', '#FF4500', '#FFFF00', '#008B8B', '#808000', '#00BFFF', '#EE82EE', '#DEB887'];
+const models: string[] = ['Tesla', 'Mersedes', 'BMW', 'Toyota', 'Zhiguli', 'Moskvich', 'Mazda', 'Reno'];
+const names: string[] = ['S', 'ML', '6', 'X5', '3', 'Y', '5', 'G'];
+const colors: string[] = ['#FF1493', '#FF4500', '#FFFF00', '#008B8B', '#808000', '#00BFFF', '#EE82EE', '#DEB887'];
 
-function getRandomCars(): ICreateCarParams {
-  const model = models[Math.floor(Math.random() * models.length)];
-  const name = names[Math.floor(Math.random() * names.length)];
-  const color = colors[Math.floor(Math.random() * colors.length)];
+function getRandomCar(): ICreateCarParams {
+  const model: string = models[Math.floor(Math.random() * models.length)];
+  const name: string = names[Math.floor(Math.random() * names.length)];
+  const color: string = colors[Math.floor(Math.random() * colors.length)];
 
   return {
     name: `${model} ${name}`,
@@ -15,10 +15,10 @@ function getRandomCars(): ICreateCarParams {
   };
 }
 
-export function generateRandomCars(count = 100): ICreateCarParams[] {
-  const generateArr = new Array(count);
-  return generateArr.fill(1).map(() => {
-    const { name, color }: ICreateCarParams = getRandomCars();
+export function generateRandomCars(count: number = 100): ICreateCarParams[] {
+  const generateArr: ICreateCarParams[] = new Array(count);
+  return generateArr.fill({ name:'', color:'' }).map(() => {
+    const { name, color }: ICreateCarParams = getRandomCar();
     return { name, color };
   });
 }

@@ -10,15 +10,18 @@ export function listenApp(): void {
   document.body.addEventListener('click', async (event: MouseEvent) => {
     const target: HTMLElement = event.target as HTMLElement;
     if (target.classList.contains('views-page__garage')) {
+      target.setAttribute(DISABLED, 'true');
+      document.querySelector('.views-page__winners')?.removeAttribute(DISABLED);
       store.view = 'garage';
-      await render();
-      console.log(document.querySelectorAll('.cat'));
+      render();
 
       await fillFields();
     }
     if (target.classList.contains('views-page__winners')) {
+      target.setAttribute(DISABLED, 'true');
+      document.querySelector('.views-page__garage')?.removeAttribute(DISABLED);
       store.view = 'winner';
-      await render();
+      render();
     }
     if (target.classList.contains('prev-button')) {
       if (store.view === GARAGE_PAGE) {
@@ -42,12 +45,20 @@ export function listenApp(): void {
 
 async function fillFields() {
   store.animation.forEach(item => {
-    const img: HTMLElement = document.getElementById(`cat-${item.id}`) as HTMLElement;
-    console.log(img);
-
-    if (img) {
-      (img.querySelector('.start-car') as HTMLElement).setAttribute(DISABLED, 'true');
-      (img.querySelector('.finish-car') as HTMLElement).removeAttribute(DISABLED);
+console.log(item);
+    const car = document.getElementById(`car-${item.id}`) as HTMLElement;
+    (car.querySelector('.car-puth__car') as HTMLElement).style.marginLeft = `${item.dataAnimation.positionCar}%`;
+    if (item.dataAnimation.start) {
+      (car.querySelector('.start-car') as HTMLElement).removeAttribute(DISABLED);
+    } else {
+      (car.querySelector('.start-car') as HTMLElement).setAttribute(DISABLED, 'true');
     }
+    if (item.dataAnimation.finish) {
+      (car.querySelector('.finish-car') as HTMLElement).removeAttribute(DISABLED);
+    } else {
+      (car.querySelector('.finish-car') as HTMLElement).setAttribute(DISABLED, 'true');
+    }
+
+
   });
 }

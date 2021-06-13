@@ -3,7 +3,7 @@ import { GARAGE_PAGE } from './app.config';
 import { renderGarage } from './garage/renderGarage';
 import { renderWinner } from './winner/renderWinner';
 
-export async function render(): Promise<void> {
+export function render(): void {
   const app: string = `<header class="header text text-uppercase">${store.view}</header>
   <main class="main-wrapper">
     <div class="views-page">
