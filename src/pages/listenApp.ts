@@ -1,3 +1,4 @@
+import { getWinners } from '../api/winner/apiWinner';
 import store from '../store/store';
 import { render } from './app';
 import { DISABLED, GARAGE_PAGE } from './app.config';
@@ -39,13 +40,18 @@ async function fillFields() {
   }
 }
 
+export async function fillWinners(): Promise<void> {
+  const { items: itemsWinners, count: countWinners } = await getWinners(store.winnersPage, store.sortBy, store.sortOrder);
+  store.winners = itemsWinners;
+  store.winnersCount = +countWinners;
+}
+
 export function listenApp(): void {
   visibleNavigations();
 
   document.body.addEventListener('click', async (event: MouseEvent) => {
     const target: HTMLElement = event.target as HTMLElement;
     if (target.classList.contains('views-page__garage')) {
-      target.setAttribute(DISABLED, DISABLED);
       document.querySelector('.views-page__winners')?.removeAttribute(DISABLED);
       store.view = 'garage';
       render();
@@ -53,7 +59,7 @@ export function listenApp(): void {
       await fillFields();
     }
     if (target.classList.contains('views-page__winners')) {
-      target.setAttribute(DISABLED, DISABLED);
+      await fillWinners();
       document.querySelector('.views-page__garage')?.removeAttribute(DISABLED);
       store.view = 'winner';
       render();

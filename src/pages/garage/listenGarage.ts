@@ -2,6 +2,8 @@ import { createCar, updateCar } from '../../api/car/apiCar';
 import { ICarsResponse, ICreateCarParams } from '../../api/car/apiCar.model';
 import { driveCarsEngine, startCarsEngine } from '../../api/engine/apiEngine';
 import { IStartResponse } from '../../api/engine/apiEngine.model';
+import { createWinner, getWinner, updateWinner } from '../../api/winner/apiWinner';
+import { IUpdateDataWinners, IWinnerResponse } from '../../api/winner/apiWinner.model';
 import { generateRandomCars } from '../../shared/generateRandomCars';
 import { packageCar } from '../../shared/packageCar';
 import store from '../../store/store';
@@ -10,7 +12,7 @@ import { CARS_PAGE_COUNT, DISABLED } from '../app.config';
 import { renderCar } from './cars/car/renderCar';
 import { MILLISECONDS } from './cars/cars.config';
 import { animationCar, cancelAnimation, updateStageGarage } from './cars/listenCars';
-import { BASE_COLOR } from './garage.config';
+import { BASE_COLOR, FIRST_WINS } from './garage.config';
 
 export function visibleNavigations(): void {
   const nextButton: HTMLElement = document.querySelector('.next-button') as HTMLElement;
@@ -52,6 +54,81 @@ export async function clearFieldsUpdateCar(): Promise<void> {
   carButton?.setAttribute(DISABLED, DISABLED);
 }
 
+export async function showWinner(time: number, car: ICarsResponse) {
+  const winnerElement: HTMLElement = document.querySelector('.winner-element') as HTMLElement;
+  winnerElement.innerHTML = `<p>${car.name} went first [${time}s]</p>`;
+  winnerElement.style.display = 'flex';
+}
+
+export async function addWinner(time: number, car: ICarsResponse) {
+  const aboutCar: IWinnerResponse = await getWinner(car.id);
+  console.log(aboutCar);
+
+  if (Object.keys(aboutCar).length === 0) {
+    const dataWinner: IWinnerResponse = {
+      id: car.id,
+      wins: FIRST_WINS,
+      time: time,
+    };
+    await createWinner(dataWinner);
+  } else {
+    console.log(aboutCar);
+    const updWinner: IUpdateDataWinners = {
+      wins: ++aboutCar.wins,
+      time: time < aboutCar.time ? time : aboutCar.time,
+    }
+    await updateWinner(car.id, updWinner);
+  }
+}
+
+export async function promisesAll(promises: Promise<IStartResponse>[], isWinner: boolean) {
+  Promise.all(promises).then((response) => {
+    response.forEach(async (item, key) => {
+      const dataAnimation = await animationCar(`${store.cars[key].id}`, item.distance, item.velocity);
+      const carEl: HTMLElement = document.getElementById(`car-${store.cars[key].id}`) as HTMLElement;
+      (document.querySelector('.reset-all') as HTMLElement)?.removeAttribute(DISABLED);
+      (carEl?.querySelector('.finish-car') as HTMLElement)?.removeAttribute(DISABLED);
+
+      store.animation.push({
+        id: `${store.cars[key].id}`,
+        dataAnimation,
+      });
+
+      const { success } = await driveCarsEngine(store.cars[key].id);
+      const isStopActive = (document.getElementById(`stop${store.cars[key].id}`) as HTMLElement).getAttribute(DISABLED);
+      if (!success) {
+        cancelAnimationFrame(dataAnimation.id);
+      } else if (!isWinner && !isStopActive) {
+        isWinner = true;
+        const time: number = +(item.distance / item.velocity / MILLISECONDS).toFixed(2);
+        await showWinner(time, store.cars[key]);
+        await addWinner(time, store.cars[key]);
+      }
+      store.animation = store.animation.map((elem: IAnimation) => {
+        if (+elem.id === store.cars[key].id) {
+          elem.dataAnimation.drive = false;
+        }
+        return elem;
+      });
+      if ((document.getElementById(`stop${store.cars[key].id}`) as HTMLElement)?.getAttribute(DISABLED)) {
+        (document.getElementById(`start${store.cars[key].id}`) as HTMLElement)?.removeAttribute(DISABLED);
+      }
+
+      const allCarsStart: NodeListOf<Element> = document.querySelectorAll('.start-car');
+      let isAllFinish = true;
+      allCarsStart.forEach((el: Element) => {
+        if (el.getAttribute(DISABLED)) {
+          isAllFinish = false;
+        }
+      });
+
+      if (isAllFinish) {
+        (document.querySelector('.race-all') as HTMLElement)?.removeAttribute(DISABLED);
+      }
+    });
+  });
+}
+
 function listenAllCars() {
   document.body.addEventListener('click', async (event) => {
     const target: HTMLElement = event.target as HTMLElement;
@@ -68,56 +145,14 @@ function listenAllCars() {
         (carEl.querySelector('.start-car') as HTMLElement).setAttribute(DISABLED, DISABLED);
         return startCarsEngine(item.id);
       });
-      let isWinner = false;
-      Promise.all(promises).then((response) => {
-        response.forEach(async (item, key) => {
-          const dataAnimation = await animationCar(`${store.cars[key].id}`, item.distance, item.velocity);
-          const carEl: HTMLElement = document.getElementById(`car-${store.cars[key].id}`) as HTMLElement;
-          (document.querySelector('.reset-all') as HTMLElement)?.removeAttribute(DISABLED);
-          (carEl?.querySelector('.finish-car') as HTMLElement)?.removeAttribute(DISABLED);
+      const isWinner: boolean = false;
+      await promisesAll(promises, isWinner);
 
-          store.animation.push({
-            id: `${store.cars[key].id}`,
-            dataAnimation,
-          });
-
-          const { success } = await driveCarsEngine(store.cars[key].id);
-          if (!success) {
-            cancelAnimationFrame(dataAnimation.id);
-          } else if (!isWinner) {
-            isWinner = true;
-            const time: number = item.distance / item.velocity / MILLISECONDS;
-            const winnerElement: HTMLElement = document.querySelector('.winner-element') as HTMLElement;
-            winnerElement.innerHTML = `<p>${store.cars[key].name} went first [${time.toFixed(2)}s]</p>`;
-            winnerElement.style.display = 'flex';
-          }
-          store.animation = store.animation.map((elem: IAnimation) => {
-            if (+elem.id === store.cars[key].id) {
-              elem.dataAnimation.drive = false;
-            }
-            return elem;
-          });
-          if ((document.getElementById(`stop${store.cars[key].id}`) as HTMLElement)?.getAttribute(DISABLED)) {
-            (document.getElementById(`start${store.cars[key].id}`) as HTMLElement)?.removeAttribute(DISABLED);
-          }
-
-          const allCarsStart: NodeListOf<Element> = document.querySelectorAll('.start-car');
-          let isAllFinish = true;
-          allCarsStart.forEach((el: Element) => {
-            if (el.getAttribute(DISABLED)) {
-              isAllFinish = false;
-            }
-          });
-
-          if (isAllFinish) {
-            (document.querySelector('.race-all') as HTMLElement)?.removeAttribute(DISABLED);
-          }
-        });
-      });
     }
     if (target.classList.contains('reset-all')) {
-      (document.querySelector('.winner-element') as HTMLElement).style.display = 'none';
-
+      if ((document.querySelector('.winner-element') as HTMLElement)?.style.display) {
+        (document.querySelector('.winner-element') as HTMLElement).style.display = 'none';
+      }
       store.animation.forEach(async (item) => {
         cancelAnimation(item.id, item.dataAnimation.id);
         (document.getElementById(`stop${item.id}`) as HTMLElement)?.setAttribute(DISABLED, DISABLED);

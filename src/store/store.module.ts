@@ -11,8 +11,8 @@ export interface IStore {
   winnersCount: number,
   animation: IAnimation[],
   view: 'garage' | 'winner',
-  sortBy: null,
-  sortOrder: null,
+  sortBy: string,
+  sortOrder: string,
 }
 export interface IAnimation {
   id: string,

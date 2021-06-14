@@ -85,6 +85,7 @@ async function listenCar() {
       const { velocity, distance } = await startCarsEngine(+carId);
       const dataAnimation: IFrameId = await animationCar(carId, distance, velocity);
       finishButton.removeAttribute(DISABLED);
+      (document.querySelector('.reset-all') as HTMLElement).removeAttribute(DISABLED);
 
       store.animation.push({
         id: carId,
@@ -104,6 +105,9 @@ async function listenCar() {
       }
     }
     if (target.classList.contains('finish-car')) {
+      if ((document.querySelector('.winner-element') as HTMLElement)?.style.display) {
+        (document.querySelector('.winner-element') as HTMLElement).style.display = 'none';
+      }
       const parentEl: HTMLElement = target.closest('.car') as HTMLElement;
       const carId: string = (parentEl?.id as string).slice(4);
       const currentAnimat: IAnimation = store.animation.find((item) => item.id === carId) as IAnimation;

@@ -3,7 +3,7 @@ import { IGetWinners, IUpdateDataWinners, IWinnerResponse } from './apiWinner.mo
 
 // type sortName = 'id'|'wins'|'time';
 // type orderName = 'ASC'|'DESC';
-export async function getWinners(page: number, limit = 10, sort = 'id', order = 'ASC'): Promise<IGetWinners> {
+export async function getWinners(page: number, sort = 'id', order = 'ASC', limit = 10): Promise<IGetWinners> {
   const response: Response = await fetch(`${WINNER}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
 
   return {
@@ -13,11 +13,11 @@ export async function getWinners(page: number, limit = 10, sort = 'id', order = 
 }
 
 export async function getWinner(id: number): Promise<IWinnerResponse> {
-  return (await fetch(`${WINNER}?id=${id}`)).json();
+  return (await fetch(`${WINNER}/${id}`)).json();
 }
 
 export async function createWinner(data: IWinnerResponse): Promise<IWinnerResponse> {
-  const response: Response = await fetch(WINNER, {
+  const response: Response = await fetch(`${WINNER}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,8 +36,8 @@ export async function deleteWinner(id: number): Promise<number> {
   return response.status;
 }
 
-export async function updateCar(id: number, data: IUpdateDataWinners): Promise<IWinnerResponse> {
-  const response: Response = await fetch(`${WINNER}?id=${id}`, {
+export async function updateWinner(id: number, data: IUpdateDataWinners): Promise<IWinnerResponse> {
+  const response: Response = await fetch(`${WINNER}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
