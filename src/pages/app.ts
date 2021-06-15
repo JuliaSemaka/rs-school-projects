@@ -11,7 +11,10 @@ export function render(): void {
       <button type="button" class="button button-green text-button views-page__winners">To Winners</button>
     </div>
 
-    ${(store.view === GARAGE_PAGE) ? renderGarage() : renderWinner()}
+    <div class="package">
+      ${(store.view === GARAGE_PAGE) ? renderGarage() : renderWinner()}
+    </div>
+
 
     <div class="navigation">
       <button type="button" class="button button-white text-button prev-button">Prev</button>

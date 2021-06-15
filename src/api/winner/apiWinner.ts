@@ -29,7 +29,7 @@ export async function createWinner(data: IWinnerResponse): Promise<IWinnerRespon
 }
 
 export async function deleteWinner(id: number): Promise<number> {
-  const response: Response = await fetch(`${WINNER}?id=${id}`, {
+  const response: Response = await fetch(`${WINNER}/${id}`, {
     method: 'DELETE',
   });
 

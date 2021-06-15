@@ -1,5 +1,4 @@
 import { getCars } from '../api/car/apiCar';
-import { getWinners } from '../api/winner/apiWinner';
 import { IStore } from './store.module';
 
 const store: IStore = {
@@ -8,6 +7,7 @@ const store: IStore = {
   carsCount: 0,
   winnersPage: 1,
   winners: [],
+  winnersCar: [],
   winnersCount: 0,
   animation: [],
   view: 'garage',

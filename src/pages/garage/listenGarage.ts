@@ -11,27 +11,10 @@ import { IAnimation } from '../../store/store.module';
 import { CARS_PAGE_COUNT, DISABLED } from '../app.config';
 import { renderCar } from './cars/car/renderCar';
 import { MILLISECONDS } from './cars/cars.config';
-import { animationCar, cancelAnimation, updateStageGarage } from './cars/listenCars';
+import {
+  animationCar, cancelAnimation, updateStageGarage, visibleNavigations,
+} from './cars/listenCars';
 import { BASE_COLOR, FIRST_WINS } from './garage.config';
-
-export function visibleNavigations(): void {
-  const nextButton: HTMLElement = document.querySelector('.next-button') as HTMLElement;
-  const prevButton: HTMLElement = document.querySelector('.prev-button') as HTMLElement;
-
-  const lastPage = store.carsPage * CARS_PAGE_COUNT < +store.carsCount;
-  if (lastPage) {
-    nextButton.removeAttribute(DISABLED);
-  } else {
-    nextButton.setAttribute(DISABLED, DISABLED);
-  }
-
-  const firstPage = store.carsPage > 1;
-  if (firstPage) {
-    prevButton.removeAttribute(DISABLED);
-  } else {
-    prevButton.setAttribute(DISABLED, DISABLED);
-  }
-}
 
 async function updateOneCar(data: ICarsResponse) {
   const carEl = (document.getElementById(`car-${data.id}`) as HTMLElement);
@@ -54,34 +37,33 @@ export async function clearFieldsUpdateCar(): Promise<void> {
   carButton?.setAttribute(DISABLED, DISABLED);
 }
 
-export async function showWinner(time: number, car: ICarsResponse) {
+export async function showWinner(time: number, car: ICarsResponse): Promise<void> {
   const winnerElement: HTMLElement = document.querySelector('.winner-element') as HTMLElement;
   winnerElement.innerHTML = `<p>${car.name} went first [${time}s]</p>`;
   winnerElement.style.display = 'flex';
 }
 
-export async function addWinner(time: number, car: ICarsResponse) {
+export async function addWinner(time: number, car: ICarsResponse): Promise<void> {
   const aboutCar: IWinnerResponse = await getWinner(car.id);
-  console.log(aboutCar);
 
   if (Object.keys(aboutCar).length === 0) {
     const dataWinner: IWinnerResponse = {
       id: car.id,
       wins: FIRST_WINS,
-      time: time,
+      time,
     };
     await createWinner(dataWinner);
   } else {
-    console.log(aboutCar);
     const updWinner: IUpdateDataWinners = {
       wins: ++aboutCar.wins,
       time: time < aboutCar.time ? time : aboutCar.time,
-    }
+    };
     await updateWinner(car.id, updWinner);
   }
 }
 
-export async function promisesAll(promises: Promise<IStartResponse>[], isWinner: boolean) {
+export async function promisesAll(promises: Promise<IStartResponse>[]): Promise<void> {
+  let isWinner = false;
   Promise.all(promises).then((response) => {
     response.forEach(async (item, key) => {
       const dataAnimation = await animationCar(`${store.cars[key].id}`, item.distance, item.velocity);
@@ -145,9 +127,7 @@ function listenAllCars() {
         (carEl.querySelector('.start-car') as HTMLElement).setAttribute(DISABLED, DISABLED);
         return startCarsEngine(item.id);
       });
-      const isWinner: boolean = false;
-      await promisesAll(promises, isWinner);
-
+      await promisesAll(promises);
     }
     if (target.classList.contains('reset-all')) {
       if ((document.querySelector('.winner-element') as HTMLElement)?.style.display) {

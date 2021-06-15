@@ -288,9 +288,13 @@ fragment {
 
     &__item {
       flex: 0 0 17%;
+    }
 
-      & > img {
-        height: 34px;
+    &__main_img {
+      height: 45px;
+
+      & > svg {
+        height: 100%;
       }
     }
   }
@@ -323,4 +327,9 @@ fragment {
     text-transform: uppercase;
     color: #098202;
   }
+}
+
+.sort-wins,
+.sort-best-time {
+  cursor: pointer;
 }

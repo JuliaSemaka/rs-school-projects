@@ -1,6 +1,6 @@
 import { ICarsResponse } from '../api/car/apiCar.model';
 import { IWinnerResponse } from '../api/winner/apiWinner.model';
-import { IFrameId } from '../pages/garage/cars/cars.model';
+import { IFrame } from '../pages/garage/cars/cars.model';
 
 export interface IStore {
   carsPage: number,
@@ -8,13 +8,14 @@ export interface IStore {
   carsCount: number,
   winnersPage: number,
   winners: IWinnerResponse[],
+  winnersCar: ICarsResponse[],
   winnersCount: number,
   animation: IAnimation[],
   view: 'garage' | 'winner',
-  sortBy: string,
-  sortOrder: string,
+  sortBy: 'id'|'wins'|'time',
+  sortOrder: 'ASC'|'DESC',
 }
 export interface IAnimation {
   id: string,
-  dataAnimation: IFrameId,
+  dataAnimation: IFrame,
 }

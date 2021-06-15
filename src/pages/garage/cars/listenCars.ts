@@ -1,12 +1,13 @@
 import { deleteCar, getCars } from '../../../api/car/apiCar';
 import { driveCarsEngine, startCarsEngine } from '../../../api/engine/apiEngine';
+import { deleteWinner } from '../../../api/winner/apiWinner';
 import store from '../../../store/store';
 import { IAnimation } from '../../../store/store.module';
-import { DISABLED } from '../../app.config';
+import { CARS_PAGE_COUNT, DISABLED } from '../../app.config';
 import {
   MILLISECONDS, ONE_SECONDS, PERCENT_ALL, STOPPED,
 } from './cars.config';
-import { IFrameId } from './cars.model';
+import { IFrame } from './cars.model';
 import { renderCars } from './renderCars';
 
 export async function carUpdate(idCar: string, nameCar: string, colorCar: string): Promise<void> {
@@ -24,6 +25,25 @@ export async function carUpdate(idCar: string, nameCar: string, colorCar: string
   carButton?.removeAttribute(DISABLED);
 }
 
+export function visibleNavigations(): void {
+  const nextButton: HTMLElement = document.querySelector('.next-button') as HTMLElement;
+  const prevButton: HTMLElement = document.querySelector('.prev-button') as HTMLElement;
+
+  const lastPage = store.carsPage * CARS_PAGE_COUNT < +store.carsCount;
+  if (lastPage) {
+    nextButton.removeAttribute(DISABLED);
+  } else {
+    nextButton.setAttribute(DISABLED, DISABLED);
+  }
+
+  const firstPage = store.carsPage > 1;
+  if (firstPage) {
+    prevButton.removeAttribute(DISABLED);
+  } else {
+    prevButton.setAttribute(DISABLED, DISABLED);
+  }
+}
+
 export async function updateStageGarage(carsPage: number): Promise<void> {
   const { count, items } = await getCars(carsPage);
   store.carsCount = +count;
@@ -31,11 +51,12 @@ export async function updateStageGarage(carsPage: number): Promise<void> {
   const carsRender: string = renderCars();
   const cars: HTMLElement = document.getElementById('cars') as HTMLElement;
   cars.innerHTML = carsRender;
+  visibleNavigations();
 }
 
-export async function animationCar(car: string, distance: number, timeAnimation: number): Promise<IFrameId> {
+export async function animationCar(car: string, distance: number, timeAnimation: number): Promise<IFrame> {
   const startTime: number = new Date().getTime();
-  const animFrameId: IFrameId = {
+  const animFrameId: IFrame = {
     id: 0, positionCar: 0, start: false, finish: true, drive: true,
   };
   animFrameId.id = requestAnimationFrame(function animate() {
@@ -83,7 +104,7 @@ async function listenCar() {
       const carId: string = (parentEl?.id as string).slice(4);
 
       const { velocity, distance } = await startCarsEngine(+carId);
-      const dataAnimation: IFrameId = await animationCar(carId, distance, velocity);
+      const dataAnimation: IFrame = await animationCar(carId, distance, velocity);
       finishButton.removeAttribute(DISABLED);
       (document.querySelector('.reset-all') as HTMLElement).removeAttribute(DISABLED);
 
@@ -133,6 +154,7 @@ export function listenCars(): void {
     if (target.classList.contains('remove-car')) {
       const idCar: number = +(target.closest('.car')?.id.slice(4) as string);
       await deleteCar(idCar);
+      await deleteWinner(idCar);
       await updateStageGarage(store.carsPage);
     }
   });

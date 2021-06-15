@@ -1,9 +1,10 @@
-import { getWinners } from '../api/winner/apiWinner';
+import { getCar } from '../api/car/apiCar';
 import store from '../store/store';
 import { render } from './app';
 import { DISABLED, GARAGE_PAGE } from './app.config';
-import { listenCars, updateStageGarage } from './garage/cars/listenCars';
-import { listenGarage, visibleNavigations } from './garage/listenGarage';
+import { listenCars, updateStageGarage, visibleNavigations } from './garage/cars/listenCars';
+import { listenGarage } from './garage/listenGarage';
+import { fillWinners, listenWinner } from './winner/listenWinner';
 
 async function fillFields() {
   let raceAll = true;
@@ -40,19 +41,12 @@ async function fillFields() {
   }
 }
 
-export async function fillWinners(): Promise<void> {
-  const { items: itemsWinners, count: countWinners } = await getWinners(store.winnersPage, store.sortBy, store.sortOrder);
-  store.winners = itemsWinners;
-  store.winnersCount = +countWinners;
-}
-
 export function listenApp(): void {
   visibleNavigations();
 
   document.body.addEventListener('click', async (event: MouseEvent) => {
     const target: HTMLElement = event.target as HTMLElement;
     if (target.classList.contains('views-page__garage')) {
-      document.querySelector('.views-page__winners')?.removeAttribute(DISABLED);
       store.view = 'garage';
       render();
 
@@ -60,7 +54,9 @@ export function listenApp(): void {
     }
     if (target.classList.contains('views-page__winners')) {
       await fillWinners();
-      document.querySelector('.views-page__garage')?.removeAttribute(DISABLED);
+      store.winners.forEach(async (item) => {
+        store.winnersCar.push(await getCar(item.id));
+      });
       store.view = 'winner';
       render();
     }
@@ -82,4 +78,5 @@ export function listenApp(): void {
 
   listenGarage();
   listenCars();
+  listenWinner();
 }
