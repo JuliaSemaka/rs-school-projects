@@ -1,8 +1,6 @@
 import { WINNER } from '../api.config';
 import { IGetWinners, IUpdateDataWinners, IWinnerResponse } from './apiWinner.model';
 
-// type sortName = 'id'|'wins'|'time';
-// type orderName = 'ASC'|'DESC';
 export async function getWinners(page: number, sort = 'id', order = 'ASC', limit = 10): Promise<IGetWinners> {
   const response: Response = await fetch(`${WINNER}?_page=${page}&_limit=${limit}&_sort=${sort}&_order=${order}`);
 

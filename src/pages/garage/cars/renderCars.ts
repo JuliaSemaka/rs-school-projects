@@ -11,6 +11,6 @@ export function renderCars(): string {
       </fragment>
     </div>
 
-    <div class="winner-element"></div>
+    <div class="winner-element">${store.showTextWinner}</div>
   `;
 }

@@ -15,12 +15,26 @@ export interface IStore {
   winnersCar: ICarsResponse[],
   winnersCount: number,
   animation: IAnimation[],
+  driveAnimation: IDriveAnimation,
   view: StoreView,
   sortBy: StoreStoreBy,
   sortOrder: StoreSortOrder,
+  saveCreate: ISaveInput,
+  saveUpdate: ISaveInput,
+  showTextWinner: string,
 }
 
 export interface IAnimation {
   id: string,
   dataAnimation: IFrame,
+}
+
+export interface IDriveAnimation {
+  race: boolean,
+  reset: boolean,
+}
+
+export interface ISaveInput {
+  color: string,
+  value: string,
 }

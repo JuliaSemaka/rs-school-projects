@@ -10,9 +10,13 @@ const store: IStore = {
   winnersCar: [],
   winnersCount: 0,
   animation: [],
+  driveAnimation: { race: true, reset: false },
   view: 'garage',
   sortBy: 'id',
   sortOrder: 'ASC',
+  saveCreate: { color: '', value: '' },
+  saveUpdate: { color: '', value: '' },
+  showTextWinner: '',
 };
 
 export async function initStore(): Promise<void> {

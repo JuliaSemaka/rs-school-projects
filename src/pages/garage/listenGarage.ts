@@ -12,15 +12,15 @@ import { CARS_PAGE_COUNT, DISABLED } from '../app.config';
 import { renderCar } from './cars/car/renderCar';
 import { MILLISECONDS } from './cars/cars.config';
 import {
-  animationCar, cancelAnimation, updateStageGarage, visibleNavigations,
+  animationCar, cancelAnimation, emptyTextWinner, isFinish, updateStageGarage, visibleNavigations,
 } from './cars/listenCars';
 import { BASE_COLOR, FIRST_WINS } from './garage.config';
 
 async function updateOneCar(data: ICarsResponse) {
-  const carEl = (document.getElementById(`car-${data.id}`) as HTMLElement);
+  const carEl: HTMLElement = (document.getElementById(`car-${data.id}`) as HTMLElement);
 
   (carEl.querySelector('.car-brand') as HTMLElement).innerHTML = data.name;
-  const carColor = carEl.querySelector('.car-puth__car') as HTMLElement;
+  const carColor: HTMLElement = carEl.querySelector('.car-puth__car') as HTMLElement;
   carColor.setAttribute('data-color', data.color);
   carColor.innerHTML = packageCar(data.color);
 }
@@ -39,8 +39,11 @@ export async function clearFieldsUpdateCar(): Promise<void> {
 
 export async function showWinner(time: number, car: ICarsResponse): Promise<void> {
   const winnerElement: HTMLElement = document.querySelector('.winner-element') as HTMLElement;
-  winnerElement.innerHTML = `<p>${car.name} went first [${time}s]</p>`;
-  winnerElement.style.display = 'flex';
+  if (winnerElement) {
+    store.showTextWinner = `<p>${car.name} went first [${time}s]</p>`;
+    winnerElement.innerHTML = store.showTextWinner;
+    winnerElement.style.display = 'flex';
+  }
 }
 
 export async function addWinner(time: number, car: ICarsResponse): Promise<void> {
@@ -66,6 +69,7 @@ export async function promisesAll(promises: Promise<IStartResponse>[]): Promise<
   let isWinner = false;
   Promise.all(promises).then((response) => {
     response.forEach(async (item, key) => {
+      store.driveAnimation.reset = true;
       const dataAnimation = await animationCar(`${store.cars[key].id}`, item.distance, item.velocity);
       const carEl: HTMLElement = document.getElementById(`car-${store.cars[key].id}`) as HTMLElement;
       (document.querySelector('.reset-all') as HTMLElement)?.removeAttribute(DISABLED);
@@ -77,32 +81,30 @@ export async function promisesAll(promises: Promise<IStartResponse>[]): Promise<
       });
 
       const { success } = await driveCarsEngine(store.cars[key].id);
-      const isStopActive = (document.getElementById(`stop${store.cars[key].id}`) as HTMLElement).getAttribute(DISABLED);
-      if (!success) {
-        cancelAnimationFrame(dataAnimation.id);
-      } else if (!isWinner && !isStopActive) {
-        isWinner = true;
-        const time: number = +(item.distance / item.velocity / MILLISECONDS).toFixed(2);
-        await showWinner(time, store.cars[key]);
-        await addWinner(time, store.cars[key]);
-      }
+      const isStopActive = (document.getElementById(`stop${store.cars[key].id}`) as
+      HTMLElement)?.getAttribute(DISABLED);
+
       store.animation = store.animation.map((elem: IAnimation) => {
         if (+elem.id === store.cars[key].id) {
           elem.dataAnimation.drive = false;
         }
         return elem;
       });
+
       if ((document.getElementById(`stop${store.cars[key].id}`) as HTMLElement)?.getAttribute(DISABLED)) {
         (document.getElementById(`start${store.cars[key].id}`) as HTMLElement)?.removeAttribute(DISABLED);
       }
 
-      const allCarsStart: NodeListOf<Element> = document.querySelectorAll('.start-car');
-      let isAllFinish = true;
-      allCarsStart.forEach((el: Element) => {
-        if (el.getAttribute(DISABLED)) {
-          isAllFinish = false;
-        }
-      });
+      const isAllFinish: boolean = isFinish();
+
+      if (!success) {
+        cancelAnimationFrame(dataAnimation.id);
+      } else if (!isWinner && !isStopActive && !isAllFinish) {
+        isWinner = true;
+        const time: number = +(item.distance / item.velocity / MILLISECONDS).toFixed(2);
+        await showWinner(time, store.cars[key]);
+        await addWinner(time, store.cars[key]);
+      }
 
       if (isAllFinish) {
         (document.querySelector('.race-all') as HTMLElement)?.removeAttribute(DISABLED);
@@ -111,15 +113,29 @@ export async function promisesAll(promises: Promise<IStartResponse>[]): Promise<
   });
 }
 
-function listenAllCars() {
+export function resetAll(): void {
+  emptyTextWinner();
+  store.animation.forEach(async (item) => {
+    cancelAnimation(item.id, item.dataAnimation.id);
+    (document.getElementById(`stop${item.id}`) as HTMLElement)?.setAttribute(DISABLED, DISABLED);
+    if (!item.dataAnimation.drive) {
+      (document.getElementById(`start${item.id}`) as HTMLElement)?.removeAttribute(DISABLED);
+    }
+  });
+}
+
+function listenAllCars(): void {
   document.body.addEventListener('click', async (event) => {
     const target: HTMLElement = event.target as HTMLElement;
     if (target.classList.contains('generate-cars')) {
       const newCars: ICreateCarParams[] = generateRandomCars();
-      newCars.forEach(async (item) => createCar(item));
+      for (const item of newCars) {
+        await createCar(item);
+      }
       await updateStageGarage(store.carsPage);
     }
     if (target.classList.contains('race-all')) {
+      store.driveAnimation.race = false;
       target.setAttribute(DISABLED, DISABLED);
 
       const promises: Promise<IStartResponse>[] = store.cars.map((item) => {
@@ -130,17 +146,10 @@ function listenAllCars() {
       await promisesAll(promises);
     }
     if (target.classList.contains('reset-all')) {
-      if ((document.querySelector('.winner-element') as HTMLElement)?.style.display) {
-        (document.querySelector('.winner-element') as HTMLElement).style.display = 'none';
-      }
-      store.animation.forEach(async (item) => {
-        cancelAnimation(item.id, item.dataAnimation.id);
-        (document.getElementById(`stop${item.id}`) as HTMLElement)?.setAttribute(DISABLED, DISABLED);
-        if (!item.dataAnimation.drive) {
-          (document.getElementById(`start${item.id}`) as HTMLElement)?.removeAttribute(DISABLED);
-        }
-      });
-      target.setAttribute(DISABLED, DISABLED);
+      store.driveAnimation.reset = false;
+      resetAll();
+      const resetBut: HTMLElement = document.querySelector('.reset-all') as HTMLElement;
+      resetBut?.setAttribute(DISABLED, DISABLED);
     }
   });
 }
@@ -173,7 +182,7 @@ export function listenGarage(): void {
     if (target.classList.contains('update-car__button')) {
       const carInput: HTMLInputElement = document.getElementById('update-car-input') as HTMLInputElement;
       const carColor: HTMLInputElement = document.getElementById('update-car-color') as HTMLInputElement;
-      const data = {
+      const data: ICreateCarParams = {
         name: carInput.value,
         color: carColor.value,
       };
