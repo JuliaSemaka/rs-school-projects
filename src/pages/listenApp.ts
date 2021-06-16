@@ -7,10 +7,10 @@ import { listenGarage } from './garage/listenGarage';
 import { fillWinners, listenWinner } from './winner/listenWinner';
 
 async function fillFields() {
-  let raceAll = true;
-  let resetAll = true;
+  let raceAll: boolean = true;
+  let resetAll: boolean = true;
   store.animation.forEach((item) => {
-    const car = document.getElementById(`car-${item.id}`) as HTMLElement;
+    const car: HTMLElement = document.getElementById(`car-${item.id}`) as HTMLElement;
     (car.querySelector('.car-puth__car') as HTMLElement).style.marginLeft = `${item.dataAnimation.positionCar}%`;
     if (item.dataAnimation.start) {
       (car.querySelector('.start-car') as HTMLElement).removeAttribute(DISABLED);
@@ -64,14 +64,16 @@ export function listenApp(): void {
       if (store.view === GARAGE_PAGE) {
         await updateStageGarage(--store.carsPage);
       } else {
-        // --store.winnersPage;
+        store.winnersPage--;
+        await fillWinners();
       }
     }
     if (target.classList.contains('next-button')) {
       if (store.view === GARAGE_PAGE) {
         await updateStageGarage(++store.carsPage);
       } else {
-        // --store.winnersPage;
+        store.winnersPage++;
+        await fillWinners();
       }
     }
   });
