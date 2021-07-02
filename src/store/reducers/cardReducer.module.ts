@@ -2,6 +2,7 @@ export const CHOUSE_CATEGORY = 'CHOUSE_CATEGORY';
 export const CHANGE_MODE = 'CHANGE_MODE';
 export const SHOW_MENU = 'SHOW_MENU';
 export const HIDE_MENU = 'HIDE_MENU';
+export const FILL_ARRAY_GAME_WORDS = 'FILL_ARRAY_GAME_WORDS';
 
 // export enum typePage {
 //   CATEGORIES_PAGE = 'CATEGORIES_PAGE',
@@ -26,6 +27,7 @@ export interface ICardsState {
   indexCategory: number | null;
   isModePlay: boolean;
   isShowLeftMenu: boolean;
+  arrGameWords: ICards[];
 }
 
 export interface IAction {
