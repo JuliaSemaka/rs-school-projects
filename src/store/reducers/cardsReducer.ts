@@ -1,5 +1,5 @@
 import {cards, listcards} from '../../package/cards'
-import { CHANGE_MODE, CHOUSE_CATEGORY, IAction, ICardsState, SHOW_MENU } from './cardReducer.module';
+import { CHANGE_MODE, CHOUSE_CATEGORY, HIDE_MENU, IAction, ICardsState, SHOW_MENU } from './cardReducer.module';
 
 const listCards: ICardsState = {
   categoryCards: cards,
@@ -12,11 +12,13 @@ const listCards: ICardsState = {
 export const cardsReducer = (state: ICardsState = listCards, action: IAction): ICardsState => {
   switch(action.type) {
     case CHANGE_MODE:
-      return {...state, isModePlay: !state.isModePlay, isShowLeftMenu: false};
+      return {...state, isModePlay: !state.isModePlay};
     case CHOUSE_CATEGORY:
-      return {...state, indexCategory: action.payload, isShowLeftMenu: false};
+      return {...state, indexCategory: action.payload};
     case SHOW_MENU:
       return {...state, isShowLeftMenu: !state.isShowLeftMenu};
+    case HIDE_MENU:
+      return {...state, isShowLeftMenu: false};
     default:
       return state;
   }

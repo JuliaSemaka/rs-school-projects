@@ -1,6 +1,7 @@
 export const CHOUSE_CATEGORY = 'CHOUSE_CATEGORY';
 export const CHANGE_MODE = 'CHANGE_MODE';
 export const SHOW_MENU = 'SHOW_MENU';
+export const HIDE_MENU = 'HIDE_MENU';
 
 // export enum typePage {
 //   CATEGORIES_PAGE = 'CATEGORIES_PAGE',

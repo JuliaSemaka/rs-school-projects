@@ -48,16 +48,6 @@ fragment {
     color: #333333;
   }
 
-  &-number {
-    font-size: 24px;
-    line-height: 27px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    letter-spacing: 0.25px;
-    color: #ffffff;
-  }
-
   &-button {
     font-weight: 500;
     font-size: 21px;
@@ -74,8 +64,8 @@ fragment {
     color: #ffffff;
   }
 
-  &-green {
-    color: #8fbc8f;
+  &-center {
+    text-align: center;
   }
 
   &-gray {
@@ -94,23 +84,39 @@ fragment {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 10px 16px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2), 0px 1px 18px rgba(0, 0, 0, 0.12),
     0px 6px 10px rgba(0, 0, 0, 0.14);
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  padding: 20px 10%;
+
+  &.disabled {
+    display: none;
+  }
 
   &-green {
-    background: linear-gradient(#8fbc8f, #8fbc8fab);
+    background: linear-gradient(40deg, #00bf82, #0099ae);
     color: #f2f9fe;
 
     &:hover {
-      background: #8fbc8fab;
+      background: linear-gradient(40deg, #9ee4ce, #05626e);
     }
 
     &:active {
-      background: #8fbc8f;
+      background: linear-gradient(40deg, #048a5f, #89d0da);
+    }
+  }
+
+  &-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    padding: 0;
+
+    & > img {
+      width: 60%;
+      height: 60%;
     }
   }
 
@@ -318,6 +324,8 @@ fragment {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   &-container {
     max-width: 1440px;
@@ -335,20 +343,20 @@ fragment {
     transition: all 0.5s;
     transform-origin: right;
     border-radius: inherit;
-    box-shadow: 0px 1px 5px #333333, 0px 3px 4px #333333, 0px 2px 4px #333333;
+    box-shadow: 0px 1px 5px #d3d3d3, 0px 3px 4px #d3d3d3, 0px 2px 4px #d3d3d3;
 
     &__container {
       flex: 0 0 268px;
       height: 217px;
       margin-bottom: 27px;
       cursor: pointer;
-      perspective: 400px;
+      perspective: 700px;
       border-radius: 7px;
       margin-right: 27px;
 
       &:hover > * {
-        box-shadow: 4px 15px 25px #333333, 0px 3px 4px #333333,
-          0px 2px 4px #333333;
+        box-shadow: 4px 15px 25px #d3d3d3, 0px 3px 4px #d3d3d3,
+          0px 2px 4px #d3d3d3;
       }
     }
 
@@ -365,14 +373,55 @@ fragment {
     }
 
     &__front {
-      background: green;
-      transition: background-color 2s;
+      background: linear-gradient(#00bf82 10%, #0099ae 45%, #fff 40%);
+      overflow: hidden;
+      transition: 1s;
+
+      &.game {
+        background: linear-gradient(#ffd86f 10%, #fc6262 45%, #fff 40%);
+
+        & .main-card__img-fully {
+          height: 100%;
+        }
+
+        & .main-card__img-rotate {
+          display: none;
+        }
+      }
     }
 
     &__back {
-      background-size: auto;
-      background: goldenrod;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      padding-top: 36%;
+      text-transform: uppercase;
       transform: rotateY(180deg);
+    }
+
+    &__img {
+      background-size: cover;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 10px solid #fff;
+      margin: 20px auto;
+
+      &-fully {
+        background-size: cover;
+        width: 100%;
+        height: 167px;
+        margin: 0 auto 10px;
+        transition: 0.4s;
+      }
+
+      &-rotate {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        width: 40px;
+        height: 32px;
+      }
     }
   }
 }
@@ -381,5 +430,26 @@ fragment {
   & > * {
     transform: rotateY(180deg) translateX(-100%);
     transform-origin: left;
+  }
+}
+
+.footer {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & a,
+  & div {
+    color: #333333;
+  }
+
+  & > div:not(:last-child) {
+    margin-right: 60px;
+
+    & > img {
+      height: 40px;
+      width: 108px;
+    }
   }
 }

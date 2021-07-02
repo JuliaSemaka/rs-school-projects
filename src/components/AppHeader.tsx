@@ -5,15 +5,21 @@ import LeftMenu from './LeftMenu';
 
 const AppHeader: React.FC = () => {
   const {isModePlay, isShowLeftMenu } = useTypedSelector(state => state.cards);
-  const {changeMode, showMenu} = useActions();
-  
+  const {changeMode, showMenu, hideMenu} = useActions();
+
+  const hideLeftMenu = () => {
+    if (isShowLeftMenu) {
+      hideMenu();
+    }
+  }
+
   const classesBurger = ['header-burger'];
   if (isShowLeftMenu) {
     classesBurger.push('active');
   }
 
   return (
-    <header className="header">
+    <header className="header" onClick={hideLeftMenu}>
       <div className="header-container">
         <div className={classesBurger.join(' ')} id="header-burger" onClick={showMenu}>
           <span className="header-burger__span"></span>
