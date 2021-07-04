@@ -15,14 +15,14 @@ const AppFooter: React.FC = () => {
   return (
     <footer className="footer" onClick={hideLeftMenu}>
       <div className="text text-button">
-        <a href="https://github.com/JuliaSemaka">Ссылка на гитхаб</a>
+        <a href="https://github.com/JuliaSemaka">Github</a>
       </div>
       <div className="text text-button">2021</div>
       <div className="text text-button">
         <img src="https://rs.school/images/rs_school_js.svg" alt="logo" />
       </div>
       <div className="text text-button">
-        <a href="https://rs.school/js/">Ссылка на курс</a>
+        <a href="https://rs.school/js/">rs.school</a>
       </div>
     </footer>
   );

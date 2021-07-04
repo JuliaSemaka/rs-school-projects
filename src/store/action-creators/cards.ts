@@ -1,4 +1,4 @@
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOUSE_CATEGORY, FILL_ARRAY_GAME_WORDS, HIDE_MENU, IAction, ICards, SET_STARS, SHOW_MENU, Stars } from "../reducers/cardReducer.module";
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, FILL_ARRAY_GAME_WORDS, HIDE_MENU, IAction, ICards, SET_STARS, SHOW_MENU, Stars } from "../reducers/cardReducer.module";
 
 export function changeMode(): IAction {
   return {type: CHANGE_MODE};
@@ -20,8 +20,8 @@ export function hideMenu(): IAction {
   return {type: HIDE_MENU};
 }
 
-export function chouseCategory(indexCategory: number): IAction {
-  return {type: CHOUSE_CATEGORY, payload: indexCategory};
+export function chooseCategory(indexCategory: number): IAction {
+  return {type: CHOOSE_CATEGORY, payload: indexCategory};
 }
 
 export function fillArrayWords(words: ICards[]): IAction {
