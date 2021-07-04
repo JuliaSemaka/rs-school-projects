@@ -1,4 +1,4 @@
-export const cards = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'];
+export const cards = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Chapes', 'Fruits'];
 
 export const listcards = [
   [
@@ -300,6 +300,106 @@ export const listcards = [
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3'
     }
+  ],
+  [
+    {
+      word: 'circle',
+      translation: 'круг',
+      image: 'img/circle.jpg',
+      audioSrc: 'audio/circle.mp3'
+    },
+    {
+      word: 'square',
+      translation: 'квадрат',
+      image: 'img/square.jpg',
+      audioSrc: 'audio/square.mp3'
+    },
+    {
+      word: 'triangle',
+      translation: 'треугольник',
+      image: 'img/triangle.jpg',
+      audioSrc: 'audio/triangle.mp3'
+    },
+    {
+      word: 'rhombus',
+      translation: 'ромб',
+      image: 'img/rhombus.jpg',
+      audioSrc: 'audio/rhombus.mp3'
+    },
+    {
+      word: 'rectangle',
+      translation: 'прямоугольник',
+      image: 'img/rectangle.jpg',
+      audioSrc: 'audio/rectangle.mp3'
+    },
+    {
+      word: 'oval',
+      translation: 'овал',
+      image: 'img/oval.jpg',
+      audioSrc: 'audio/oval.mp3'
+    },
+    {
+      word: 'trapezium',
+      translation: 'трапеция',
+      image: 'img/trapezium.jpg',
+      audioSrc: 'audio/trapezium.mp3'
+    },
+    {
+      word: 'star',
+      translation: 'звезда',
+      image: 'img/star.jpg',
+      audioSrc: 'audio/star.mp3'
+    },
+  ],
+  [
+    {
+      word: 'orange',
+      translation: 'апельсин',
+      image: 'img/orange.jpg',
+      audioSrc: 'audio/orange.mp3'
+    },
+    {
+      word: 'apple',
+      translation: 'яблоко',
+      image: 'img/apple.jpg',
+      audioSrc: 'audio/apple.mp3'
+    },
+    {
+      word: 'grape',
+      translation: 'виноград',
+      image: 'img/grape.jpeg',
+      audioSrc: 'audio/grape.mp3'
+    },
+    {
+      word: 'cherry',
+      translation: 'вишня',
+      image: 'img/cherry.jpg',
+      audioSrc: 'audio/cherry.mp3'
+    },
+    {
+      word: 'lemon',
+      translation: 'лимон',
+      image: 'img/lemon.jpg',
+      audioSrc: 'audio/lemon.mp3'
+    },
+    {
+      word: 'watermelon',
+      translation: 'арбуз',
+      image: 'img/watermelon.jpg',
+      audioSrc: 'audio/watermelon.mp3'
+    },
+    {
+      word: 'melon',
+      translation: 'дыня',
+      image: 'img/melon.jpg',
+      audioSrc: 'audio/melon.mp3'
+    },
+    {
+      word: 'plum',
+      translation: 'слива',
+      image: 'img/plum.jpg',
+      audioSrc: 'audio/plum.mp3'
+    },
   ]
 ]
 

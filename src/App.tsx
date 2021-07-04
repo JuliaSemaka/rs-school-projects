@@ -7,37 +7,50 @@ import { useTypedSelector } from './hooks/useTypedSelector';
 import { MainPage } from './pages/MainPage';
 import { OneCategory } from './pages/OneCategory';
 import { StatsticsPage } from './pages/StatistictPage';
-import { IStatisticsFields } from './store/reducers/statisticsReducer.module';
+import { IStatisticsFields, IStatisticsState } from './store/reducers/statisticsReducer.module';
 
 function App() {
   const { isShowLeftMenu, categoryCards, listCards} = useTypedSelector(state => state.cards);
+  const { fields }: IStatisticsState = useTypedSelector(state => state.statistics);
   const { hideMenu, addAllStatistic } = useActions();
 
-  const hideLeftMenu = () => {
+  const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {
       hideMenu();
     }
   }
 
-  let arrStatistics: IStatisticsFields[] = [];
-  listCards.forEach((category, index) => {
-    category.forEach(item => {
-      const arrAboutWords = {
-        word: item.word,
-        translation: item.translation,
-        category: categoryCards[index],
-        clicks: '0',
-        correct: '0',
-        wrong: '0',
-        procent: '0',
-      };
-      arrStatistics.push(arrAboutWords);
+  function fillStatistics(): IStatisticsFields[] {
+    let arrStatistics: IStatisticsFields[] = [];
+    listCards.forEach((category, index) => {
+      category.forEach(item => {
+        const arrAboutWords: IStatisticsFields = {
+          word: item.word,
+          translation: item.translation,
+          category: categoryCards[index],
+          clicks: '0',
+          correct: '0',
+          wrong: '0',
+          procent: '0',
+        };
+        arrStatistics.push(arrAboutWords);
+      })
     })
-  })
+    return arrStatistics;
+  }
 
   useEffect(() => {
-    addAllStatistic(arrStatistics)
+    const savedStatistics = JSON.parse(localStorage.getItem('statistics') || '[]') as IStatisticsFields[];
+    let arrStatistics: IStatisticsFields[] = [];
+    if (!savedStatistics.length) {
+      arrStatistics = fillStatistics();
+    }
+    addAllStatistic(savedStatistics.length ? savedStatistics : arrStatistics)
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('statistics', JSON.stringify(fields))
+  }, [fields])
 
   return (
     <BrowserRouter>
