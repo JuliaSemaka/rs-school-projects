@@ -497,10 +497,18 @@ fragment {
 }
 
 .footer {
-  margin-top: 100px;
+  margin: 100px 10% 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+
+    & > div:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
 
   & a,
   & div {
@@ -508,7 +516,7 @@ fragment {
   }
 
   & > div:not(:last-child) {
-    margin-right: 60px;
+    margin-right: 5%;
 
     & > img {
       height: 40px;
