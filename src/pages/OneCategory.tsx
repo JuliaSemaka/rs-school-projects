@@ -21,10 +21,10 @@ export const OneCategory: React.FC = () => {
     return (<></>);
   }
 
-  let classesMode = ['main-card__front'];
-  const basicsButton = ['button', 'button-green', 'text', 'text-button'];
-  let classesButton = basicsButton.concat(['button-start-game', 'disabled']);
-  let classesButtonRepeat = basicsButton.concat(['button-circle']);
+  let classesMode: string[] = ['main-card__front'];
+  const basicsButton: string[] = ['button', 'button-green', 'text', 'text-button'];
+  let classesButton: string[] = basicsButton.concat(['button-start-game', 'disabled']);
+  let classesButtonRepeat: string[] = basicsButton.concat(['button-circle']);
   if (isModePlay) {
     classesMode.push('game');
     classesButton.pop();
@@ -38,13 +38,13 @@ export const OneCategory: React.FC = () => {
     (event.target as HTMLElement).closest('.main-card__container')?.classList.remove('flipped');
   }
 
-  function sayWord() {
+  function sayWord(): void {
     if (arrGameWords[0]) {
       setTimeout(() => listenAudio(arrGameWords[0].audioSrc), 1000);
     }
   }
 
-  function createArrayWords() {
+  function createArrayWords(): number | void {
     if (indexCategory === null) {   //нельзя поставить ! т.к. может быть равно 0, и
       throw Error();
     }
@@ -104,8 +104,8 @@ export const OneCategory: React.FC = () => {
     }
   }
 
-  const classesCard = ["main-card"];
-  const classesChoiceCard = classesCard.concat(["choice"]);
+  const classesCard: string[] = ["main-card"];
+  const classesChoiceCard: string[] = classesCard.concat(["choice"]);
 
   return (
     <React.Fragment>

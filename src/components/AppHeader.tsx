@@ -7,13 +7,13 @@ const AppHeader: React.FC = () => {
   const {isModePlay, isShowLeftMenu } = useTypedSelector(state => state.cards);
   const {changeMode, showMenu, hideMenu} = useActions();
 
-  const hideLeftMenu = () => {
+  const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {
       hideMenu();
     }
   }
 
-  const classesBurger = ['header-burger'];
+  const classesBurger: string[] = ['header-burger'];
   if (isShowLeftMenu) {
     classesBurger.push('active');
   }

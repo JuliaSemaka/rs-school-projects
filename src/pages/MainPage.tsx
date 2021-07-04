@@ -7,7 +7,7 @@ export const MainPage: React.FC = () => {
   const {categoryCards, isModePlay} = useTypedSelector(state => state.cards);
   const {chouseCategory} = useActions();
 
-  let classesMode = ['main-card__front'];
+  let classesMode: string[] = ['main-card__front'];
   if (isModePlay) {
     classesMode.push('game');
   }

@@ -6,7 +6,7 @@ const AppFooter: React.FC = () => {
   const { isShowLeftMenu } = useTypedSelector(state => state.cards);
   const { hideMenu } = useActions();
 
-  const hideLeftMenu = () => {
+  const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {
       hideMenu();
     }

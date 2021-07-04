@@ -8,9 +8,9 @@ const LeftMenu: React.FC = () => {
   const {categoryCards, isShowLeftMenu, indexCategory, page} = useTypedSelector(state => state.cards);
   const {changeMainPage,chouseCategory, changeStatisticsPage} = useActions();
 
-  let classesMenu = ['menu'];
-  let classesLink = ["menu-list__link", "text", "text-button", "text-white"];
-  let classesLinkActive = classesLink.concat(["chouse"]);
+  let classesMenu: string[] = ['menu'];
+  let classesLink: string[] = ["menu-list__link", "text", "text-button", "text-white"];
+  let classesLinkActive: string[] = classesLink.concat(["chouse"]);
   if (isShowLeftMenu) {
     classesMenu.push('active');
   }
