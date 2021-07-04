@@ -23,6 +23,17 @@ input {
   }
 }
 
+th,
+td {
+  @media (max-width: 560px) {
+    font-size: 8px;
+  }
+}
+
+th {
+  cursor: pointer;
+}
+
 body.lock {
   overflow: hidden;
 }
@@ -46,6 +57,15 @@ fragment {
     line-height: 30px;
     letter-spacing: 0.15px;
     color: #333333;
+  }
+
+  &-errors {
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 45px;
+    letter-spacing: 0.15px;
+    color: #009688;
   }
 
   &-button {
@@ -120,16 +140,19 @@ fragment {
     }
   }
 
-  &-white {
-    background: #f2f9fe;
-    color: #8fbc8f;
+  &-error {
+    background: linear-gradient(40deg, #ff5722, #e78e73);
+    color: #ffffff;
+    padding: 13px 25px;
+    margin-bottom: 25px;
+    margin-left: 80%;
 
     &:hover {
-      background: #8fbc8f26;
+      background: linear-gradient(40deg, #dba392, #ff5722);
     }
 
     &:active {
-      background: #c5e0c5;
+      background: linear-gradient(40deg, #8b341a, #bb330a);
       color: #ffffff;
     }
 
@@ -239,7 +262,8 @@ fragment {
       margin-bottom: 15px;
     }
 
-    &__link:hover {
+    &__link:hover,
+    &__link.chouse {
       text-shadow: 2px 3px #201e1e;
     }
   }
@@ -265,14 +289,16 @@ fragment {
     &:before {
       content: attr(data-on);
       opacity: 1;
-      left: 5px;
+      left: 7px;
+      top: -2px;
       transition: 0.4s;
     }
 
     &:after {
       content: attr(data-off);
       opacity: 0;
-      right: 10px;
+      right: 13px;
+      top: -2px;
       transition: 0.4s;
     }
 
@@ -321,11 +347,42 @@ fragment {
 }
 
 .main {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  &-stars {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    height: 40px;
+    top: 20px;
+    overflow: hidden;
+  }
+
+  &-finish {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    background-color: #fff;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+
+    & > img {
+      margin-top: 4%;
+      height: 85%;
+      width: fit-content;
+    }
+
+    &.disabled {
+      display: none;
+    }
+  }
 
   &-container {
     max-width: 1440px;
@@ -344,6 +401,10 @@ fragment {
     transform-origin: right;
     border-radius: inherit;
     box-shadow: 0px 1px 5px #d3d3d3, 0px 3px 4px #d3d3d3, 0px 2px 4px #d3d3d3;
+
+    &.choice {
+      opacity: 0.5;
+    }
 
     &__container {
       flex: 0 0 268px;
