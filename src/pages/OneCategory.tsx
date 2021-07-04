@@ -117,8 +117,7 @@ export const OneCategory: React.FC = () => {
       <div className="main-container">
         {listCards[indexCategory].map(item => {
           return (
-          <React.Fragment key={item.word}>
-            <div className='main-card__container'>
+            <div key={item.word} className='main-card__container'>
               <div className={!arrGameWords.length || arrGameWords.find(elem => elem.word === item.word) ? classesCard.join(' ') : classesChoiceCard.join(' ')}>
                 <div className={classesMode.join(' ')}>
                   <div className="main-card__img-fully" style={{backgroundImage: `url("./${item.image}")`}} onClick={() => chouseCard(item)}></div>
@@ -130,7 +129,6 @@ export const OneCategory: React.FC = () => {
                 </div>
               </div>
             </div>
-          </React.Fragment>
           );
         })}
       </div>

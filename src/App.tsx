@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AppFooter from './components/AppFooter';
 import AppHeader from './components/AppHeader';
+import AuthPopup from './components/AuthPopup';
 import { useActions } from './hooks/useAction';
 import { useTypedSelector } from './hooks/useTypedSelector';
+import { AdminPage } from './pages/AdminPage';
 import { MainPage } from './pages/MainPage';
 import { OneCategory } from './pages/OneCategory';
 import { StatsticsPage } from './pages/StatistictPage';
@@ -61,10 +63,12 @@ function App() {
             <Route component={MainPage} path="/" exact/>
             <Route component={OneCategory} path="/category" />
             <Route component={StatsticsPage} path="/statistics" />
+            <Route component={AdminPage} path="/admin" />
           </Switch>
       </main>
 
       <AppFooter />
+      <AuthPopup />
     </BrowserRouter>
   );
 }

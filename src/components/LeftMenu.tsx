@@ -6,7 +6,7 @@ import { typePage } from '../store/reducers/cardReducer.module';
 
 const LeftMenu: React.FC = () => {
   const {categoryCards, isShowLeftMenu, indexCategory, page} = useTypedSelector(state => state.cards);
-  const {changeMainPage,chooseCategory, changeStatisticsPage} = useActions();
+  const {changeMainPage,chooseCategory, changeStatisticsPage, changeViewPopup} = useActions();
 
   let classesMenu: string[] = ['menu'];
   let classesLink: string[] = ["menu-list__link", "text", "text-button", "text-white"];
@@ -30,6 +30,7 @@ const LeftMenu: React.FC = () => {
             <NavLink to="/statistics" className={page === typePage.STATISTICS_PAGE ? classesLinkActive.join(' ') : classesLink.join(' ')} onClick={changeStatisticsPage}>Statistics Page</NavLink>
           </li>
         </ul>
+        <button className="button button-green text-button" onClick={changeViewPopup}>login</button>
       </nav>
   );
 }
