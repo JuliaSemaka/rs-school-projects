@@ -1,26 +1,20 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import AppFooter from './components/AppFooter';
-import AppHeader from './components/AppHeader';
 import AuthPopup from './components/AuthPopup';
 import { useActions } from './hooks/useAction';
 import { useTypedSelector } from './hooks/useTypedSelector';
 import { AdminPage } from './pages/AdminPage';
+import { AdminWordPage } from './pages/AdminWordPage';
 import { MainPage } from './pages/MainPage';
 import { OneCategory } from './pages/OneCategory';
 import { StatsticsPage } from './pages/StatistictPage';
 import { IStatisticsFields, IStatisticsState } from './store/reducers/statisticsReducer.module';
 
 function App() {
-  const { isShowLeftMenu, categoryCards, listCards} = useTypedSelector(state => state.cards);
+  const { categoryCards, listCards} = useTypedSelector(state => state.cards);
   const { fields }: IStatisticsState = useTypedSelector(state => state.statistics);
-  const { hideMenu, addAllStatistic } = useActions();
-
-  const hideLeftMenu = (): void => {
-    if (isShowLeftMenu) {
-      hideMenu();
-    }
-  }
+  const { addAllStatistic } = useActions();
 
   function fillStatistics(): IStatisticsFields[] {
     let arrStatistics: IStatisticsFields[] = [];
@@ -56,17 +50,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AppHeader />
-
-      <main className="main" onClick={hideLeftMenu}>
-          <Switch>
-            <Route component={MainPage} path="/" exact/>
-            <Route component={OneCategory} path="/category" />
-            <Route component={StatsticsPage} path="/statistics" />
-            <Route component={AdminPage} path="/admin" />
-          </Switch>
-      </main>
-
+      <Switch>
+        <Route component={MainPage} path="/" exact />
+        <Route component={OneCategory} path="/category" />
+        <Route component={StatsticsPage} path="/statistics" />
+        <Route component={AdminPage} path="/admin" exact />
+        <Route component={AdminWordPage} path="/admin/:category?/:word?" />
+        <Redirect to="/" />
+      </Switch>
       <AppFooter />
       <AuthPopup />
     </BrowserRouter>

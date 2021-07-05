@@ -1,20 +1,28 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import { useHistory } from 'react-router-dom';
+import AppHeader from '../components/AppHeader';
+import OneCard from '../components/OneCard';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { ICards, Stars } from '../store/reducers/cardReducer.module';
+import { Stars } from '../store/reducers/cardReducer.module';
 
 export const OneCategory: React.FC = () => {
-  const {indexCategory, listCards, isModePlay, arrGameWords, arrStars} = useTypedSelector(state => state.cards);
-  const {fillArrayWords, addClick, addCorrect, addWrong, setStars, changeMode} = useActions();
+  const { indexCategory, listCards, isModePlay, arrGameWords, arrStars, isShowLeftMenu } = useTypedSelector(state => state.cards);
+  const { fillArrayWords, hideMenu } = useActions();
+  const [mainFinish, setMainFinish] = useState(true);
   const history = useHistory();
-  const ref = useRef<HTMLDivElement>(null)
+
+  const hideLeftMenu = (): void => {
+    if (isShowLeftMenu) {
+      hideMenu();
+    }
+  }
 
   useEffect(() => {
     if (arrGameWords.length) {
       sayWord();
     }
-  }, [[...arrGameWords]]);
+  }, [[arrGameWords]]);
 
   if (indexCategory === null) {
     history.push("/");
@@ -30,17 +38,9 @@ export const OneCategory: React.FC = () => {
     classesButton.pop();
   }
 
-  function flippedAdd(event: React.MouseEvent<HTMLElement>): void {
-    (event.target as HTMLElement).closest('.main-card__container')?.classList.add('flipped');
-  }
-
-  function flippedOut(event: React.MouseEvent<HTMLElement>): void {
-    (event.target as HTMLElement).closest('.main-card__container')?.classList.remove('flipped');
-  }
-
   function sayWord(): void {
     if (arrGameWords[0]) {
-      setTimeout(() => listenAudio(arrGameWords[0].audioSrc), 1000);
+      setTimeout(() => listenAudio(arrGameWords[0].audioSrc), 500);
     }
   }
 
@@ -71,82 +71,42 @@ export const OneCategory: React.FC = () => {
     audio.play();
   }
 
-  function chouseCard(item: ICards): void {
-    if (!isModePlay) {
-      listenAudio(item.audioSrc);
-      addClick(item.word);
-    } else {
-      if (arrGameWords.length) {
-        if (arrGameWords[0].word === item.word) {
-          arrGameWords.shift();
-          addCorrect(item.word);
-          listenAudio('./audio/correct.mp3');
-          setStars(Stars.STAR_WIN);
-          if (arrGameWords.length) {
-            fillArrayWords(arrGameWords);
-          } else {
-            ref.current?.classList.remove('disabled');
-            arrStars.every(item => item === Stars.STAR_WIN) ?
-              listenAudio('./audio/success.mp3') :
-              listenAudio('./audio/failure.mp3');
-            setTimeout(() => {
-              fillArrayWords(arrGameWords);
-              changeMode();
-              history.push("/");
-            }, 3000);
-          }
-        } else if (arrGameWords.find(elem => elem.word === item.word)) {
-          listenAudio('./audio/error.mp3');
-          addWrong(item.word);
-          setStars(Stars.STAR);
-        }
-      }
-    }
+  const finishGame = () => {
+    setMainFinish(false);
   }
-
-  const classesCard: string[] = ["main-card"];
-  const classesChoiceCard: string[] = classesCard.concat(["choice"]);
 
   return (
     <React.Fragment>
-      <div className="main-stars">
-        {arrStars.map((elem,i) => elem === Stars.STAR ?
-          <img src="./img/star.svg" alt="star" key={i} /> :
-          <img src="./img/star-win.svg" alt="star" key={i} />)}
+      <AppHeader />
+      <main className="main" onClick={hideLeftMenu}>
+        <div className="main-stars">
+          {arrStars.map((elem,i) => elem === Stars.STAR ?
+            <img src="./img/star.svg" alt="star" key={i} /> :
+            <img src="./img/star-win.svg" alt="star" key={i} />)}
+          </div>
+        <div className="main-container">
+          {listCards[indexCategory].map(item => {
+            return (
+              <OneCard key={item.word} item={item} listenAudio={listenAudio} finishGame={finishGame} />
+            );
+          })}
         </div>
-      <div className="main-container">
-        {listCards[indexCategory].map(item => {
-          return (
-            <div key={item.word} className='main-card__container'>
-              <div className={!arrGameWords.length || arrGameWords.find(elem => elem.word === item.word) ? classesCard.join(' ') : classesChoiceCard.join(' ')}>
-                <div className={classesMode.join(' ')}>
-                  <div className="main-card__img-fully" style={{backgroundImage: `url("./${item.image}")`}} onClick={() => chouseCard(item)}></div>
-                  <div className="text text-title text-center" onClick={() => chouseCard(item)}>{ item.word }</div>
-                  <img className="main-card__img-rotate" src="./img/rotate2.png" alt="rotate" onClick={flippedAdd}/>
-                </div>
-                <div className="main-card__back text text-title" onMouseOut={flippedOut}>
-                  { item.translation }
-                </div>
+        <div className={`main-finish ${mainFinish && "disabled"}`}>
+          {
+            arrStars.every(item => item === Stars.STAR_WIN) ?
+              <img src="./img/success.jpg" alt="success" /> :
+              <div>
+                <h3 className="text text-errors">{arrStars.filter(item => item === Stars.STAR).length} errors</h3>
+                <img src="./img/failure.jpg" alt="failure" />
               </div>
-            </div>
-          );
-        })}
-      </div>
-      <div className="main-finish disabled" ref={ref}>
-        {
-          arrStars.every(item => item === Stars.STAR_WIN) ?
-            <img src="./img/success.jpg" alt="success" /> :
-            <div>
-              <h3 className="text text-errors">{arrStars.filter(item => item === Stars.STAR).length + 1} errors</h3>
-              <img src="./img/failure.jpg" alt="failure" />
-            </div>
-        }
-      </div>
-      <button
-        className={!arrGameWords.length ? classesButton.join(' ') : classesButtonRepeat.join(' ')}
-        onClick={startGame}>
-          {!arrGameWords.length ? "Start game" : <img src="./img/repeat.svg" alt="repeat" />}
-      </button>
+          }
+        </div>
+        <button
+          className={!arrGameWords.length ? classesButton.join(' ') : classesButtonRepeat.join(' ')}
+          onClick={startGame}>
+            {!arrGameWords.length ? "Start game" : <img src="./img/repeat.svg" alt="repeat" />}
+        </button>
+      </main>
     </React.Fragment>
   );
 }

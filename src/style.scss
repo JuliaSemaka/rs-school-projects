@@ -7,8 +7,15 @@
 }
 
 a {
+  color: inherit;
   text-decoration: none;
   cursor: pointer;
+
+  &:hover,
+  &.choose {
+    color: inherit;
+    text-shadow: 2px 2px #585858;
+  }
 }
 
 ul {
@@ -51,6 +58,19 @@ fragment {
   color: #000000;
   letter-spacing: 0.4px;
 
+  &-label {
+    font-size: 9px;
+    line-height: 11px;
+    display: flex;
+    align-items: center;
+    color: #3f51b5;
+  }
+
+  &-input {
+    border: none;
+    border-bottom: 1px solid #3f51b5;
+  }
+
   &-title {
     font-weight: 500;
     font-size: 20px;
@@ -59,7 +79,7 @@ fragment {
     color: #333333;
 
     &-popup {
-      font-size: 48px;
+      font-size: 40px;
 
       line-height: 85px;
       margin: 0;
@@ -122,6 +142,30 @@ fragment {
     display: none;
   }
 
+  &-card {
+    border: 1px solid #00bf82;
+    color: #00bf82;
+    background: inherit;
+    box-shadow: none;
+    width: 120px;
+    height: 30px;
+    padding: 0;
+
+    &:hover {
+      background: #00bf82;
+      color: #fff;
+    }
+
+    &-red {
+      border: 1px solid #e53935;
+      color: #e53935;
+
+      &:hover {
+        background: #e53935;
+      }
+    }
+  }
+
   &-form {
     width: 248px;
     height: 60px;
@@ -180,11 +224,37 @@ fragment {
       box-shadow: none;
     }
   }
+
+  &-transparent {
+    background: inherit;
+    color: #fff;
+    box-shadow: none;
+
+    &:hover {
+      text-shadow: 2px 2px #585858;
+    }
+  }
 }
 
 .header {
   display: flex;
   justify-content: center;
+
+  &-admin {
+    width: 100%;
+    height: 97px;
+    background: #00bf82;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & > ul {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+      width: 30%;
+    }
+  }
 
   &-container {
     max-width: 1440px;
@@ -397,7 +467,7 @@ fragment {
     & > img {
       margin-top: 4%;
       height: 85%;
-      width: fit-content;
+      width: auto;
     }
 
     &.disabled {
@@ -597,5 +667,64 @@ fragment {
       background: linear-gradient(40deg, #00bf82, #0099ae);
       width: 100%;
     }
+  }
+}
+
+.card-category {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 244px;
+  border: 1px solid #000000;
+  flex: 0 0 320px;
+  margin: 5px;
+
+  &-word {
+    height: 400px;
+
+    &-img {
+      height: 140px;
+      width: auto;
+    }
+  }
+
+  &.disabled {
+    display: none;
+  }
+
+  &-new {
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  & .cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 43px;
+    height: 43px;
+    cursor: pointer;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  & .plus {
+    cursor: pointer;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { NavLink } from 'react-router-dom';
 
 const AuthPopup: React.FC = () => {
   const { isViewPopup } = useTypedSelector(state => state.auth);
@@ -18,7 +19,9 @@ const AuthPopup: React.FC = () => {
           <input className="text text-title text-title-popup popup-form-input" type="text" placeholder="password" />
           <div className="popup-form-buttons">
             <button className="button button-form text-button form__button-cancel" type="button" onClick={changeViewPopup}>cancel</button>
-            <input className="button button-form button-green text-button form__button-add" type="submit" value="login" />
+            <NavLink to="/admin">
+              <input className="button button-form button-green text-button form__button-add" type="submit" value="login" />
+            </NavLink>
           </div>
       </form>
     </div>
