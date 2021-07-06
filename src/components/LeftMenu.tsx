@@ -30,7 +30,7 @@ const LeftMenu: React.FC = () => {
             <NavLink to="/statistics" className={page === typePage.STATISTICS_PAGE ? classesLinkActive.join(' ') : classesLink.join(' ')} onClick={changeStatisticsPage}>Statistics Page</NavLink>
           </li>
         </ul>
-        <button className="button button-green text-button" onClick={changeViewPopup}>login</button>
+        <button className="button button-green text-button disabled" onClick={changeViewPopup}>login</button>
       </nav>
   );
 }

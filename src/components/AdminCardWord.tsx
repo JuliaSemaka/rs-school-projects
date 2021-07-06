@@ -10,7 +10,7 @@ const AdminCardWord: React.FC = () => {
         <p className="text text-title">Translation: <span>Рисовать</span></p>
         <p className="text text-title">Sound file: <span>draw.mp3</span></p>
         <p className="text text-title">Image: </p>
-        <img className="card-category-word-img" src="../../img/apple.jpg" />
+        <img className="card-category-word-img" src="../../img/apple.jpg" alt="card" />
         <button className="button button-card">Change</button>
       </div>
     </>
