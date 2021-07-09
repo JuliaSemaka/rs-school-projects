@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
-import AppHeader from '../components/AppHeader';
 import OneCard from '../components/OneCard';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -22,7 +21,7 @@ export const OneCategory: React.FC = () => {
     if (arrGameWords.length) {
       sayWord();
     }
-  }, [[arrGameWords]]);
+  }, [arrGameWords]);
 
   if (indexCategory === null) {
     history.push("/");
@@ -77,13 +76,12 @@ export const OneCategory: React.FC = () => {
 
   return (
     <React.Fragment>
-      <AppHeader />
       <main className="main" onClick={hideLeftMenu}>
         <div className="main-stars">
           {arrStars.map((elem,i) => elem === Stars.STAR ?
             <img src="./img/star.svg" alt="star" key={i} /> :
             <img src="./img/star-win.svg" alt="star" key={i} />)}
-          </div>
+        </div>
         <div className="main-container">
           {listCards[indexCategory].map(item => {
             return (

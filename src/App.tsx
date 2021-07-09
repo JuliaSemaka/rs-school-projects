@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import AppFooter from './components/AppFooter';
+import AppHeader from './components/AppHeader';
 import AuthPopup from './components/AuthPopup';
 import { useActions } from './hooks/useAction';
 import { useTypedSelector } from './hooks/useTypedSelector';
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <AppHeader />
       <Switch>
         <Route component={MainPage} path="/" exact />
         <Route component={OneCategory} path="/category" />

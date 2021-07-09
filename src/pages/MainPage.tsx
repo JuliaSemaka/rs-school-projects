@@ -21,7 +21,6 @@ export const MainPage: React.FC = () => {
 
   return (
     <React.Fragment>
-      <AppHeader />
         <main className="main" onClick={hideLeftMenu}>
           <div className="main-container">
             {categoryCards.map((item,index) => {

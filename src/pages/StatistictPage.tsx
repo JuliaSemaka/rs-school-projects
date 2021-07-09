@@ -1,5 +1,4 @@
 import React from 'react';
-import AppHeader from '../components/AppHeader';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { IStatisticsState } from '../store/reducers/statisticsReducer.module';
@@ -18,7 +17,6 @@ export const StatsticsPage: React.FC = () => {
 
   return (
     <React.Fragment>
-      <AppHeader />
       <main className="main" onClick={hideLeftMenu}>
         <div className="main-container">
           <button className="button button-error text text-button" onClick={resetStatistics}>Reset</button>
