@@ -1,6 +1,8 @@
-export const cards = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Chapes', 'Fruits'];
+import { ICards } from "../store/reducers/cardReducer.module";
 
-export const listcards = [
+export const cards: string[] = ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Chapes', 'Fruits'];
+
+export const listcards: ICards[][] = [
   [
     {
       word: 'cry',

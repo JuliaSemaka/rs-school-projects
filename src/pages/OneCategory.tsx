@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import OneCard from '../components/OneCard';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { Stars } from '../store/reducers/cardReducer.module';
+import { ICards, Stars } from '../store/reducers/cardReducer.module';
 
 export const OneCategory: React.FC = () => {
   const { indexCategory, listCards, isModePlay, arrGameWords, arrStars, isShowLeftMenu } = useTypedSelector(state => state.cards);
@@ -47,7 +47,7 @@ export const OneCategory: React.FC = () => {
     if (indexCategory === null) {   //нельзя поставить ! т.к. может быть равно 0, и
       throw Error();
     }
-    let shuffledArr = [...listCards[indexCategory]];
+    let shuffledArr: ICards[] = [...listCards[indexCategory]];
     shuffledArr.sort(function(){
       return Math.random() - 0.5;
     });
@@ -63,14 +63,14 @@ export const OneCategory: React.FC = () => {
   }
 
   function listenAudio(audioSrc: string): void {
-    const src = `./${audioSrc}`;
-    const audio = new Audio();
+    const src: string = `./${audioSrc}`;
+    const audio: HTMLAudioElement = new Audio();
     audio.src = src;
     audio.currentTime = 0;
     audio.play();
   }
 
-  const finishGame = () => {
+  const finishGame = (): void => {
     setMainFinish(false);
   }
 
