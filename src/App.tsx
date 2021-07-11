@@ -57,7 +57,7 @@ function App() {
         <Route component={OneCategory} path="/category" />
         <Route component={StatsticsPage} path="/statistics" />
         <Route component={AdminPage} path="/admin" exact />
-        <Route component={AdminWordPage} path="/admin/:category?/:word?" />
+        <Route component={AdminWordPage} path="/admin/:category?/:words?" />
         <Redirect to="/" />
       </Switch>
       <AppFooter />

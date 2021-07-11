@@ -10,7 +10,7 @@ function useInputValue(defaultValue: string = '') {
   }
 }
 
-const AdminChangeCategory: React.FC<ICardChangeProps> = ({name} : ICardChangeProps) => {
+const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory} : ICardChangeProps) => {
   const input = useInputValue(name);
 
   return (
@@ -21,8 +21,8 @@ const AdminChangeCategory: React.FC<ICardChangeProps> = ({name} : ICardChangePro
         <input className="text text-input" type="text" id="category-name" {...input} />
       </div>
       <div className="card-category__buttons">
-        <button className="button button-card button-card-red">Cancel</button>
-        <button className="button button-card">Create</button>
+        <button className="button button-card button-card-red" onClick={changeCategory}>Cancel</button>
+        <button className="button button-card">Save</button>
       </div>
     </div>
   );

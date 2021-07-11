@@ -1,31 +1,29 @@
-import React from 'react';
-import { useParams, NavLink, useRouteMatch } from 'react-router-dom';
+import React, { useState } from 'react';
 import AdminCardWord from '../components/AdminCardWord';
+import AdminChangeWord from '../components/AdminChangeWord';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { ICards } from '../store/reducers/cardReducer.module';
 
 export const AdminWordPage: React.FC = () => {
-  const category = useParams();
-  const match = useRouteMatch();
-  console.log(category);
+  const { indexCategory } = useTypedSelector(state => state.auth);
+  const { listCards, categoryCards } = useTypedSelector(state => state.cards);
+  const [getChangeWord, setChangeWord] = useState(false);
 
   return (
     <>
-    <div className="header-admin">
-        <ul>
-          <li className="text text-title text-white">
-            <NavLink to="/admin">Categories</NavLink>
-          </li>
-          <li className="text text-title text-white">
-            <NavLink to={match.url} className="choose">Words</NavLink>
-          </li>
-        </ul>
-        <button className="header-logout button button-transparent text-title">Log out</button>
-      </div>
       <main className="main">
-          <h3>Category: Action (set A)</h3>
+          <h3>Category: {categoryCards[indexCategory]}</h3>
         <div className="main-container">
-          <AdminCardWord />
-          <AdminCardWord />
-          <AdminCardWord />
+          {
+            listCards[indexCategory].map((item: ICards, index) => {
+              return (<AdminCardWord item={item} key={index}/>);
+            })
+          }
+          {getChangeWord && <AdminChangeWord setChangeWord={() => setChangeWord(false)} />}
+          <div className="card-category card-category-word card-category-new" onClick={() => setChangeWord(true)}>
+            <p className="text text-title">Add new Word</p>
+            <img className="plus" src="../../images/plus.png" alt="plus" />
+          </div>
         </div>
       </main>
     </>

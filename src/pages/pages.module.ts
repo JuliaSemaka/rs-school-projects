@@ -7,3 +7,8 @@ export enum EKeysStatistics{
     wrong = 'wrong',
     procent = 'procent',
 }
+
+export interface IWordsPage{
+  category: string;
+  words: string;
+}

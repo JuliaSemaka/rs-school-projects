@@ -72,7 +72,6 @@ export const statisticsReducer = (state: IStatisticsState = baseStatistics, acti
         }
         state.sort[key] = typeSort.DESC;
       }
-      console.log(state);
       return {fields: sortArray, sort: state.sort};
     default:
       return state;

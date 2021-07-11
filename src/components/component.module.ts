@@ -8,6 +8,7 @@ export interface ICardProps {
 
 export interface ICardChangeProps {
   name: string;
+  changeCategory?(): void;
 }
 
 export interface IOneCardProps {
@@ -15,4 +16,13 @@ export interface IOneCardProps {
   item: ICards;
   listenAudio(audioSrc: string): void;
   finishGame(): void;
+}
+
+export interface IAdminWordPage {
+  item: ICards;
+}
+
+export interface IAdminChangeWord {
+  item?: ICards;
+  setChangeWord(): void;
 }
