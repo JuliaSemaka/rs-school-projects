@@ -7,9 +7,8 @@ import LeftMenu from './LeftMenu';
 
 const AppHeader: React.FC = () => {
   const {isModePlay, isShowLeftMenu } = useTypedSelector(state => state.cards);
-  const {pageAdmin} = useTypedSelector(state => state.auth);
-  const { isAdminPage } = useTypedSelector(state => state.auth);
-  const {changeMode, showMenu, hideMenu} = useActions();
+  const {pageAdmin, isAdminPage} = useTypedSelector(state => state.auth);
+  const {changeMode, showMenu, hideMenu, changeAdminPage, leaveAdminPage, changeMainPage } = useActions();
   const match = useRouteMatch();
   // const category = useParams();
   console.log(match);
@@ -18,6 +17,11 @@ const AppHeader: React.FC = () => {
     if (isShowLeftMenu) {
       hideMenu();
     }
+  }
+
+  function leaveAdmin() {
+    leaveAdminPage();
+    changeMainPage();
   }
 
   const classesBurger: string[] = ['header-burger'];
@@ -29,13 +33,13 @@ const AppHeader: React.FC = () => {
       <div className="header-admin">
         <ul>
           <li className="text text-title text-white">
-            <NavLink to='/admin' className={pageAdmin === EPageAdmin.ADMIN_PAGE ? 'choose' : ''}>Categories</NavLink>
+            <NavLink to='/admin' className={pageAdmin === EPageAdmin.ADMIN_PAGE ? 'choose' : ''} onClick={changeAdminPage}>Categories</NavLink>
           </li>
           <li className="text text-title text-white">
             <div className={pageAdmin === EPageAdmin.ADMIN_WORDS_PAGE ? 'choose' : ''}>Words</div>
           </li>
         </ul>
-        <button className="header-logout button button-transparent text-title">Log out</button>
+        <NavLink to="/" className="header-logout button button-transparent text-title" onClick={leaveAdmin}>Log out</NavLink>
       </div>
     );
   }

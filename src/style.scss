@@ -14,11 +14,11 @@ a {
   &:hover {
     color: inherit;
   }
+}
 
-  &.choose {
-    color: inherit;
-    text-shadow: 2px 2px #585858;
-  }
+.choose {
+  color: inherit;
+  text-shadow: 2px 2px #585858;
 }
 
 ul {
@@ -447,6 +447,12 @@ fragment {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  & > h3 {
+    margin-top: 20px;
+    position: absolute;
+    top: 0;
+  }
 
   &-stars {
     position: absolute;
