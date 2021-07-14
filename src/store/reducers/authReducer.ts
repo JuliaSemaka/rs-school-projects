@@ -5,7 +5,7 @@ const authState: IAuthState = {
   isViewPopup: false,
   isAdminPage: false,
   pageAdmin: EPageAdmin.ADMIN_PAGE,
-  indexCategory: 0,
+  indexCategory: null,
 }
 
 export const authReducer = (state: IAuthState = authState, action: IAction): IAuthState => {

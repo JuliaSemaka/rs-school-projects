@@ -33,8 +33,10 @@ export const OneCategory: React.FC = () => {
   let classesButton: string[] = basicsButton.concat(['button-start-game', 'disabled']);
   let classesButtonRepeat: string[] = basicsButton.concat(['button-circle']);
   if (isModePlay) {
-    classesMode.push('game');
-    classesButton.pop();
+    if (listCards[indexCategory].length) {
+      classesMode.push('game');
+      classesButton.pop();
+    }
   }
 
   function sayWord(): void {
@@ -83,11 +85,15 @@ export const OneCategory: React.FC = () => {
             <img src="./img/star-win.svg" alt="star" key={i} />)}
         </div>
         <div className="main-container">
-          {listCards[indexCategory].map(item => {
+          {
+            listCards[indexCategory].length ?
+          listCards[indexCategory].map(item => {
             return (
               <OneCard key={item.word} item={item} listenAudio={listenAudio} finishGame={finishGame} />
             );
-          })}
+          }) :
+          <div className="text text-title text-title-popup">В данной категории нету карточек!</div>
+          }
         </div>
         <div className={`main-finish ${mainFinish && "disabled"}`}>
           {

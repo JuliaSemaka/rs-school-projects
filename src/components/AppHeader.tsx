@@ -1,17 +1,22 @@
-import React from 'react';
-import { NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { EPageAdmin } from '../store/reducers/authReducer.module';
+import { ADMIN } from './component.module';
 import LeftMenu from './LeftMenu';
 
 const AppHeader: React.FC = () => {
   const {isModePlay, isShowLeftMenu } = useTypedSelector(state => state.cards);
   const {pageAdmin, isAdminPage} = useTypedSelector(state => state.auth);
   const {changeMode, showMenu, hideMenu, changeAdminPage, leaveAdminPage, changeMainPage } = useActions();
-  const match = useRouteMatch();
-  // const category = useParams();
-  console.log(match);
+  const {pathname} = useLocation();
+
+  useEffect(() => {
+    if (pathname.includes(ADMIN)) {
+      changeAdminPage();
+    }
+  }, []);
 
   const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {

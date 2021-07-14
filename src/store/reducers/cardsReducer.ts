@@ -1,9 +1,9 @@
 import {cards, listcards} from '../../package/cards'
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, FILL_ARRAY_GAME_WORDS, HIDE_MENU, IAction, ICardsState, SET_STARS, SHOW_MENU, typePage } from './cardReducer.module';
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CATEGORIES, HIDE_MENU, IAction, ICardsState, SET_STARS, SHOW_MENU, typePage } from './cardReducer.module';
 
 const listCards: ICardsState = {
-  categoryCards: cards,
-  listCards: listcards,
+  categoryCards: [],
+  listCards: [],
   indexCategory: null,
   isModePlay: false,
   isShowLeftMenu: false,
@@ -14,6 +14,24 @@ const listCards: ICardsState = {
 
 export const cardsReducer = (state: ICardsState = listCards, action: IAction): ICardsState => {
   switch(action.type) {
+    case GET_CARDS:
+      return {...state, listCards: action.payload};
+    case GET_CATEGORIES:
+      return {...state, categoryCards: action.payload};
+    case DELETE_CARD:
+      state.listCards[action.payload.indexCategory].splice(action.payload.indexCard, 1);
+      return {...state};
+    case DELETE_CATEGORY:
+      state.categoryCards.splice(action.payload, 1);
+      state.listCards.splice(action.payload, 1);
+      return {...state};
+    case CREATE_CARD:
+      state.listCards[action.payload.indexCategory].push(action.payload.data);
+      return {...state};
+    case CREATE_CATEGORY:
+      state.categoryCards.push(action.payload);
+      state.listCards.push([]);
+      return {...state};
     case CHANGE_MODE:
       return {...state, isModePlay: !state.isModePlay, arrGameWords: [], arrStars: []};
     case CHANGE_MAIN_PAGE:

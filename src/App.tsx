@@ -15,7 +15,12 @@ import { IStatisticsFields, IStatisticsState } from './store/reducers/statistics
 function App() {
   const { categoryCards, listCards} = useTypedSelector(state => state.cards);
   const { fields }: IStatisticsState = useTypedSelector(state => state.statistics);
-  const { addAllStatistic } = useActions();
+  const { addAllStatistic, getCards, getCategories } = useActions();
+
+  useEffect(() => {
+    getCards();
+    getCategories();
+  }, []);
 
   function fillStatistics(): IStatisticsFields[] {
     let arrStatistics: IStatisticsFields[] = [];
@@ -43,11 +48,11 @@ function App() {
       arrStatistics = fillStatistics();
     }
     addAllStatistic(savedStatistics.length ? savedStatistics : arrStatistics)
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('statistics', JSON.stringify(fields))
-  }, [fields])
+  }, [fields]);
 
   return (
     <BrowserRouter>

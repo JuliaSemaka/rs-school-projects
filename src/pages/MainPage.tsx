@@ -4,7 +4,7 @@ import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 export const MainPage: React.FC = () => {
-  const { categoryCards, isModePlay, isShowLeftMenu } = useTypedSelector(state => state.cards);
+  const { categoryCards, isModePlay, isShowLeftMenu, listCards } = useTypedSelector(state => state.cards);
   const { chooseCategory, hideMenu } = useActions();
 
   const hideLeftMenu = (): void => {
@@ -27,7 +27,7 @@ export const MainPage: React.FC = () => {
                 <NavLink to="/category" className="main-card__container" key={index} onClick={chooseCategory.bind(null, index)}>
                     <div className="main-card">
                       <div className={classesMode.join(' ')}>
-                        <div className="main-card__img" style={{backgroundImage: `url("./img/category${index}.jpg")`}}></div>
+                        <div className="main-card__img" style={{backgroundImage: `url("./${listCards[index][0] && listCards[index][0].image ? listCards[index][0].image : 'img/help.png'}")`}}></div>
                         <div className="text text-title text-center">{ item }</div>
                       </div>
                     </div>

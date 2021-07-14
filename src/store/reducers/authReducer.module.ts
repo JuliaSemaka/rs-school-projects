@@ -7,7 +7,7 @@ export interface IAuthState {
   isViewPopup: boolean;
   isAdminPage: boolean;
   pageAdmin: EPageAdmin;
-  indexCategory: number;
+  indexCategory: number | null;
 }
 
 export enum EPageAdmin {

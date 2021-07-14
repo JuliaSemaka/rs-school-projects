@@ -59,7 +59,7 @@ const OneCard: React.FC<IOneCardProps> = ({item, listenAudio, finishGame}: IOneC
     <div className={`main-card__container ${flipped && 'flipped'}`}  onMouseLeave={() => setFlepped(false)}>
       <div className={!arrGameWords.length || arrGameWords.find(elem => elem.word === item.word) ? classesCard.join(' ') : classesChoiceCard.join(' ')}>
         <div className={classesMode.join(' ')}>
-          <div className="main-card__img-fully" style={{backgroundImage: `url("./${item.image}")`}} onClick={() => chouseCard(item)}></div>
+          <div className="main-card__img-fully" style={{backgroundImage: `url("./${item.image ? item.image : 'img/unknown-img.jpg'}")`}} onClick={() => chouseCard(item)}></div>
           <div className="text text-title text-center" onClick={() => chouseCard(item)}>{ item.word }</div>
           <img className="main-card__img-rotate" src="./img/rotate2.png" alt="rotate" onClick={() => setFlepped(true)}/>
         </div>

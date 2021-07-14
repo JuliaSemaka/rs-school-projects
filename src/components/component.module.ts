@@ -1,5 +1,7 @@
 import { ICards } from "../store/reducers/cardReducer.module";
 
+export const ADMIN = 'admin';
+
 export interface ICardProps {
   key: number;
   index: number;
@@ -8,7 +10,8 @@ export interface ICardProps {
 
 export interface ICardChangeProps {
   name: string;
-  changeCategory?(): void;
+  changeCategory(): void;
+  index?: number;
 }
 
 export interface IOneCardProps {
@@ -20,9 +23,11 @@ export interface IOneCardProps {
 
 export interface IAdminWordPage {
   item: ICards;
+  index: number;
 }
 
 export interface IAdminChangeWord {
   item?: ICards;
+  index?: number;
   setChangeWord(): void;
 }

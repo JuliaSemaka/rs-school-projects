@@ -6,6 +6,12 @@ export const SHOW_MENU = 'SHOW_MENU';
 export const HIDE_MENU = 'HIDE_MENU';
 export const FILL_ARRAY_GAME_WORDS = 'FILL_ARRAY_GAME_WORDS';
 export const SET_STARS = 'SET_STARS';
+export const GET_CARDS = 'GET_CARDS';
+export const GET_CATEGORIES = 'GET_CATEGORIES';
+export const DELETE_CARD = 'DELETE_CARD';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
+export const CREATE_CARD = 'CREATE_CARD';
+export const CREATE_CATEGORY = 'CREATE_CATEGORY';
 
 export enum typePage {
   CATEGORIES_PAGE = 'CATEGORIES_PAGE',

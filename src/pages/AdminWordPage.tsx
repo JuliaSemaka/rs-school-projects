@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import AdminCardWord from '../components/AdminCardWord';
 import AdminChangeWord from '../components/AdminChangeWord';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -8,6 +9,12 @@ export const AdminWordPage: React.FC = () => {
   const { indexCategory } = useTypedSelector(state => state.auth);
   const { listCards, categoryCards } = useTypedSelector(state => state.cards);
   const [getChangeWord, setChangeWord] = useState(false);
+  const history = useHistory();
+
+  if (indexCategory === null) {
+    history.push("/admin");
+    return (<></>);
+  }
 
   return (
     <>
@@ -15,8 +22,8 @@ export const AdminWordPage: React.FC = () => {
           <h3>Category: {categoryCards[indexCategory]}</h3>
         <div className="main-container">
           {
-            listCards[indexCategory].map((item: ICards, index) => {
-              return (<AdminCardWord item={item} key={index}/>);
+            listCards[indexCategory].map((item: ICards, index: number) => {
+              return (<AdminCardWord item={item} index={index} key={index}/>);
             })
           }
           {getChangeWord && <AdminChangeWord setChangeWord={() => setChangeWord(false)} />}
