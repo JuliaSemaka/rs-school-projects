@@ -414,9 +414,17 @@ export function getCardsById(ind: number): Promise<ICards[] | undefined> {
 
 export function deleteCard(indexCategory: number, indexCard: number): Promise<void> {
     const cardIndex = indexCard in listcards[indexCategory];
-    if (!cardIndex) {
+    if (cardIndex === undefined) {
         return Promise.reject(new Error('Card not found'));
     }
     listcards[indexCategory].splice(indexCard, 1);
+    return Promise.resolve();
+}
+
+export function createCard(indexCategory: number, data: ICards): Promise<void> {
+    if (indexCategory === undefined) {
+        return Promise.reject(new Error('Card not found'));
+    }
+    listcards[indexCategory].push(data);
     return Promise.resolve();
 }

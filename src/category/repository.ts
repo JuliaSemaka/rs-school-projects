@@ -8,10 +8,16 @@ export function getCategories(): Promise<string[]> {
 
 export function deleteCategory(indexCategory: number): Promise<void> {
     const cardIndex = indexCategory in categories;
-    if (!cardIndex) {
+    if (cardIndex === undefined) {
         return Promise.reject(new Error('Card not found'));
     }
     categories.splice(indexCategory, 1);
     listcards[indexCategory].splice(indexCategory, 1);
+    return Promise.resolve();
+}
+
+export function createCategory(nameCategory: string): Promise<void> {
+    categories.push(nameCategory);
+    listcards.push([]);
     return Promise.resolve();
 }
