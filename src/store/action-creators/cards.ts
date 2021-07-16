@@ -1,10 +1,15 @@
 import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CATEGORIES, HIDE_MENU, IAction, ICards, SET_STARS, SHOW_MENU, Stars } from "../reducers/cardReducer.module";
 import {Dispatch} from "redux";
 
+enum Links {
+  cards = 'https://mysterious-falls-98420.herokuapp.com/api/cards',
+  categories = 'https://mysterious-falls-98420.herokuapp.com/api/categories',
+}
+
 export function getCards() {
   return async (dispatch: Dispatch<IAction>) => {
     try {
-      const response: Response = await fetch('http://localhost:8080/api/cards');
+      const response: Response = await fetch(Links.cards);
       dispatch({type: GET_CARDS, payload: (await response.json())});
     } catch (e) {
       throw Error(e);
@@ -15,7 +20,7 @@ export function getCards() {
 export function getCategories() {
   return async (dispatch: Dispatch<IAction>) => {
     try {
-      const response: Response = await fetch('http://localhost:8080/api/categories');
+      const response: Response = await fetch(Links.categories);
       dispatch({type: GET_CATEGORIES, payload: (await response.json())});
     } catch (e) {
       throw Error(e);
@@ -26,7 +31,7 @@ export function getCategories() {
 export function deleteCard(indexCategory: number, indexCard: number) {
   return async (dispatch: Dispatch<IAction>) => {
     try {
-      await fetch(`http://localhost:8080/api/cards/${indexCategory}/${indexCard}`, {
+      await fetch(`${Links.cards}/${indexCategory}/${indexCard}`, {
         method: 'DELETE',
       });
       dispatch({type: DELETE_CARD, payload: {indexCategory, indexCard}});
@@ -39,7 +44,7 @@ export function deleteCard(indexCategory: number, indexCard: number) {
 export function deleteCategory(index: number) {
   return async (dispatch: Dispatch<IAction>) => {
     try {
-      await fetch(`http://localhost:8080/api/categories/${index}`, {
+      await fetch(`${Links.categories}/${index}`, {
         method: 'DELETE',
       });
       dispatch({type: DELETE_CATEGORY, payload: index});
@@ -52,7 +57,7 @@ export function deleteCategory(index: number) {
 export function createCard(indexCategory: number, data: ICards) {
   return async (dispatch: Dispatch<IAction>) => {
     try {
-      await fetch(`http://localhost:8080/api/cards/`, {
+      await fetch(Links.cards, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +74,7 @@ export function createCard(indexCategory: number, data: ICards) {
 export function createCategory(nameCategory: string) {
   return async (dispatch: Dispatch<IAction>) => {
     try {
-      await fetch(`http://localhost:8080/api/categories/`, {
+      await fetch(Links.categories, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
