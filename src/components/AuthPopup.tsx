@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useHistory } from 'react-router-dom';
+import { ADMIN } from './component.module';
+
+function useInputValue(defaultValue: string = '') {
+  const [value, setValue] = useState(defaultValue);
+
+  return {
+    value,
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value),
+  }
+}
 
 const AuthPopup: React.FC = () => {
   const { isViewPopup } = useTypedSelector(state => state.auth);
-  const { changeViewPopup, changeAdminPage } = useActions();
+  const { changeViewPopup, changeAdminPage, setAuthorize } = useActions();
   const history = useHistory();
+  const [getPrompt, setPrompt] = useState(false);
+  const inputLogin = useInputValue('');
+  const inputPassword = useInputValue('');
 
   function loginButton(e: React.FormEvent) {
     e.preventDefault();
-    changeAdminPage();
-    changeViewPopup();
-    history.push("/admin");
+    if (inputLogin.value === ADMIN && inputPassword.value === ADMIN) {
+      changeAdminPage();
+      changeViewPopup();
+      setAuthorize(true);
+      history.push("/admin");
+      setPrompt(false);
+    } else {
+      setPrompt(true);
+    }
   }
 
   return (
@@ -22,8 +41,13 @@ const AuthPopup: React.FC = () => {
         <span onClick={changeViewPopup}>&#10008;</span>
       </div>
       <form className="popup-form" onSubmit={loginButton}>
-          <input className="text text-title text-title-popup popup-form-input" type="text" placeholder="login" />
-          <input className="text text-title text-title-popup popup-form-input" type="text" placeholder="password" />
+          <input className="text text-title text-title-popup popup-form-input" type="text" placeholder="login" {...inputLogin} />
+          <input className="text text-title text-title-popup popup-form-input" type="text" placeholder="password" {...inputPassword} />
+          <div className={`auth-prompt ${getPrompt && 'text-red'}`}>
+            <div className="text text-title">Для входа под админом</div>
+            <div className="text">Login: {ADMIN}</div>
+            <div className="text">Password: {ADMIN}</div>
+          </div>
           <div className="popup-form-buttons">
             <button className="button button-form text-button form__button-cancel" type="button" onClick={changeViewPopup}>cancel</button>
             <input className="button button-form button-green text-button form__button-add" type="submit" value="login" />

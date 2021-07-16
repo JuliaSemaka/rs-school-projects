@@ -141,10 +141,6 @@ fragment {
   cursor: pointer;
   padding: 20px 10%;
 
-  &.disabled {
-    display: none;
-  }
-
   &-card {
     border: 1px solid #00bf82;
     color: #00bf82;
@@ -355,7 +351,10 @@ fragment {
   }
 
   &-list {
-    margin-top: 94px;
+    position: relative;
+    top: 94px;
+    margin-bottom: 80px;
+    overflow: auto;
 
     &__item:not(:last-child) {
       margin-bottom: 15px;
@@ -482,10 +481,6 @@ fragment {
       margin-top: 4%;
       height: 85%;
       width: auto;
-    }
-
-    &.disabled {
-      display: none;
     }
   }
 
@@ -656,10 +651,6 @@ fragment {
     cursor: pointer;
   }
 
-  &.disabled {
-    visibility: hidden;
-  }
-
   &-form {
     display: flex;
     flex-direction: column;
@@ -729,10 +720,6 @@ fragment {
     }
   }
 
-  &.disabled {
-    display: none;
-  }
-
   &-new {
     justify-content: center;
     cursor: pointer;
@@ -765,5 +752,33 @@ fragment {
     display: flex;
     width: 100%;
     justify-content: space-evenly;
+  }
+}
+
+.my-text {
+  width: 50%;
+}
+
+.disabled {
+  display: none !important;
+}
+
+.spinner-border {
+  margin-top: 10%;
+  margin-left: 47%;
+}
+
+.auth-prompt {
+  margin-top: 20px;
+  transform: scale(1);
+  transition: 1s;
+
+  & > div {
+    color: rgba(0, 0, 0, 0.38);
+  }
+
+  &.text-red > div {
+    transform: scale(1.3);
+    color: rgb(243, 44, 44);
   }
 }

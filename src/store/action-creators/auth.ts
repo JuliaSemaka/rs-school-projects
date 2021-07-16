@@ -1,4 +1,4 @@
-import { CHANGE_ADMIN_PAGE, CHANGE_INDEX_CATEGORY, CHANGE_VIEW_POPUP, LEAVE_ADMIN_PAGE } from "../reducers/authReducer.module";
+import { CHANGE_ADMIN_PAGE, CHANGE_INDEX_CATEGORY, CHANGE_VIEW_POPUP, IS_AUTHORIZE, LEAVE_ADMIN_PAGE } from "../reducers/authReducer.module";
 import { IAction } from "../reducers/cardReducer.module";
 
 export function changeViewPopup(): IAction {
@@ -15,4 +15,8 @@ export function leaveAdminPage(): IAction {
 
 export function changeIndexCategory(index: number): IAction {
   return {type: CHANGE_INDEX_CATEGORY, payload: index};
+}
+
+export function setAuthorize(isAuth: boolean): IAction {
+  return {type: IS_AUTHORIZE, payload: isAuth};
 }

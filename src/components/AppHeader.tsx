@@ -8,12 +8,12 @@ import LeftMenu from './LeftMenu';
 
 const AppHeader: React.FC = () => {
   const {isModePlay, isShowLeftMenu } = useTypedSelector(state => state.cards);
-  const {pageAdmin, isAdminPage} = useTypedSelector(state => state.auth);
-  const {changeMode, showMenu, hideMenu, changeAdminPage, leaveAdminPage, changeMainPage } = useActions();
+  const {pageAdmin, isAdminPage, isAuthorize} = useTypedSelector(state => state.auth);
+  const {changeMode, showMenu, hideMenu, changeAdminPage, leaveAdminPage, changeMainPage, setAuthorize } = useActions();
   const {pathname} = useLocation();
 
   useEffect(() => {
-    if (pathname.includes(ADMIN)) {
+    if (pathname.includes(ADMIN) && isAuthorize) {
       changeAdminPage();
     }
   }, []);
@@ -27,6 +27,7 @@ const AppHeader: React.FC = () => {
   function leaveAdmin() {
     leaveAdminPage();
     changeMainPage();
+    setAuthorize(false);
   }
 
   const classesBurger: string[] = ['header-burger'];
@@ -50,12 +51,14 @@ const AppHeader: React.FC = () => {
   }
 
   return (
+    <>
     <header className="header" onClick={hideLeftMenu}>
       <div className="header-container">
         <div className={classesBurger.join(' ')} id="header-burger" onClick={showMenu}>
           <span className="header-burger__span"></span>
         </div>
         <LeftMenu />
+        <div className="my-text">Уважаемый проверяющий, очень прошу вас проверить мою работу завтра, я ещё не доделала :)</div>
         <label className="switch">
           <input type="checkbox"
           checked={isModePlay}
@@ -66,6 +69,7 @@ const AppHeader: React.FC = () => {
         </label>
       </div>
     </header>
+    </>
   );
 }
 

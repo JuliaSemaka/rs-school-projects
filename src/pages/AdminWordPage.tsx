@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import AdminCardWord from '../components/AdminCardWord';
 import AdminChangeWord from '../components/AdminChangeWord';
@@ -6,10 +6,14 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { ICards } from '../store/reducers/cardReducer.module';
 
 export const AdminWordPage: React.FC = () => {
-  const { indexCategory } = useTypedSelector(state => state.auth);
+  const { indexCategory, isAuthorize } = useTypedSelector(state => state.auth);
   const { listCards, categoryCards } = useTypedSelector(state => state.cards);
   const [getChangeWord, setChangeWord] = useState(false);
   const history = useHistory();
+
+  if (!isAuthorize) {
+    history.push("/");
+  }
 
   if (indexCategory === null) {
     history.push("/admin");

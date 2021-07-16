@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import AdminCardCategory from '../components/AdminCardCategory';
 import AdminChangeCategory from '../components/AdminChangeCategory';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 export const AdminPage: React.FC = () => {
   const { categoryCards } = useTypedSelector(state => state.cards);
+  const { isAuthorize } = useTypedSelector(state => state.auth);
   const [newCategory, setNewCategory] = useState(false);
+  const history = useHistory();
+
+  if (!isAuthorize) {
+    history.push("/");
+  }
 
   function changeNewCategory() {
     setNewCategory(false);

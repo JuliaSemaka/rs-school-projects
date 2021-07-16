@@ -14,7 +14,7 @@ function useInputValue(defaultValue: string = '') {
 
 const AdminChangeWord: React.FC<IAdminChangeWord> = ({item, index, setChangeWord}: IAdminChangeWord) => {
   const { indexCategory } = useTypedSelector(state => state.auth);
-  const { deleteCard, createCard } = useActions();
+  const { deleteCard, createCard, updateCard } = useActions();
   const inputWord = useInputValue(item?.word ?? '');
   const inputTranslation = useInputValue(item?.translation ?? '');
   const [getSound, setSound] = useState(item?.audioSrc ?? '');
@@ -43,14 +43,17 @@ const AdminChangeWord: React.FC<IAdminChangeWord> = ({item, index, setChangeWord
 
   const addCard = () => {
     if (inputWord.value && inputTranslation.value) {
-      if (!index && indexCategory !== null) {
-        const data = {
-          word: inputWord.value,
-          translation: inputTranslation.value,
-          image: getImage,
-          audioSrc: getImage,
-        };
+      const data = {
+        word: inputWord.value,
+        translation: inputTranslation.value,
+        image: getImage,
+        audioSrc: getImage,
+      };
+      console.log('indexCategory: ', index, indexCategory);
+      if (index === undefined && indexCategory !== null) {
         createCard(indexCategory, data);
+      } else if (index !== undefined && indexCategory !== null) {
+        updateCard(indexCategory, index, data);
       }
     setChangeWord();
     }

@@ -13,7 +13,7 @@ import { StatsticsPage } from './pages/StatistictPage';
 import { IStatisticsFields, IStatisticsState } from './store/reducers/statisticsReducer.module';
 
 function App() {
-  const { categoryCards, listCards} = useTypedSelector(state => state.cards);
+  const { categoryCards, listCards, isLoadingData} = useTypedSelector(state => state.cards);
   const { fields }: IStatisticsState = useTypedSelector(state => state.statistics);
   const { addAllStatistic, getCards, getCategories } = useActions();
 
@@ -57,6 +57,9 @@ function App() {
   return (
     <BrowserRouter>
     <AppHeader />
+      <div className={`spinner-border ${!isLoadingData && 'disabled'}`} role="status">
+         <span className="visually-hidden">Loading...</span>
+      </div>
       <Switch>
         <Route component={MainPage} path="/" exact />
         <Route component={OneCategory} path="/category" />

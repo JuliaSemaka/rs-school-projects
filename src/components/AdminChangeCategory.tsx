@@ -12,7 +12,7 @@ function useInputValue(defaultValue: string = '') {
 }
 
 const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory, index} : ICardChangeProps) => {
-  const { deleteCategory, createCategory } = useActions();
+  const { deleteCategory, createCategory, updateCategory } = useActions();
   const input = useInputValue(name);
 
   const delCategory = () => {
@@ -24,8 +24,11 @@ const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory, 
 
   const addCategory = () => {
     if (input.value) {
-      if (!index) {
+      console.log('index: ', index);
+      if (index === undefined) {
         createCategory(input.value);
+      } else {
+        updateCategory(index, input.value);
       }
       changeCategory();
     }

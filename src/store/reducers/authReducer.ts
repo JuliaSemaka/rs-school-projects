@@ -1,4 +1,4 @@
-import { CHANGE_VIEW_POPUP, IAuthState, EPageAdmin, CHANGE_ADMIN_PAGE, CHANGE_INDEX_CATEGORY, LEAVE_ADMIN_PAGE } from "./authReducer.module";
+import { CHANGE_VIEW_POPUP, IAuthState, EPageAdmin, CHANGE_ADMIN_PAGE, CHANGE_INDEX_CATEGORY, LEAVE_ADMIN_PAGE, IS_AUTHORIZE } from "./authReducer.module";
 import { IAction } from "./cardReducer.module";
 
 const authState: IAuthState = {
@@ -6,6 +6,7 @@ const authState: IAuthState = {
   isAdminPage: false,
   pageAdmin: EPageAdmin.ADMIN_PAGE,
   indexCategory: null,
+  isAuthorize: false,
 }
 
 export const authReducer = (state: IAuthState = authState, action: IAction): IAuthState => {
@@ -18,6 +19,8 @@ export const authReducer = (state: IAuthState = authState, action: IAction): IAu
       return {...state, isAdminPage: false, pageAdmin: EPageAdmin.ADMIN_PAGE};
     case CHANGE_INDEX_CATEGORY:
       return {...state, indexCategory: action.payload, pageAdmin: EPageAdmin.ADMIN_WORDS_PAGE};
+    case IS_AUTHORIZE:
+      return {...state, isAuthorize: action.payload};
     default:
       return state;
   }

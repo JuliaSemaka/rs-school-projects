@@ -12,6 +12,8 @@ export const DELETE_CARD = 'DELETE_CARD';
 export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const CREATE_CARD = 'CREATE_CARD';
 export const CREATE_CATEGORY = 'CREATE_CATEGORY';
+export const UPDATE_CARD = 'UPDATE_CARD';
+export const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
 
 export enum typePage {
   CATEGORIES_PAGE = 'CATEGORIES_PAGE',
@@ -40,9 +42,15 @@ export interface ICardsState {
   arrGameWords: ICards[];
   arrStars: Stars[];
   page: typePage;
+  isLoadingData: boolean;
 }
 
 export interface IAction {
   type: string;
   payload?: any;
+}
+
+export enum Links {
+  cards = 'https://mysterious-falls-98420.herokuapp.com/api/cards',
+  categories = 'https://mysterious-falls-98420.herokuapp.com/api/categories',
 }

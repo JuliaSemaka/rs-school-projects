@@ -1,10 +1,5 @@
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CATEGORIES, HIDE_MENU, IAction, ICards, SET_STARS, SHOW_MENU, Stars } from "../reducers/cardReducer.module";
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CATEGORIES, HIDE_MENU, IAction, ICards, Links, SET_STARS, SHOW_MENU, Stars, UPDATE_CARD, UPDATE_CATEGORY } from "../reducers/cardReducer.module";
 import {Dispatch} from "redux";
-
-enum Links {
-  cards = 'https://mysterious-falls-98420.herokuapp.com/api/cards',
-  categories = 'https://mysterious-falls-98420.herokuapp.com/api/categories',
-}
 
 export function getCards() {
   return async (dispatch: Dispatch<IAction>) => {
@@ -82,6 +77,40 @@ export function createCategory(nameCategory: string) {
         body: JSON.stringify({nameCategory}),
       });
       dispatch({type: CREATE_CATEGORY, payload: nameCategory});
+    } catch (e) {
+      throw Error(e);
+    }
+  }
+}
+
+export function updateCard(indexCategory: number, indexCard: number, data: ICards) {
+  return async (dispatch: Dispatch<IAction>) => {
+    try {
+      await fetch(Links.cards, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({indexCategory, indexCard, data}),
+      });
+      dispatch({type: UPDATE_CARD, payload: {indexCategory, indexCard, data}});
+    } catch (e) {
+      throw Error(e);
+    }
+  }
+}
+
+export function updateCategory(indexCategory: number, nameCategory: string) {
+  return async (dispatch: Dispatch<IAction>) => {
+    try {
+      await fetch(Links.categories, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({indexCategory, nameCategory}),
+      });
+      dispatch({type: UPDATE_CATEGORY, payload: {indexCategory, nameCategory}});
     } catch (e) {
       throw Error(e);
     }
