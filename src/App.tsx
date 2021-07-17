@@ -57,17 +57,20 @@ function App() {
   return (
     <BrowserRouter>
     <AppHeader />
-      <div className={`spinner-border ${!isLoadingData && 'disabled'}`} role="status">
-         <span className="visually-hidden">Loading...</span>
-      </div>
-      <Switch>
-        <Route component={MainPage} path="/" exact />
-        <Route component={OneCategory} path="/category" />
-        <Route component={StatsticsPage} path="/statistics" />
-        <Route component={AdminPage} path="/admin" exact />
-        <Route component={AdminWordPage} path="/admin/:category?/:words?" />
-        <Redirect to="/" />
-      </Switch>
+    {
+      isLoadingData
+        ? <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        : <Switch>
+            <Route component={MainPage} path="/" exact />
+            <Route component={OneCategory} path="/category" />
+            <Route component={StatsticsPage} path="/statistics" />
+            <Route component={AdminPage} path="/admin" exact />
+            <Route component={AdminWordPage} path="/admin/:category?/:words?" />
+            <Redirect to="/" />
+          </Switch>
+    }
       <AppFooter />
       <AuthPopup />
     </BrowserRouter>

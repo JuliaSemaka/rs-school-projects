@@ -6,7 +6,7 @@ const authState: IAuthState = {
   isAdminPage: false,
   pageAdmin: EPageAdmin.ADMIN_PAGE,
   indexCategory: null,
-  isAuthorize: false,
+  isAuthorize: !!sessionStorage.getItem('isAuthAdmin') ?? false,
 }
 
 export const authReducer = (state: IAuthState = authState, action: IAction): IAuthState => {

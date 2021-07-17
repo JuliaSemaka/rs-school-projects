@@ -28,6 +28,7 @@ const AppHeader: React.FC = () => {
     leaveAdminPage();
     changeMainPage();
     setAuthorize(false);
+    sessionStorage.setItem('isAuthAdmin', '');
   }
 
   const classesBurger: string[] = ['header-burger'];
@@ -58,7 +59,7 @@ const AppHeader: React.FC = () => {
           <span className="header-burger__span"></span>
         </div>
         <LeftMenu />
-        <div className="my-text">Уважаемый проверяющий, очень прошу вас проверить мою работу завтра, я ещё не доделала :)</div>
+
         <label className="switch">
           <input type="checkbox"
           checked={isModePlay}

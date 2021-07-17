@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useActions } from '../hooks/useAction';
+import { Links } from '../store/reducers/cardReducer.module';
 import { ICardChangeProps } from './component.module';
 
 function useInputValue(defaultValue: string = '') {
@@ -36,7 +37,7 @@ const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory, 
 
   return (
     <div className="card-category">
-      <img className="cross" src="./images/cross.png" alt="cross" onClick={delCategory} />
+      <img className="cross" src={`${Links.static}images/cross.png`} alt="cross" onClick={delCategory} />
       <div>
         <label className="text text-label" htmlFor="category-name">Category Name:</label>
         <input className="text text-input" type="text" id="category-name" {...input} />

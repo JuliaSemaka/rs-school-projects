@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { ICards, Stars } from '../store/reducers/cardReducer.module';
+import { ICards, Links, Stars } from '../store/reducers/cardReducer.module';
 import { IOneCardProps } from './component.module';
 
 const OneCard: React.FC<IOneCardProps> = ({item, listenAudio, finishGame}: IOneCardProps) => {
@@ -48,7 +48,7 @@ const OneCard: React.FC<IOneCardProps> = ({item, listenAudio, finishGame}: IOneC
           }
         } else if (arrGameWords.find(elem => elem.word === item.word)) {
           listenAudio('./audio/error.mp3');
-          addWrong(item.word);
+          addWrong(arrGameWords[0].word);
           setStars(Stars.STAR);
         }
       }
@@ -59,9 +59,9 @@ const OneCard: React.FC<IOneCardProps> = ({item, listenAudio, finishGame}: IOneC
     <div className={`main-card__container ${flipped && 'flipped'}`}  onMouseLeave={() => setFlepped(false)}>
       <div className={!arrGameWords.length || arrGameWords.find(elem => elem.word === item.word) ? classesCard.join(' ') : classesChoiceCard.join(' ')}>
         <div className={classesMode.join(' ')}>
-          <div className="main-card__img-fully" style={{backgroundImage: `url("./${item.image ? item.image : 'img/unknown-img.jpg'}")`}} onClick={() => chouseCard(item)}></div>
+          <div className="main-card__img-fully" style={{backgroundImage: `url("${item.image.startsWith('data:') ? '' : Links.static}${item.image ? item.image : 'img/unknown-img.jpg'}")`}} onClick={() => chouseCard(item)}></div>
           <div className="text text-title text-center" onClick={() => chouseCard(item)}>{ item.word }</div>
-          <img className="main-card__img-rotate" src="./img/rotate2.png" alt="rotate" onClick={() => setFlepped(true)}/>
+          <img className="main-card__img-rotate" src={`${Links.static}img/rotate2.png`} alt="rotate" onClick={() => setFlepped(true)}/>
         </div>
         <div className="main-card__back text text-title">
           { item.translation }

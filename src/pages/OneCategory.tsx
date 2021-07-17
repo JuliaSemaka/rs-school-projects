@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import OneCard from '../components/OneCard';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
-import { ICards, Stars } from '../store/reducers/cardReducer.module';
+import { ICards, Links, Stars } from '../store/reducers/cardReducer.module';
+
+export function listenAudio(audioSrc: string): void {
+  const src: string = `${audioSrc.startsWith('data:') ? '' : Links.static}${audioSrc}`;
+  const audio: HTMLAudioElement = new Audio();
+  audio.src = src;
+  audio.currentTime = 0;
+  audio.play();
+}
 
 export const OneCategory: React.FC = () => {
   const { indexCategory, listCards, isModePlay, arrGameWords, arrStars, isShowLeftMenu } = useTypedSelector(state => state.cards);
   const { fillArrayWords, hideMenu } = useActions();
   const [mainFinish, setMainFinish] = useState(true);
-  const history = useHistory();
 
   const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {
@@ -24,8 +31,7 @@ export const OneCategory: React.FC = () => {
   }, [arrGameWords]);
 
   if (indexCategory === null) {
-    history.push("/");
-    return (<></>);
+    return (<Redirect to="/" />);
   }
 
   let classesMode: string[] = ['main-card__front'];
@@ -64,14 +70,6 @@ export const OneCategory: React.FC = () => {
     }
   }
 
-  function listenAudio(audioSrc: string): void {
-    const src: string = `./${audioSrc}`;
-    const audio: HTMLAudioElement = new Audio();
-    audio.src = src;
-    audio.currentTime = 0;
-    audio.play();
-  }
-
   const finishGame = (): void => {
     setMainFinish(false);
   }
@@ -81,8 +79,8 @@ export const OneCategory: React.FC = () => {
       <main className="main" onClick={hideLeftMenu}>
         <div className="main-stars">
           {arrStars.map((elem,i) => elem === Stars.STAR ?
-            <img src="./img/star.svg" alt="star" key={i} /> :
-            <img src="./img/star-win.svg" alt="star" key={i} />)}
+            <img src={`${Links.static}img/star.svg`} alt="star" key={i} /> :
+            <img src={`${Links.static}img/star-win.svg`} alt="star" key={i} />)}
         </div>
         <div className="main-container">
           {
@@ -98,17 +96,17 @@ export const OneCategory: React.FC = () => {
         <div className={`main-finish ${mainFinish && "disabled"}`}>
           {
             arrStars.every(item => item === Stars.STAR_WIN) ?
-              <img src="./img/success.jpg" alt="success" /> :
+              <img src={`${Links.static}img/success.jpg`} alt="success" /> :
               <div>
                 <h3 className="text text-errors">{arrStars.filter(item => item === Stars.STAR).length} errors</h3>
-                <img src="./img/failure.jpg" alt="failure" />
+                <img src={`${Links.static}img/failure.jpg`} alt="failure" />
               </div>
           }
         </div>
         <button
           className={!arrGameWords.length ? classesButton.join(' ') : classesButtonRepeat.join(' ')}
           onClick={startGame}>
-            {!arrGameWords.length ? "Start game" : <img src="./img/repeat.svg" alt="repeat" />}
+            {!arrGameWords.length ? "Start game" : <img src={`${Links.static}img/repeat.svg`} alt="repeat" />}
         </button>
       </main>
     </React.Fragment>

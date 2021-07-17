@@ -641,6 +641,11 @@ fragment {
   border-radius: 2px;
   overflow: hidden;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    left: 0;
+  }
+
   &-header > span {
     position: absolute;
     top: 10px;
@@ -656,10 +661,18 @@ fragment {
     flex-direction: column;
     align-items: center;
 
+    @media (max-width: 768px) {
+      width: 80%;
+    }
+
     &-input {
       margin-top: 45px;
       border: none;
       border-bottom: 1px solid #000000;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
     }
 
     &-buttons {
@@ -698,6 +711,7 @@ fragment {
       & > p {
         color: #888888;
         font-size: 0.6em;
+        max-width: 100px !important;
       }
 
       & > input[type="file"] {
@@ -717,6 +731,23 @@ fragment {
 
     &__change {
       margin-top: 10px;
+    }
+
+    & p {
+      display: flex;
+      max-width: 300px;
+      overflow: hidden;
+
+      & span{
+        max-width: 160px;
+        overflow: hidden;
+        margin-left: 5px;
+      }
+
+      & img {
+        width: auto;
+        height: 20px;
+      }
     }
   }
 
@@ -780,5 +811,14 @@ fragment {
   &.text-red > div {
     transform: scale(1.3);
     color: rgb(243, 44, 44);
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  transition: 1s;
+
+  &:hover {
+    transform: scale(1.02);
   }
 }

@@ -29,6 +29,7 @@ const AuthPopup: React.FC = () => {
       setAuthorize(true);
       history.push("/admin");
       setPrompt(false);
+      sessionStorage.setItem('isAuthAdmin', 'true');
     } else {
       setPrompt(true);
     }

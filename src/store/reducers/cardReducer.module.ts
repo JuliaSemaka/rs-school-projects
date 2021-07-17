@@ -53,4 +53,5 @@ export interface IAction {
 export enum Links {
   cards = 'https://mysterious-falls-98420.herokuapp.com/api/cards',
   categories = 'https://mysterious-falls-98420.herokuapp.com/api/categories',
+  static = 'https://mysterious-falls-98420.herokuapp.com/',
 }
