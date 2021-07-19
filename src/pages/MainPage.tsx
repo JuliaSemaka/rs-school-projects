@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
@@ -6,7 +6,12 @@ import { Links } from '../store/reducers/cardReducer.module';
 
 export const MainPage: React.FC = () => {
   const { categoryCards, isModePlay, isShowLeftMenu, listCards } = useTypedSelector(state => state.cards);
-  const { chooseCategory, hideMenu } = useActions();
+  const { chooseCategory, hideMenu, getCards, getCategories } = useActions();
+
+  useEffect(() => {
+    getCards();
+    getCategories();
+  }, []);
 
   const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {

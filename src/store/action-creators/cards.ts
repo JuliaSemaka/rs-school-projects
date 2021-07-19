@@ -1,5 +1,13 @@
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CATEGORIES, HIDE_MENU, IAction, ICards, Links, SET_STARS, SHOW_MENU, Stars, UPDATE_CARD, UPDATE_CATEGORY } from "../reducers/cardReducer.module";
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, Links, SET_STARS, SHOW_MENU, Stars, UPDATE_CARD, UPDATE_CATEGORY } from "../reducers/cardReducer.module";
 import {Dispatch} from "redux";
+
+export function clearCards(indexCategory: number) {
+  return {type: CLEAR_CARDS, payload: indexCategory};
+}
+
+export function clearCategories() {
+  return {type: CLEAR_CATEGORIES};
+}
 
 export function getCards() {
   return async (dispatch: Dispatch<IAction>) => {
@@ -17,6 +25,28 @@ export function getCategories() {
     try {
       const response: Response = await fetch(Links.categories);
       dispatch({type: GET_CATEGORIES, payload: (await response.json())});
+    } catch (e) {
+      throw Error(e);
+    }
+  }
+}
+
+export function getCardsPage(indexCategory: number, page: number) {
+  return async (dispatch: Dispatch<IAction>) => {
+    try {
+      const response: Response = await fetch(`${Links.cards}/${indexCategory}/${page}`);
+      dispatch({type: GET_CARDS_PAGE, payload: ({indexCategory, data: await response.json()})});
+    } catch (e) {
+      throw Error(e);
+    }
+  }
+}
+
+export function getCategoriesPage(page: number) {
+  return async (dispatch: Dispatch<IAction>) => {
+    try {
+      const response: Response = await fetch(`${Links.categories}/${page}`);
+      dispatch({type: GET_CATEGORIES_PAGE, payload: (await response.json())});
     } catch (e) {
       throw Error(e);
     }

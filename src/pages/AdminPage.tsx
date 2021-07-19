@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Redirect } from 'react-router-dom';
 import AdminCardCategory from '../components/AdminCardCategory';
 import AdminChangeCategory from '../components/AdminChangeCategory';
+import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Links } from '../store/reducers/cardReducer.module';
 
 export const AdminPage: React.FC = () => {
-  const { categoryCards } = useTypedSelector(state => state.cards);
+  const { categoryCards, lengthCategory } = useTypedSelector(state => state.cards);
   const { isAuthorize } = useTypedSelector(state => state.auth);
+  const { getCategoriesPage, clearCategories } = useActions();
   const [newCategory, setNewCategory] = useState(false);
+  const [getPage, setPage] = useState(1);
+
+  useEffect(() => {
+    clearCategories();
+    getCategoriesPage(getPage);
+    setPage(prev => prev + 1);
+  }, []);
 
   if (!isAuthorize) {
     return (<Redirect to="/" />);
@@ -18,10 +28,27 @@ export const AdminPage: React.FC = () => {
     setNewCategory(false);
   }
 
+  function categoriesPage() {
+    console.log(getPage);
+
+    getCategoriesPage(getPage);
+    setPage(prev => prev+1);
+    console.log(getPage);
+  }
+
   return (
     <React.Fragment>
       <main className="main">
         <div className="main-container">
+        <InfiniteScroll
+          dataLength={categoryCards.length}
+          next={categoriesPage}
+          hasMore={categoryCards.length !== lengthCategory}
+          loader={<div className="spinner-border" role="status" style={{position: 'absolute', bottom: '-45px', left: '3%'}}>
+                    <span className="visually-hidden">Loading...</span>
+                  </div>}
+          style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
+        >
           {categoryCards.map((name, i) => {
             return (<AdminCardCategory key={i} index={i} name={name}/>)
           })}
@@ -32,6 +59,7 @@ export const AdminPage: React.FC = () => {
             <p className="text text-title">Create new Category</p>
             <img className="plus" src={`${Links.static}images/plus.png`} alt="plus" />
           </div>
+        </InfiniteScroll>
         </div>
       </main>
     </React.Fragment>

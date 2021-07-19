@@ -14,6 +14,10 @@ export const CREATE_CARD = 'CREATE_CARD';
 export const CREATE_CATEGORY = 'CREATE_CATEGORY';
 export const UPDATE_CARD = 'UPDATE_CARD';
 export const UPDATE_CATEGORY = 'UPDATE_CATEGORY';
+export const GET_CATEGORIES_PAGE = 'GET_CATEGORIES_PAGE';
+export const GET_CARDS_PAGE = 'GET_CARDS_PAGE';
+export const CLEAR_CARDS = 'CLEAR_CARDS';
+export const CLEAR_CATEGORIES = 'CLEAR_CATEGORIES';
 
 export enum typePage {
   CATEGORIES_PAGE = 'CATEGORIES_PAGE',
@@ -35,7 +39,9 @@ export interface ICards {
 
 export interface ICardsState {
   categoryCards: string[];
+  lengthCategory: number;
   listCards: ICards[][];
+  lengthCards: number[];
   indexCategory: number | null;
   isModePlay: boolean;
   isShowLeftMenu: boolean;

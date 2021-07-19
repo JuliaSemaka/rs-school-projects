@@ -1,8 +1,10 @@
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CATEGORIES, HIDE_MENU, IAction, ICardsState, SET_STARS, SHOW_MENU, typePage, UPDATE_CARD, UPDATE_CATEGORY } from './cardReducer.module';
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, ICardsState, SET_STARS, SHOW_MENU, typePage, UPDATE_CARD, UPDATE_CATEGORY } from './cardReducer.module';
 
 const listCards: ICardsState = {
   categoryCards: [],
+  lengthCategory: 0,
   listCards: [],
+  lengthCards: [],
   indexCategory: null,
   isModePlay: false,
   isShowLeftMenu: false,
@@ -14,24 +16,37 @@ const listCards: ICardsState = {
 
 export const cardsReducer = (state: ICardsState = listCards, action: IAction): ICardsState => {
   switch(action.type) {
+    case CLEAR_CARDS:
+      const newListCards = state.listCards.map((item,i) => i === action.payload ? [] : item);
+      return {...state, listCards: newListCards};
+    case CLEAR_CATEGORIES:
+      return {...state, categoryCards: []};
     case GET_CARDS:
-      return {...state, listCards: action.payload, isLoadingData: !(!!state.categoryCards.length)};
+      const newLengthCards: number[] = action.payload.map((element: ICards[]) => element.length);
+      return {...state, listCards: action.payload, isLoadingData: !(!!state.categoryCards.length), lengthCards: newLengthCards};
+    case GET_CARDS_PAGE:
+      const listCards = state.listCards.map((item,i) => i === action.payload.indexCategory ? [...state.listCards[action.payload.indexCategory], ...action.payload.data] : item);
+      return {...state, listCards: listCards, isLoadingData: !(!!state.categoryCards.length)};
     case GET_CATEGORIES:
-      return {...state, categoryCards: action.payload, isLoadingData: !(!!state.listCards.length)};
+      return {...state, categoryCards: action.payload, isLoadingData: !(!!state.listCards.length), lengthCategory: action.payload.length};
+    case GET_CATEGORIES_PAGE:
+      return {...state, categoryCards: [...state.categoryCards, ...action.payload], isLoadingData: !(!!state.listCards.length)};
     case DELETE_CARD:
       state.listCards[action.payload.indexCategory].splice(action.payload.indexCard, 1);
+      state.lengthCards[action.payload.indexCategory]--;
       return {...state};
     case DELETE_CATEGORY:
       state.categoryCards.splice(action.payload, 1);
       state.listCards.splice(action.payload, 1);
-      return {...state};
+      return {...state, lengthCategory: state.lengthCategory - 1};
     case CREATE_CARD:
       state.listCards[action.payload.indexCategory].push(action.payload.data);
+      state.lengthCards[action.payload.indexCategory]++;
       return {...state};
     case CREATE_CATEGORY:
       state.categoryCards.push(action.payload);
       state.listCards.push([]);
-      return {...state};
+      return {...state, lengthCategory: state.lengthCategory + 1};
     case UPDATE_CARD:
       state.listCards[action.payload.indexCategory][action.payload.indexCard] = action.payload.data;
       return {...state};
