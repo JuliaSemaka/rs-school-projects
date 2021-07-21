@@ -25,7 +25,6 @@ const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory, 
 
   const addCategory = (): void => {
     if (input.value) {
-      console.log('index: ', index);
       if (index === undefined) {
         createCategory(input.value);
       } else {
