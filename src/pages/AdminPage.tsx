@@ -23,7 +23,7 @@ export const AdminPage: React.FC = () => {
   if (!isAuthorize) {
     return (<Redirect to="/" />);
   }
-
+  
   function changeNewCategory(): void {
     setNewCategory(false);
   }

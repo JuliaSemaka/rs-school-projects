@@ -21,7 +21,7 @@ const AuthPopup: React.FC = () => {
   const inputLogin: IInputValue = useInputValue('');
   const inputPassword: IInputValue = useInputValue('');
 
-  async function loginButton(e: React.FormEvent): Promise<void> {
+  function loginButton(e: React.FormEvent): void {
     e.preventDefault();
     if (inputLogin.value === ADMIN && inputPassword.value === ADMIN) {
       setAuthorize(true);
