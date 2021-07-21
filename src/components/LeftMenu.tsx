@@ -9,8 +9,8 @@ const LeftMenu: React.FC = () => {
   const {changeMainPage,chooseCategory, changeStatisticsPage, changeViewPopup} = useActions();
 
   let classesMenu: string[] = ['menu'];
-  let classesLink: string[] = ["menu-list__link", "text", "text-button", "text-white"];
-  let classesLinkActive: string[] = classesLink.concat(["chouse"]);
+  let classesLink: string[] = ['menu-list__link', 'text', 'text-button', 'text-white'];
+  let classesLinkActive: string[] = classesLink.concat(['chouse']);
   if (isShowLeftMenu) {
     classesMenu.push('active');
   }

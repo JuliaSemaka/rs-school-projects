@@ -11,8 +11,8 @@ const OneCard: React.FC<IOneCardProps> = ({item, listenAudio, finishGame}: IOneC
   const [flipped, setFlepped] = useState(false);
   const history = useHistory();
 
-  const classesCard: string[] = ["main-card"];
-  const classesChoiceCard: string[] = classesCard.concat(["choice"]);
+  const classesCard: string[] = ['main-card'];
+  const classesChoiceCard: string[] = classesCard.concat(['choice']);
 
   let classesMode: string[] = ['main-card__front'];
   const basicsButton: string[] = ['button', 'button-green', 'text', 'text-button'];

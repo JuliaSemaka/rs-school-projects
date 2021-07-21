@@ -24,16 +24,13 @@ export const AdminPage: React.FC = () => {
     return (<Redirect to="/" />);
   }
 
-  function changeNewCategory() {
+  function changeNewCategory(): void {
     setNewCategory(false);
   }
 
-  function categoriesPage() {
-    console.log(getPage);
-
+  function categoriesPage(): void {
     getCategoriesPage(getPage);
     setPage(prev => prev+1);
-    console.log(getPage);
   }
 
   return (
@@ -47,7 +44,7 @@ export const AdminPage: React.FC = () => {
           loader={<div className="spinner-border" role="status" style={{position: 'absolute', bottom: '-45px', left: '3%'}}>
                     <span className="visually-hidden">Loading...</span>
                   </div>}
-          style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
+          style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', minWidth: '350px' }}
         >
           {categoryCards.map((name, i) => {
             return (<AdminCardCategory key={i} index={i} name={name}/>)

@@ -5,7 +5,7 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { Links } from '../store/reducers/cardReducer.module';
 
 export const MainPage: React.FC = () => {
-  const { categoryCards, isModePlay, isShowLeftMenu, listCards } = useTypedSelector(state => state.cards);
+  const { categoryCards, isModePlay, isShowLeftMenu, listCards, isLoadingData } = useTypedSelector(state => state.cards);
   const { chooseCategory, hideMenu, getCards, getCategories } = useActions();
 
   useEffect(() => {
@@ -26,6 +26,12 @@ export const MainPage: React.FC = () => {
 
   return (
     <React.Fragment>
+      {
+      isLoadingData
+        ? <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        :
         <main className="main" onClick={hideLeftMenu}>
           <div className="main-container">
             {categoryCards.map((item,index) => {
@@ -42,6 +48,7 @@ export const MainPage: React.FC = () => {
             })}
           </div>
       </main>
+      }
     </React.Fragment>
   );
 }

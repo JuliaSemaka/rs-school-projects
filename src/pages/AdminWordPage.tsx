@@ -30,7 +30,7 @@ export const AdminWordPage: React.FC = () => {
     return (<Redirect to="/admin" />);
   }
 
-  function cardPage() {
+  function cardPage(): void {
     getCardsPage(indexCategory as number, getPage);
     setPage(prev => prev + 1);
   }
@@ -47,7 +47,7 @@ export const AdminWordPage: React.FC = () => {
           loader={<div className="spinner-border" role="status" style={{position: 'absolute', bottom: '-45px', left: '3%'}}>
                     <span className="visually-hidden">Loading...</span>
                   </div>}
-          style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
+          style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', minWidth: '350px' }}
         >
           {
             listCards[indexCategory].map((item: ICards, index: number) => {

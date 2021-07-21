@@ -11,7 +11,7 @@ const AdminCardCategory: React.FC<ICardProps> = ({ index, name }: ICardProps) =>
   const { changeIndexCategory, deleteCategory } = useActions();
   const [getChangeCategory, setChangeCategory] = useState(false);
 
-  function changeCategory() {
+  function changeCategory(): void {
     setChangeCategory(false);
   }
 

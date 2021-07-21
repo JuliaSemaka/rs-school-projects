@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useActions } from '../hooks/useAction';
 import { Links } from '../store/reducers/cardReducer.module';
-import { ICardChangeProps } from './component.module';
+import { ICardChangeProps, IInputValue } from './component.module';
 
-function useInputValue(defaultValue: string = '') {
+function useInputValue(defaultValue: string = ''): IInputValue {
   const [value, setValue] = useState(defaultValue);
 
   return {
@@ -14,16 +14,16 @@ function useInputValue(defaultValue: string = '') {
 
 const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory, index} : ICardChangeProps) => {
   const { deleteCategory, createCategory, updateCategory } = useActions();
-  const input = useInputValue(name);
+  const input: IInputValue = useInputValue(name);
 
-  const delCategory = () => {
+  const delCategory = (): void => {
     if (index) {
       deleteCategory(index);
     }
     changeCategory();
   }
 
-  const addCategory = () => {
+  const addCategory = (): void => {
     if (input.value) {
       console.log('index: ', index);
       if (index === undefined) {

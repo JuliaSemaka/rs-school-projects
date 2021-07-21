@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useHistory } from 'react-router-dom';
-import { ADMIN } from './component.module';
+import { ADMIN, IInputValue } from './component.module';
 
-function useInputValue(defaultValue: string = '') {
+function useInputValue(defaultValue: string = ''): IInputValue {
   const [value, setValue] = useState(defaultValue);
 
   return {
@@ -15,18 +15,19 @@ function useInputValue(defaultValue: string = '') {
 
 const AuthPopup: React.FC = () => {
   const { isViewPopup } = useTypedSelector(state => state.auth);
-  const { changeViewPopup, changeAdminPage, setAuthorize } = useActions();
+  const { changeViewPopup, changeAdminPage, setAuthorize, setFetchAuth } = useActions();
   const history = useHistory();
   const [getPrompt, setPrompt] = useState(false);
-  const inputLogin = useInputValue('');
-  const inputPassword = useInputValue('');
+  const inputLogin: IInputValue = useInputValue('');
+  const inputPassword: IInputValue = useInputValue('');
 
-  function loginButton(e: React.FormEvent) {
+  async function loginButton(e: React.FormEvent): Promise<void> {
     e.preventDefault();
     if (inputLogin.value === ADMIN && inputPassword.value === ADMIN) {
-      changeAdminPage();
-      changeViewPopup();
       setAuthorize(true);
+      setFetchAuth(true);
+      changeViewPopup();
+      changeAdminPage();
       history.push("/admin");
       setPrompt(false);
       sessionStorage.setItem('isAuthAdmin', 'true');

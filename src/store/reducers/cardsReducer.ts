@@ -46,7 +46,9 @@ export const cardsReducer = (state: ICardsState = listCards, action: IAction): I
     case CREATE_CATEGORY:
       state.categoryCards.push(action.payload);
       state.listCards.push([]);
-      return {...state, lengthCategory: state.lengthCategory + 1};
+      state.lengthCategory++;
+      state.lengthCards = [...state.lengthCards, 0];
+      return {...state};
     case UPDATE_CARD:
       state.listCards[action.payload.indexCategory][action.payload.indexCard] = action.payload.data;
       return {...state};

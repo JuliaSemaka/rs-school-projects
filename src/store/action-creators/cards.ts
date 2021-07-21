@@ -1,15 +1,15 @@
 import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, Links, SET_STARS, SHOW_MENU, Stars, UPDATE_CARD, UPDATE_CATEGORY } from "../reducers/cardReducer.module";
 import {Dispatch} from "redux";
 
-export function clearCards(indexCategory: number) {
+export function clearCards(indexCategory: number): IAction {
   return {type: CLEAR_CARDS, payload: indexCategory};
 }
 
-export function clearCategories() {
+export function clearCategories(): IAction {
   return {type: CLEAR_CATEGORIES};
 }
 
-export function getCards() {
+export function getCards(): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       const response: Response = await fetch(Links.cards);
@@ -20,7 +20,7 @@ export function getCards() {
   }
 }
 
-export function getCategories() {
+export function getCategories(): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       const response: Response = await fetch(Links.categories);
@@ -31,7 +31,7 @@ export function getCategories() {
   }
 }
 
-export function getCardsPage(indexCategory: number, page: number) {
+export function getCardsPage(indexCategory: number, page: number): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       const response: Response = await fetch(`${Links.cards}/${indexCategory}/${page}`);
@@ -42,7 +42,7 @@ export function getCardsPage(indexCategory: number, page: number) {
   }
 }
 
-export function getCategoriesPage(page: number) {
+export function getCategoriesPage(page: number): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       const response: Response = await fetch(`${Links.categories}/${page}`);
@@ -53,7 +53,7 @@ export function getCategoriesPage(page: number) {
   }
 }
 
-export function deleteCard(indexCategory: number, indexCard: number) {
+export function deleteCard(indexCategory: number, indexCard: number): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       await fetch(`${Links.cards}/${indexCategory}/${indexCard}`, {
@@ -66,7 +66,7 @@ export function deleteCard(indexCategory: number, indexCard: number) {
   }
 }
 
-export function deleteCategory(index: number) {
+export function deleteCategory(index: number): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       await fetch(`${Links.categories}/${index}`, {
@@ -79,7 +79,7 @@ export function deleteCategory(index: number) {
   }
 }
 
-export function createCard(indexCategory: number, data: ICards) {
+export function createCard(indexCategory: number, data: ICards): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       await fetch(Links.cards, {
@@ -96,7 +96,7 @@ export function createCard(indexCategory: number, data: ICards) {
   }
 }
 
-export function createCategory(nameCategory: string) {
+export function createCategory(nameCategory: string): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       await fetch(Links.categories, {
@@ -113,7 +113,7 @@ export function createCategory(nameCategory: string) {
   }
 }
 
-export function updateCard(indexCategory: number, indexCard: number, data: ICards) {
+export function updateCard(indexCategory: number, indexCard: number, data: ICards): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       await fetch(Links.cards, {
@@ -130,7 +130,7 @@ export function updateCard(indexCategory: number, indexCard: number, data: ICard
   }
 }
 
-export function updateCategory(indexCategory: number, nameCategory: string) {
+export function updateCategory(indexCategory: number, nameCategory: string): (dispatch: Dispatch<IAction>) => Promise<void> {
   return async (dispatch: Dispatch<IAction>) => {
     try {
       await fetch(Links.categories, {

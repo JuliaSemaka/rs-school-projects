@@ -12,8 +12,8 @@ import { OneCategory } from './pages/OneCategory';
 import { StatsticsPage } from './pages/StatistictPage';
 import { IStatisticsFields, IStatisticsState } from './store/reducers/statisticsReducer.module';
 
-function App() {
-  const { categoryCards, listCards, isLoadingData} = useTypedSelector(state => state.cards);
+function App(): JSX.Element {
+  const { categoryCards, listCards } = useTypedSelector(state => state.cards);
   const { fields }: IStatisticsState = useTypedSelector(state => state.statistics);
   const { addAllStatistic, getCards, getCategories } = useActions();
 
@@ -56,21 +56,15 @@ function App() {
 
   return (
     <BrowserRouter>
-    <AppHeader />
-    {
-      isLoadingData
-        ? <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        : <Switch>
-            <Route component={MainPage} path="/" exact />
-            <Route component={OneCategory} path="/category" />
-            <Route component={StatsticsPage} path="/statistics" />
-            <Route component={AdminPage} path="/admin" exact />
-            <Route component={AdminWordPage} path="/admin/:category?/:words?" />
-            <Redirect to="/" />
-          </Switch>
-    }
+      <AppHeader />
+        <Switch>
+          <Route component={MainPage} path="/" exact />
+          <Route component={OneCategory} path="/category" />
+          <Route component={StatsticsPage} path="/statistics" />
+          <Route component={AdminPage} path="/admin" exact />
+          <Route component={AdminWordPage} path="/admin/:category?/:words?" />
+          <Redirect to="/" />
+        </Switch>
       <AppFooter />
       <AuthPopup />
     </BrowserRouter>

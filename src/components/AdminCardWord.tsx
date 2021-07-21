@@ -13,7 +13,7 @@ const AdminCardWord: React.FC<IAdminWordPage> = ({item, index}: IAdminWordPage) 
   const [getChangeWord, setChangeWord] = useState(false);
 
   if (indexCategory === null) {
-    return (<Redirect to="/admin" />);
+    return (<Redirect to='/admin' />);
   }
 
   return (

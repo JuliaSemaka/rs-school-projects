@@ -6,6 +6,5 @@ import * as ActionCreatorsAuth from '../store/action-creators/auth'
 
 export const useActions = () => {
   const dispatch = useDispatch();
-  // через запятую можно записывать
   return bindActionCreators({...ActionCreatorsCards, ...ActionCreatorsStatistics, ...ActionCreatorsAuth}, dispatch);
 }
