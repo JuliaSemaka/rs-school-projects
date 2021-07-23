@@ -10,20 +10,23 @@ import { Links } from '../store/reducers/cardReducer.module';
 export const AdminPage: React.FC = () => {
   const { categoryCards, lengthCategory } = useTypedSelector(state => state.cards);
   const { isAuthorize } = useTypedSelector(state => state.auth);
-  const { getCategoriesPage, clearCategories } = useActions();
+  const { getCategoriesPage, clearCategories, setLengthCategory, setLengthWords, getCards } = useActions();
   const [newCategory, setNewCategory] = useState(false);
   const [getPage, setPage] = useState(1);
 
   useEffect(() => {
+    setLengthCategory();
+    setLengthWords();
     clearCategories();
     getCategoriesPage(getPage);
     setPage(prev => prev + 1);
+    getCards();
   }, []);
 
   if (!isAuthorize) {
     return (<Redirect to="/" />);
   }
-  
+
   function changeNewCategory(): void {
     setNewCategory(false);
   }

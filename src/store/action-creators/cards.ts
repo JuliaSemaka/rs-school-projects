@@ -1,4 +1,4 @@
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, Links, SET_STARS, SHOW_MENU, Stars, UPDATE_CARD, UPDATE_CATEGORY } from "../reducers/cardReducer.module";
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, Links, SET_LENGTH_CARDS, SET_LENGTH_CATEGORY, SET_STARS, SHOW_MENU, Stars, UPDATE_CARD, UPDATE_CATEGORY } from "../reducers/cardReducer.module";
 import {Dispatch} from "redux";
 
 export function clearCards(indexCategory: number): IAction {
@@ -177,4 +177,26 @@ export function fillArrayWords(words: ICards[]): IAction {
 
 export function setStars(star: Stars): IAction {
   return {type: SET_STARS, payload: star};
+}
+
+export function setLengthWords(): (dispatch: Dispatch<IAction>) => Promise<void> {
+  return async (dispatch: Dispatch<IAction>) => {
+    try {
+      const response: Response = await fetch(Links.cards);
+      dispatch({type: SET_LENGTH_CARDS, payload: (await response.json())});
+    } catch (e) {
+      throw Error(e);
+    }
+  }
+}
+
+export function setLengthCategory(): (dispatch: Dispatch<IAction>) => Promise<void> {
+  return async (dispatch: Dispatch<IAction>) => {
+    try {
+      const response: Response = await fetch(Links.categories);
+      dispatch({type: SET_LENGTH_CATEGORY, payload: (await response.json())});
+    } catch (e) {
+      throw Error(e);
+    }
+  }
 }

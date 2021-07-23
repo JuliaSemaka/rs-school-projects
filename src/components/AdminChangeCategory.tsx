@@ -17,7 +17,7 @@ const AdminChangeCategory: React.FC<ICardChangeProps> = ({name, changeCategory, 
   const input: IInputValue = useInputValue(name);
 
   const delCategory = (): void => {
-    if (index) {
+    if (index !== undefined) {
       deleteCategory(index);
     }
     changeCategory();

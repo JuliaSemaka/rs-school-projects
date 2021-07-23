@@ -15,12 +15,7 @@ import { IStatisticsFields, IStatisticsState } from './store/reducers/statistics
 function App(): JSX.Element {
   const { categoryCards, listCards } = useTypedSelector(state => state.cards);
   const { fields }: IStatisticsState = useTypedSelector(state => state.statistics);
-  const { addAllStatistic, getCards, getCategories } = useActions();
-
-  useEffect(() => {
-    getCards();
-    getCategories();
-  }, []);
+  const { addAllStatistic } = useActions();
 
   function fillStatistics(): IStatisticsFields[] {
     let arrStatistics: IStatisticsFields[] = [];

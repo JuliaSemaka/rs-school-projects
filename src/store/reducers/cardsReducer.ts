@@ -1,4 +1,4 @@
-import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, ICardsState, SET_STARS, SHOW_MENU, typePage, UPDATE_CARD, UPDATE_CATEGORY } from './cardReducer.module';
+import { CHANGE_MAIN_PAGE, CHANGE_MODE, CHANGE_STATISTICS_PAGE, CHOOSE_CATEGORY, CLEAR_CARDS, CLEAR_CATEGORIES, CREATE_CARD, CREATE_CATEGORY, DELETE_CARD, DELETE_CATEGORY, FILL_ARRAY_GAME_WORDS, GET_CARDS, GET_CARDS_PAGE, GET_CATEGORIES, GET_CATEGORIES_PAGE, HIDE_MENU, IAction, ICards, ICardsState, SET_LENGTH_CARDS, SET_LENGTH_CATEGORY, SET_STARS, SHOW_MENU, typePage, UPDATE_CARD, UPDATE_CATEGORY } from './cardReducer.module';
 
 const listCards: ICardsState = {
   categoryCards: [],
@@ -75,6 +75,10 @@ export const cardsReducer = (state: ICardsState = listCards, action: IAction): I
       return {...state, isShowLeftMenu: !state.isShowLeftMenu};
     case HIDE_MENU:
       return {...state, isShowLeftMenu: false};
+    case SET_LENGTH_CARDS:
+      return {...state, lengthCards: action.payload.map((element: ICards[]) => element.length)};
+    case SET_LENGTH_CATEGORY:
+      return {...state, lengthCategory: action.payload.length};
     default:
       return state;
   }

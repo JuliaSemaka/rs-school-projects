@@ -16,9 +16,9 @@ export const AdminWordPage: React.FC = () => {
 
   useEffect(() => {
     if (indexCategory !== null) {
-    clearCards(indexCategory);
-    getCardsPage(indexCategory, getPage);
-    setPage(prev => prev + 1)
+      clearCards(indexCategory);
+      getCardsPage(indexCategory, getPage);
+      setPage(prev => prev + 1);
     }
   }, []);
 
@@ -37,13 +37,16 @@ export const AdminWordPage: React.FC = () => {
 
   return (
     <>
+    {
+      listCards[indexCategory]?.length
+      ?
       <main className="main">
           <h3>Category: {categoryCards[indexCategory]}</h3>
         <div className="main-container">
         <InfiniteScroll
-          dataLength={listCards[indexCategory].length}
+          dataLength={listCards[indexCategory]?.length}
           next={cardPage}
-          hasMore={listCards[indexCategory].length !== lengthCards[indexCategory]}
+          hasMore={listCards[indexCategory]?.length !== lengthCards[indexCategory]}
           loader={<div className="spinner-border" role="status" style={{position: 'absolute', bottom: '-45px', left: '3%'}}>
                     <span className="visually-hidden">Loading...</span>
                   </div>}
@@ -62,6 +65,12 @@ export const AdminWordPage: React.FC = () => {
         </InfiniteScroll>
         </div>
       </main>
+      :
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+    }
+
     </>
   );
 }

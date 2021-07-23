@@ -6,11 +6,13 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { ICards, Links, Stars } from '../store/reducers/cardReducer.module';
 
 export function listenAudio(audioSrc: string): void {
-  const src: string = `${audioSrc.startsWith('data:') ? '' : Links.static}${audioSrc}`;
-  const audio: HTMLAudioElement = new Audio();
-  audio.src = src;
-  audio.currentTime = 0;
-  audio.play();
+  if (audioSrc) {
+    const src: string = `${audioSrc.startsWith('data:') ? '' : Links.static}${audioSrc}`;
+    const audio: HTMLAudioElement = new Audio();
+    audio.src = src;
+    audio.currentTime = 0;
+    audio.play();
+  }
 }
 
 export const OneCategory: React.FC = () => {
