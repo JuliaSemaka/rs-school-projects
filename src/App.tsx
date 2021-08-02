@@ -37,7 +37,8 @@ function App(): JSX.Element {
   }
 
   useEffect(() => {
-    const savedStatistics: IStatisticsFields[] = JSON.parse(localStorage.getItem('statistics') || '[]') as IStatisticsFields[];
+    const savedStatistics: IStatisticsFields[] =
+    JSON.parse(localStorage.getItem('statistics') || '[]') as IStatisticsFields[];
     let arrStatistics: IStatisticsFields[] = [];
     if (!savedStatistics.length) {
       arrStatistics = fillStatistics();

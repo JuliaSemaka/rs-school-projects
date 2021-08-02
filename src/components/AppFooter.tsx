@@ -3,14 +3,14 @@ import { useActions } from '../hooks/useAction';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const AppFooter: React.FC = () => {
-  const { isShowLeftMenu } = useTypedSelector(state => state.cards);
+  const { isShowLeftMenu } = useTypedSelector((state) => state.cards);
   const { hideMenu } = useActions();
 
   const hideLeftMenu = (): void => {
     if (isShowLeftMenu) {
       hideMenu();
     }
-  }
+  };
 
   return (
     <footer className="footer" onClick={hideLeftMenu}>
@@ -26,6 +26,6 @@ const AppFooter: React.FC = () => {
       </div>
     </footer>
   );
-}
+};
 
 export default AppFooter;
